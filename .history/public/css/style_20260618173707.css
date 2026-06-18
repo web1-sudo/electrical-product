@@ -44,7 +44,6 @@ p {
   min-height: 75px;
   padding-bottom: 1px;
   padding-top: 1px;
-    border-bottom: 1px solid #F5F0EA;
 }
 .text-danger {
   color: #e3000f !important;
@@ -174,7 +173,6 @@ p {
   text-decoration: none;
   color: #666666;
   transition: color 0.2s;
-
 }
 
 .product-banner .breadcrumb a:hover {
@@ -648,7 +646,7 @@ p {
 
 .product-number {
   position: absolute;
-  top: 23px;
+  top: 30px;
   left: 30px;
   z-index: 10;
   font-size: 14px;
@@ -1077,17 +1075,15 @@ p {
   text-decoration: none;
   color: #fff;
   font-size: 14px;
-  letter-spacing:-2%;
-  font-weight: 300;
-  font-family: "Montserrat", sans-serif;
+  letter-spacing: -2%;
+  font-weight: 400;
 }
 .breadcrumb span {
   color: #fff;
   font-size: 14px;
   letter-spacing: -2%;
-  font-weight: 300;
+  font-weight: 400;
   margin-left: 10px;
-  font-family: "Montserrat", sans-serif;
 }
 a {
   text-decoration: none;
@@ -1159,7 +1155,7 @@ a {
   letter-spacing: 43%;
   color: #e3000f;
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 10px;
   margin-bottom: 30px;
   font-family: "Montserrat", sans-serif;
@@ -1614,7 +1610,6 @@ input[type="file"]::file-selector-button {
   line-height: 60px;
   letter-spacing: 0%;
   margin-bottom: 30px;
-  font-weight:100;
 }
 .values-wrapper {
   border: 1px solid #d9d2cc;
@@ -1876,38 +1871,25 @@ input[type="file"]::file-selector-button {
 .contact-form select::placeholder {
   font-size: 14px;
 }
-.section-border{
-  width:100%;
-  height:1px;
-  background-color:#E2DCD5;
-  margin:0px;
-  padding:0px;
-    opacity: 0.1;
-}
+
 .contact-form select option {
   color: #fff;
   opacity: 50%;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 28px;
   letter-spacing: 2%;
-   font-family: "Figtree", sans-serif;
+  font-family: "Montserrat", sans-serif;
   border-radius: 0%;
   background-color: #595959;
 }
 .contact-form select option:hover{
-  background-color:#222222 !important;
+  background-color:#222222 !i;
 }
 .contact-form .btn-solid {
   width: 100%;
 }
-select option:hover,
-select option:focus,
-select option:active {
-    background: #333333 !important; /* Your custom dark background */
-    color: #fff !important;
-    box-shadow: 0 0 10px 100px #333333 inset !important; /* Forces the color inside */
-}
+
 .page-hero.page-hero-dark p,
 .page-hero.page-hero-dark .hero-card-panel p,
 .page-hero.page-hero-dark .section-label {

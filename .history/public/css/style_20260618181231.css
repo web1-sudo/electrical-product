@@ -1882,7 +1882,6 @@ input[type="file"]::file-selector-button {
   background-color:#E2DCD5;
   margin:0px;
   padding:0px;
-    opacity: 0.1;
 }
 .contact-form select option {
   color: #fff;

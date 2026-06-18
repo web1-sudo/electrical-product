@@ -27,10 +27,6 @@
         content="<%= typeof product !== 'undefined' ? product.meta_description : 'Electrical Website' %>">
     <meta property="og:image" content="<%= typeof product !== 'undefined' ? '/images/' + product.image : '' %>">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <!-- SCHEMA -->
     <% if (typeof product !=='undefined' ) { %>
         <script type="application/ld+json">

@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Check if the link's href attribute matches our current URL path
     if (link.getAttribute("href") === currentPath) {
       link.classList.remove("text-secondary");
-      link.classList.add("text-danger", "active");
+      link.classList.add("text-danger", "fw-bold", "active");
     }
   });
 

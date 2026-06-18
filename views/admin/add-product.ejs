@@ -1,0 +1,51 @@
+<%- include('../partials/header') %>
+
+    <div class="container py-5">
+
+        <h2 class="mb-4">
+
+            Add Product
+
+        </h2>
+
+        <form action="/admin/add-product" method="POST" enctype="multipart/form-data">
+
+            <input type="text" name="name" placeholder="Product Name" class="form-control mb-3" required>
+
+
+            <input type="text" name="brand" placeholder="Brand" class="form-control mb-3">
+
+
+            <input type="text" name="type" placeholder="Type" class="form-control mb-3">
+
+
+            <input type="text" name="currentRating" placeholder="Current Rating" class="form-control mb-3">
+
+
+            <input type="text" name="curveType" placeholder="Curve Type" class="form-control mb-3">
+
+
+            <input type="text" name="poles" placeholder="Poles" class="form-control mb-3">
+
+
+            <textarea name="short_description" class="form-control mb-3" placeholder="Short Description">
+</textarea>
+
+
+            <input type="file" name="image" class="form-control mb-3">
+
+
+            <input type="file" name="pdf" class="form-control mb-3">
+
+
+            <button type="submit" class="btn btn-primary">
+
+                Add Product
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <%- include('../partials/footer') %>

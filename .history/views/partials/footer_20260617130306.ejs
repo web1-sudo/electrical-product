@@ -1,0 +1,191 @@
+<footer class="footer-light">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-md-4">
+                <b>
+                    Alric Electric Pvt. Ltd.
+                </b>
+                <p> Office No. 609, 6th Floor, I Wing, <br class="d-lg-block d-none"> CTS No 1/7, Veer Savarkar Marg,
+                    Vikhroli, <br class="d-lg-block d-none"> Mumbai - 400 079,
+                    India.
+                </p>
+                <div class="d-flex align-items-center ">
+                    <div class="">
+                        <p class="mb-0">
+                            <a href="tel:18002683200">
+                                1800 2683 200
+                            </a>
+                        </p>
+                        <p class="mb-0" style="color: #e3000f;">info@alric.in</p>
+                    </div>
+                    <div class="ms-4">
+                        <a href="#" class="btn btn btn-theme-outline" style="line-height: 0;">
+                            Google Map
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <b>Navigations</b>
+                <ul class="list-unstyled mt-3">
+                    <li><a href="/" class="text-decoration-none">Home</a></li>
+                    <li><a href="/about" class="text-decoration-none">About</a></li>
+                    <li><a href="/products" class="text-decoration-none">Products</a></li>
+                    <li><a href="/support" class="text-decoration-none">Support</a></li>
+                    <li><a href="/career" class="text-decoration-none">Career</a></li>
+                    <li><a href="/contact" class="text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <b>Products</b>
+                <ul class="list-unstyled mt-3">
+                    <li><a href="/products" class="text-decoration-none">Protection Devices</a></li>
+                    <li><a href="/products" class="text-decoration-none">Switches & Accessories</a></li>
+                    <li><a href="/products" class="text-decoration-none">Distribution Boards</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <b>Follow us</b>
+                <div class="d-flex align-items-center mt-3 mb-5 mb-lg-0">
+                    <a href="#" class="me-2">
+                        <img src="/images/facebook3.svg" alt="Facebook">
+                    </a>
+                    <a href="#" class="me-2">
+                        <img src="/images/insta1.svg" alt="insta1">
+                    </a>
+                    <a href="#" class="me-2">
+                        <img src="/images/youtube2.svg" alt="youtube2">
+                    </a>
+                    <a href="#" class="me-2">
+                        <img src="/images/linkedin2.svg" alt="linkedin2">
+                    </a>
+                    <a href="#" class="me-2">
+                        <img src="/images/twitter2.svg" alt="linkedin2">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-lg-between justify-content-center aling-items-center">
+                <div class="col-md-4 text-lg-start text-center">
+                    <span class="text-lg-start text-center">
+                        &copy; <%= new Date().getFullYear() %> Alric Electric Pvt. Ltd. All
+                            rights reserved.
+                    </span>
+                </div>
+                <div class="col-md-5"></div>
+                <div class="col-md-2">
+                    <div class="d-flex justify-content-lg-between justify-content-center align-items-center">
+                        <a href="#" class="me-3 me-lg-0">Privacy Policy</a> <a href="#">Terms of Use</a>
+                    </div>
+
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+
+
+
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/index.js"></script>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="">
+                    <span class="section-label">QUICK ENQUIRY</span>
+                    <h2>Your Requirement
+                    </h2>
+                </div>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-support">
+                    <div class="container">
+                        <form action="/model" method="post">
+                            <div class="row align-items-center justify-content-between">
+                                <div class="col-md-6">
+                                    <label for="First-name-support">
+                                        First name
+                                    </label>
+                                    <input type="text" name="first_name_model" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Last-name-support">
+                                        Last name
+                                    </label>
+                                    <input type="text" name="last_name_model" class="form-control" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="email-address-support">
+                                        email address
+                                    </label>
+                                    <input type="email" name="email_address_model" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone-support">
+                                        Phone
+                                    </label>
+                                    <input type="number" name="phone_model" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="email-address-support">
+                                        Company / Project
+                                    </label>
+                                    <input type="text" name="company_project_model" class="form-control" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <select name="topic" id="topic" class="form-select" placeholder="select topic">
+                                        <option value="Select Topic"> Select product </option>
+                                        <option value="product-information"> Product Information </option>
+                                        <option value="Protection-Devices"> Protection Devices (EQ9 MCB) </option>
+                                        <option value="Switches-Accessories"> Switches & Accessories (Elvyx)
+                                        </option>
+                                        <option value="Distribution-Boards"> Distribution Boards</option>
+                                        <option value="Multiple-Products"> Multiple Products</option>
+                                        <option value="General-Enquiry"> General Enquiry</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="massage"> Massage </label>
+                                    <textarea name="massage_model" id="massage-support"></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="model-email">
+                                        Or email us at <a href="mailto:info@alric.in" class="text-danger">
+                                            info@alric.in
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-theme-danger ">
+                                        submit enquiry
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </body>
+
+    </html>

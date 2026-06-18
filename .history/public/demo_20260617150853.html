@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EQ9 Product Section</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .hero-section {
+            position: relative;
+            width: 100%;
+            min-height: 450px;
+            height: auto;
+            background: #ffffff;
+            /* Creates the smooth white to subtle gray horizontal gradient */
+            background: linear-gradient(to bottom, #ffffff 0%, #ffffff 65%, #e2e2e2 100%);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 40px 8%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .text-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .breadcrumbs {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 60px;
+        }
+
+        .breadcrumbs a {
+            text-decoration: none;
+            color: #666666;
+            transition: color 0.2s;
+        }
+
+        .breadcrumbs a:hover {
+            color: #000000;
+        }
+
+        .breadcrumbs .separator {
+            margin: 0 8px;
+            color: #999999;
+        }
+
+        .breadcrumbs .current {
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .main-heading {
+            font-size: 64px;
+            font-weight: 800;
+            color: #111111;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .image-container {
+            flex: 1.5;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding-top: 40px;
+        }
+
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            /* Adjust alignment slightly downward to blend with the bottom gray shadow */
+            transform: translateY(10px);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .main-heading {
+                font-size: 48px;
+            }
+
+            .breadcrumbs {
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 40px 5%;
+                min-height: auto;
+            }
+
+            .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .text-content {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .breadcrumbs {
+                margin-bottom: 30px;
+            }
+
+            .image-container {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .product-image {
+                transform: translateY(0);
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero-section">
+        <div class="container">
+            <!-- Left Text Content Side -->
+            <div class="text-content">
+                <div class="breadcrumbs">
+                    <a href="#">Home</a>
+                    <span class="separator">&gt;</span>
+                    <span class="current">EQ9</span>
+                </div>
+                <h1 class="main-heading">EQ9</h1>
+            </div>
+
+            <!-- Right Image Side -->
+            <div class="image-container">
+                <img src="image_953783.png" alt="EQ9 Circuit Breakers" class="product-image">
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

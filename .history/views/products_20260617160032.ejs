@@ -1,0 +1,116 @@
+<%- include('partials/header') %>
+    <style>
+        .product-banner {
+            position: relative;
+            width: 100%;
+            min-height: 400px;
+            background: #ffffff;
+            /* Creates the exact white-to-gray vertical gradient from the original image */
+            background: linear-gradient(to bottom, #ffffff 0%, #ffffff 65%, #e2e2e2 100%);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 40px 0;
+        }
+
+        /* Targets your inline image and positions it to match the layout perfectly */
+        .product-banner .banner-bg-img {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            max-width: 65%;
+            /* Keeps it on the right side */
+            height: auto;
+            max-height: 90%;
+            object-fit: contain;
+            z-index: 1;
+            /* Lowers the image slightly to let the breaker shadows rest on the gray floor */
+            transform: translateY(15px);
+        }
+
+        .product-banner .container {
+            position: relative;
+            z-index: 2;
+            /* Forces text to sit safely on top of everything */
+        }
+
+        .text-content-banner {
+            max-width: 500px;
+        }
+
+        .product-banner .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 50px;
+            background: transparent;
+            padding: 0;
+        }
+
+        .product-banner .breadcrumb a {
+            text-decoration: none;
+            color: #666666;
+            transition: color 0.2s;
+        }
+
+        .product-banner .breadcrumb a:hover {
+            color: #000000;
+        }
+
+        .product-banner .breadcrumb span {
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .product-banner h1 {
+            font-size: 64px;
+            font-weight: 800;
+            color: #111111;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin: 0;
+        }
+
+        /* Responsive behavior for mobile screens */
+        @media (max-width: 768px) {
+            .product-banner {
+                min-height: auto;
+                padding: 60px 0 0 0;
+                flex-direction: column;
+            }
+
+            .product-banner .banner-bg-img {
+                position: relative;
+                max-width: 100%;
+                margin-top: 30px;
+                transform: translateY(0);
+            }
+
+            .product-banner h1 {
+                font-size: 42px;
+            }
+
+            .product-banner .breadcrumb {
+                margin-bottom: 25px;
+            }
+        }
+    </style>
+    <section class="product-banner">
+        <img src="images/EQ9.png" alt="product image" class="banner-bg-img">
+
+        <div class="container">
+            <div class="text-content-banner">
+                <div class="breadcrumb">
+                    <div class="d-flex align-items-center">
+                        <a href="/">Home</a>
+                        <span class="mx-2" style="font-weight: 400; color: #999;">&gt;</span>
+                        <span>EQ9</span>
+                    </div>
+                </div>
+
+                <h1>EQ9</h1>
+            </div>
+        </div>
+    </section>
+
+
+    <%- include('partials/footer') %>

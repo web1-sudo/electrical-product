@@ -1,0 +1,128 @@
+<%- include('partials/header') %>
+    <style>
+
+    </style>
+    <section class="product-banner">
+        <img src="images/EQ9.png" alt="product image" class="banner-bg-img">
+
+        <div class="container">
+            <div class="text-content-banner">
+                <div class="breadcrumb">
+                    <div class="d-flex align-items-center">
+                        <a href="/">Home</a>
+                        <span class="mx-2" style="font-weight: 400; color: #999;">&gt;</span>
+                        <span>EQ9</span>
+                    </div>
+                </div>
+
+                <h1>EQ9</h1>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="product-content">
+        <div class="container">
+            <div class="text-lg-start">
+                <h2>
+                    EQ9 Miniature Circuit Breakers (MCBs) from 0.5A to 63A 
+                </h2>
+                <p>
+                    Alric Electric’s EQ9 series premium MCBs provides reliable and safe protection against overloads and
+                    short circuits with
+                    best-in-class technology <br class="d-lg-block d-none"> and infrastructure. These MCBs are
+                    manufactured with recyclable
+                    fire-retardant engineering
+                    plastics ensuring safety and durability. <br class="d-lg-block d-none">
+                    These MCBs are must-have safety product for distribution of power at homes, residential / commercial
+                    buildings /
+                    industrial applications.  
+                </p>
+            </div>
+        </div>
+
+        <div class="container ">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'tab1')">
+                    MCB
+                </button>
+
+                <button class="tab-btn" onclick="openTab(event, 'tab2')">
+                    Isolator
+                </button>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="filter">
+                        <div class="text-lg-start">
+
+                        </div>
+                        <div class="dropdown-container">
+
+                            <div class="dropdown-item">
+                                <input type="checkbox" id="drop1" class="dropdown-check ">
+                                <label for="drop1" class="dropdown-header">
+                                    <span>current rating</span>
+                                    <span class="dropdown-arrow"></span>
+                                </label>
+                                <div class="dropdown-content">
+                                    <p>This is the content hidden inside the first dropdown. It smoothly slides open
+                                        when clicked and slides
+                                        shut when clicked again.</p>
+                                </div>
+                            </div>
+
+                            <div class="dropdown-item">
+                                <input type="checkbox" id="drop2" class="dropdown-check">
+                                <label for="drop2" class="dropdown-header">
+                                    <span>curve</span>
+                                    <span class="dropdown-arrow"></span>
+                                </label>
+                                <div class="dropdown-content">
+                                    <p>This is the content hidden inside the second dropdown. Using checkbox selectors
+                                        eliminates the need for
+                                        external JavaScript libraries entirely.</p>
+                                </div>
+                            </div>
+
+                            <div class="dropdown-item">
+                                <input type="checkbox" id="drop3" class="dropdown-check">
+                                <label for="drop3" class="dropdown-header">
+                                    <span>No Of Poles</span>
+                                    <span class="dropdown-arrow"></span>
+                                </label>
+                                <div class="dropdown-content">
+                                    <p>This is the content hidden inside the third dropdown. It's fully responsive,
+                                        lightweight, and completely
+                                        accessible.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div id="tab1" class="tab-content active">
+                        <h3>Tab 1 Content</h3>
+                        <p>This is the content for Tab 1.</p>
+                    </div>
+
+                    <div id="tab2" class="tab-content">
+                        <h3>Tab 2 Content</h3>
+                        <p>This is the content for Tab 2.</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+
+    <%- include('partials/footer') %>

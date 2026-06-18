@@ -1,0 +1,136 @@
+<%- include('partials/header') %>
+
+    <section class="page-hero page-hero-light py-5">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-8 hero-content">
+                    <span class="section-label">Products</span>
+                    <h1>Explore our electrical protection range</h1>
+                    <p>Browse MCBs, isolators, distribution boards, and switchgear designed to protect modern
+                        installations.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="/contact" class="btn btn-solid btn-lg">Request a Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container">
+            <div class="row gx-4 gy-4 mb-5">
+                <div class="col-lg-4 order-lg-1 order-2">
+                    <div class="info-card">
+                        <h5 class="mb-3">Refine Search</h5>
+                        <p>Filter products by rating, curve type, and poles.</p>
+                        <form action="/products" method="GET">
+                            <div class="mb-3">
+                                <label class="form-label">Search</label>
+                                <input type="text" name="search" class="form-control" placeholder="Search products"
+                                    value="<%= filters.search %>">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Current Rating</label>
+                                <select name="rating" class="form-select">
+                                    <option value="" <%=filters.rating==='' ? 'selected' : '' %>>All</option>
+                                    <option value="06A" <%=filters.rating==='06A' ? 'selected' : '' %>>06A</option>
+                                    <option value="32A" <%=filters.rating==='32A' ? 'selected' : '' %>>32A</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Curve Type</label>
+                                <select name="curve" class="form-select">
+                                    <option value="" <%=filters.curve==='' ? 'selected' : '' %>>All</option>
+                                    <option value="B" <%=filters.curve==='B' ? 'selected' : '' %>>B</option>
+                                    <option value="C" <%=filters.curve==='C' ? 'selected' : '' %>>C</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Poles</label>
+                                <select name="poles" class="form-select">
+                                    <option value="" <%=filters.poles==='' ? 'selected' : '' %>>All</option>
+                                    <option value="Single Pole" <%=filters.poles==='Single Pole' ? 'selected' : '' %>
+                                        >Single Pole</option>
+                                    <option value="Double Pole" <%=filters.poles==='Double Pole' ? 'selected' : '' %>
+                                        >Double Pole</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Sort</label>
+                                <select name="sort" class="form-select">
+                                    <option value="" <%=filters.sort==='' ? 'selected' : '' %>>Default</option>
+                                    <option value="latest" <%=filters.sort==='latest' ? 'selected' : '' %>>Latest
+                                    </option>
+                                    <option value="oldest" <%=filters.sort==='oldest' ? 'selected' : '' %>>Oldest
+                                    </option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-solid w-100">Apply Filters</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-8 order-lg-2 order-1">
+                    <div class="row g-4">
+                        <% if (products.length===0) { %>
+                            <div class="col-12">
+                                <div class="alert alert-secondary">No products match the selected filters.</div>
+                            </div>
+                            <% } %>
+                                <% products.forEach((product)=> { %>
+                                    <div class="col-md-6 col-xl-6">
+                                        <a href="/product/<%= product.slug %>" class="text-decoration-none text-dark">
+                                            <div class="card product-card app-card shadow-sm h-100 border-0">
+                                                <div
+                                                    class="product-card-image d-flex align-items-center justify-content-center p-4">
+                                                    <img src="/images/<%= product.image %>" alt="<%= product.name %>"
+                                                        class="img-fluid">
+                                                </div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title mb-2">
+                                                        <%= product.name %>
+                                                    </h5>
+                                                    <p class="text-muted mb-3">
+                                                        <%= product.brand %>
+                                                    </p>
+                                                    <div class="d-flex flex-wrap gap-2 small text-secondary">
+                                                        <span><strong>Rating:</strong>
+                                                            <%= product.currentRating %>
+                                                        </span>
+                                                        <span><strong>Curve:</strong>
+                                                            <%= product.curveType %>
+                                                        </span>
+                                                        <span><strong>Poles:</strong>
+                                                            <%= product.poles %>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <% }) %>
+                    </div>
+
+                    <% if (totalPages> 1) { %>
+                        <% const baseUrl='/products' ; %>
+                            <div class="pagination-box mt-5 d-flex flex-wrap gap-2 justify-content-center">
+                                <% for (let page=1; page <=totalPages; page++) { %>
+                                    <% const queryParts=[]; if (filters.search) queryParts.push('search=' + encodeURIComponent(filters.search));
+                                   if (filters.rating) queryParts.push(' rating=' + encodeURIComponent(filters.rating));
+                                   if (filters.curve) queryParts.push(' curve=' + encodeURIComponent(filters.curve));
+                                   if (filters.poles) queryParts.push(' poles=' + encodeURIComponent(filters.poles));
+                                   if (filters.sort) queryParts.push(' sort=' + encodeURIComponent(filters.sort));
+                                   queryParts.push(' page=' + page);
+                                   const pageQuery = queryParts.join(' &'); %>
+                                        <a href="<%= baseUrl %>?<%= pageQuery %>"
+                                            class="btn btn-outline-secondary <%= filters.page === page ? 'active' : '' %>">
+                                            <%= page %>
+                                        </a>
+                                        <% } %>
+                            </div>
+                            <% } %>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>

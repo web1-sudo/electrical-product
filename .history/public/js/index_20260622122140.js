@@ -171,18 +171,6 @@ if (window.innerWidth < 992) {
     });
 
 }
-const navbarCollapse = document.getElementById("mainNavbar");
-const toggler = document.querySelector(".navbar-toggler");
-
-navbarCollapse.addEventListener("show.bs.collapse", () => {
-    toggler.querySelector(".menu-open").classList.add("d-none");
-    toggler.querySelector(".menu-close").classList.remove("d-none");
-});
-
-navbarCollapse.addEventListener("hide.bs.collapse", () => {
-    toggler.querySelector(".menu-open").classList.remove("d-none");
-    toggler.querySelector(".menu-close").classList.add("d-none");
-});
 
 // tab section in product page
 

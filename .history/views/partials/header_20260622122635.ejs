@@ -26,7 +26,7 @@
     <meta property="og:description"
         content="<%= typeof product !== 'undefined' ? product.meta_description : 'Electrical Website' %>">
     <meta property="og:image" content="<%= typeof product !== 'undefined' ? '/images/' + product.image : '' %>">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -56,25 +56,10 @@
             <a class="navbar-brand  d-flex align-items-center" href="/">
                 <img src="/images/logo.svg" alt="logo">
             </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-            aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-        
-            <span class="menu-open">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-            </svg>
-            </span>
-        
-            <span class="menu-close d-none">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-x-lg"
-                viewBox="0 0 16 16">
-                <path
-                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
-            </svg>
-            </span>
-        </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-lg-center">
@@ -95,8 +80,8 @@
 
                         <div class="dropdown-menu mega-menu-wrapper    p-4"
                             aria-labelledby="productsDropdown">
-<ul class="moblie-menu list-unstyled mb-0 d-block d-md-none" >
-    <li class="category-item py-2   text-danger border-bottom border-light-subtle cursor-pointer active" data-target="protection">
+<ul>
+    <li class="category-item active" data-target="protection">
         PROTECTION DEVICES
     
         <div class="mobile-brand-group">
@@ -106,7 +91,7 @@
         </div>
     </li>
     
-    <li class="category-item py-2   text-secondary border-bottom border-light-subtle cursor-pointer" data-target="switches">
+    <li class="category-item" data-target="switches">
         SWITCHES & ACCESSORIES
     
         <div class="mobile-brand-group">
@@ -114,7 +99,7 @@
         </div>
     </li>
     
-    <li class="category-item py-2   text-secondary cursor-pointer" data-target="distribution">
+    <li class="category-item" data-target="distribution">
         DISTRIBUTION BOARDS
     
         <div class="mobile-brand-group">
@@ -124,7 +109,7 @@
         </div>
     </li>
 </ul>
-                            <div class="row mx-0 d-none d-lg-flex">
+                            <div class="row mx-0">
 
                                 <div class="col-lg-5  border-light-subtle">
                                     <ul class="list-unstyled mb-0">

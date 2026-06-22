@@ -47,6 +47,7 @@ p {
     border-bottom: 1px solid #F5F0EA;
 }
 
+
 .mobile-brand-group {
     display: none;
     padding-top: 10px;
@@ -57,12 +58,6 @@ p {
     display: block;
     padding: 6px 0;
     text-decoration: none;
-    font-size: 13px;
-    line-height: 25px;
-    letter-spacing: 5%;
-    color: rgb(114, 114, 113);
-    font-weight: 300;
-    font-family: Figtree, sans-serif;
 }
 
 .mobile-brand-group.show {
@@ -2755,15 +2750,9 @@ font-size: 16px;
 .model-email {
     margin-bottom: 15px;
 }
-.navbar-toggler {
-    transition: transform .3s ease;
-    color:#222222 !important;
+.mega-menu-wrapper .row{
+  display: none;
 }
-
-.navbar-toggler.active {
-    transform: rotate(90deg);
-}
-
 }
 
 

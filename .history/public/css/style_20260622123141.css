@@ -46,28 +46,6 @@ p {
   padding-top: 1px;
     border-bottom: 1px solid #F5F0EA;
 }
-
-.mobile-brand-group {
-    display: none;
-    padding-top: 10px;
-    padding-left: 15px;
-}
-
-.mobile-brand-group a {
-    display: block;
-    padding: 6px 0;
-    text-decoration: none;
-    font-size: 13px;
-    line-height: 25px;
-    letter-spacing: 5%;
-    color: rgb(114, 114, 113);
-    font-weight: 300;
-    font-family: Figtree, sans-serif;
-}
-
-.mobile-brand-group.show {
-    display: block;
-}
 .text-danger {
   color: #e3000f !important;
 }
@@ -2408,10 +2386,6 @@ font-size: 16px;
     transform: translateX(-50%) !important;
     top: 100%;
   }
-    .mobile-brand-group {
-        display: none !important;
-    }
-
 }
 @media (max-width: 991.98px) {
   /* Make dropdown full-width inside mobile container hamburger layout */
@@ -2514,9 +2488,6 @@ font-size: 16px;
 }
 .navbar-collapse {
     margin-bottom: 40px;
-}
-    .navbar-expand-lg .navbar-nav .dropdown-menu ul{
-  display: block;
 }
     .page-section .section-label-about {
         margin-bottom: 10px;
@@ -2755,15 +2726,30 @@ font-size: 16px;
 .model-email {
     margin-bottom: 15px;
 }
-.navbar-toggler {
-    transition: transform .3s ease;
-    color:#222222 !important;
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu ul{
+  display: none;
+}
+.mobile-brand-group {
+    display: none;
+    padding-top: 10px;
+    padding-left: 15px;
 }
 
-.navbar-toggler.active {
-    transform: rotate(90deg);
+.mobile-brand-group a {
+    display: block;
+    padding: 6px 0;
+    text-decoration: none;
 }
 
+.mobile-brand-group.show {
+    display: block;
 }
-
-
+@media (min-width: 992px) {
+    .mobile-brand-group {
+        display: none !important;
+    }
+    .navbar-expand-lg .navbar-nav .dropdown-menu ul{
+  display: block;
+}
+} 

@@ -46,6 +46,9 @@ p {
   padding-top: 1px;
     border-bottom: 1px solid #F5F0EA;
 }
+.navbar svg {
+    color: #222222;
+}
 
 .mobile-brand-group {
     display: none;
@@ -2757,7 +2760,6 @@ font-size: 16px;
 }
 .navbar-toggler {
     transition: transform .3s ease;
-    color:#222222 !important;
 }
 
 .navbar-toggler.active {

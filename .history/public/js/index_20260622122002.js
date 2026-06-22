@@ -150,39 +150,20 @@ if (window.innerWidth < 992) {
 
         item.addEventListener("click", function () {
 
-            const currentGroup = this.querySelector(".mobile-brand-group");
-
-            // If already open, close it
-            if (currentGroup.style.display === "block") {
-                currentGroup.style.display = "none";
-                return;
-            }
-
-            // Close all others
             document.querySelectorAll(".mobile-brand-group").forEach(group => {
                 group.style.display = "none";
             });
 
-            // Open current one
-            currentGroup.style.display = "block";
+            const brands = this.querySelector(".mobile-brand-group");
 
+            if (brands) {
+                brands.style.display = "block";
+            }
         });
 
     });
 
 }
-const navbarCollapse = document.getElementById("mainNavbar");
-const toggler = document.querySelector(".navbar-toggler");
-
-navbarCollapse.addEventListener("show.bs.collapse", () => {
-    toggler.querySelector(".menu-open").classList.add("d-none");
-    toggler.querySelector(".menu-close").classList.remove("d-none");
-});
-
-navbarCollapse.addEventListener("hide.bs.collapse", () => {
-    toggler.querySelector(".menu-open").classList.remove("d-none");
-    toggler.querySelector(".menu-close").classList.add("d-none");
-});
 
 // tab section in product page
 

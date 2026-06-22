@@ -2461,7 +2461,7 @@ font-size: 16px;
     height: 80px;
   }
   .cta-panel {
-    padding: 20px 0px;
+    padding: 30px 25px 25px 10px;
 }
   .thumbnail-wrapper .thumbnail {
     width: 70px;
@@ -2679,7 +2679,13 @@ font-size: 16px;
     position: relative;
   }
   .navbar-toggler {
-    border: none !important;
-    border-radius:0px !important;;
+    padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
+    font-size: var(--bs-navbar-toggler-font-size);
+    line-height: 1;
+    color: var(--bs-navbar-color);
+    background-color: transparent;
+    border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
+    border-radius: var(--bs-navbar-toggler-border-radius);
+    transition: var(--bs-navbar-toggler-transition);
 }
 }

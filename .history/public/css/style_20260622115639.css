@@ -2715,15 +2715,5 @@ font-size: 16px;
 }
 .form-support select {
    
-    height: auto;
-  }
-  .modal-dialog { 
-    max-width: fit-content;
-}
-.modal-content {
-    padding: 10px;
-}
-.model-email {
-    margin-bottom: 15px;
-}
+    height: auto;}
 }

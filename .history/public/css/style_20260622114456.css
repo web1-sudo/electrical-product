@@ -2681,11 +2681,6 @@ font-size: 16px;
   .contact-page {
     padding: 50px 0;
   }
-  .form-support .col-md-4, .form-support .col-md-8, .form-support .col-md-12, .form-support .col-md-6
-
- {
-    padding-right: calc(var(--bs-gutter-x) * .5);
-}
   .contact-page .card {
     width: 100%;
     max-width: 100%;
@@ -2712,18 +2707,5 @@ font-size: 16px;
 }
 .support-contact .address span {
     line-height: 26px;
-}
-.form-support select {
-   
-    height: auto;
-  }
-  .modal-dialog { 
-    max-width: fit-content;
-}
-.modal-content {
-    padding: 10px;
-}
-.model-email {
-    margin-bottom: 15px;
 }
 }

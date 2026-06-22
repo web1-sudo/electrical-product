@@ -1465,20 +1465,11 @@ input[type="file"]::file-selector-button {
   line-height: 26px;
 }
 .support-contact .address span {
-color: #000;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 40px;
-    text-transform: uppercase;
-    letter-spacing: 20%;
-}
-.support-contact .address span {
-    color: #000;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 26px;
-    text-transform: uppercase;
-    letter-spacing: 20%;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 26px;
+  text-transform: uppercase;
 }
 .support-contact .card {
   background-color: #222222;
@@ -2469,9 +2460,6 @@ font-size: 16px;
   .header-spacer {
     height: 80px;
   }
-  .navbar {
-    min-height: auto;
-  }
   .cta-panel {
     padding: 0px 0px;
 }
@@ -2486,12 +2474,6 @@ font-size: 16px;
     text-align: center;
     margin-bottom:20px;
 }
-.navbar-collapse {
-    margin-bottom: 40px;
-}
-    .page-section .section-label-about {
-        margin-bottom: 10px;
-    }
 .thumbnail-wrapper .thumbnail img {
     width: 50px;
     height: 50px;
@@ -2608,7 +2590,7 @@ font-size: 16px;
   }
   .mission-section h5 {
     font-size: 30px;
-    line-height: 35px;
+    line-height: 45px;
     margin-bottom: 20px;
   }
   .mission-section {
@@ -2620,7 +2602,7 @@ font-size: 16px;
   }
   .about-contact-section h2 {
     font-weight: 400;
-    line-height: 45px;
+    line-height: 50px;
     margin-bottom: 15px;
   }
   .about-contact-section {
@@ -2660,9 +2642,9 @@ font-size: 16px;
     padding: 50px 0;
   }
   .support-contact h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
   }
   .support-contact .section-label {
     margin-bottom: 15px;
@@ -2676,16 +2658,11 @@ font-size: 16px;
   }
   .career h4 {
     font-size: 25px;
-    line-height: 35px;
+    line-height: 40px;
   }
   .contact-page {
     padding: 50px 0;
   }
-  .form-support .col-md-4, .form-support .col-md-8, .form-support .col-md-12, .form-support .col-md-6
-
- {
-    padding-right: calc(var(--bs-gutter-x) * .5);
-}
   .contact-page .card {
     width: 100%;
     max-width: 100%;
@@ -2709,21 +2686,5 @@ font-size: 16px;
   .navbar-toggler {
     border: none !important;
     border-radius:0px !important;;
-}
-.support-contact .address span {
-    line-height: 26px;
-}
-.form-support select {
-   
-    height: auto;
-  }
-  .modal-dialog { 
-    max-width: fit-content;
-}
-.modal-content {
-    padding: 10px;
-}
-.model-email {
-    margin-bottom: 15px;
 }
 }

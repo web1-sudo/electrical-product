@@ -2722,8 +2722,6 @@ font-size: 16px;
 }
 .modal-content {
     padding: 10px;
-}
-.model-email {
-    margin-bottom: 15px;
+    border-radius: 0;
 }
 }

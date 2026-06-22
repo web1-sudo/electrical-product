@@ -1,0 +1,150 @@
+<%- include('partials/header') %>
+
+<style>
+    body {
+        background: #ffffff;
+    }
+</style>
+
+
+    <section class="single-product-page">
+        <div class="container">
+            <div class="breadcrumb">
+                <div class="d-flex align-items-center">
+                    <a href="/">
+                        Home
+                    </a>
+                    <span>
+                        >
+                    </span>
+                    <span>
+                        EQ9
+                    </span>
+                    <span>
+                        >
+                    </span>
+                    <span>
+                        MCB
+                    </span>
+                    <span>
+                        >
+                    </span>
+                    <span>
+                        <strong>
+                            1P MCB, 0.5A C CURVE - 10kA
+                        </strong>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        </section>
+        <section class="single-product-section">
+            <div class="container">
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-5">
+                <!-- Product Images -->
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img id="mainProductImage" src="/images/single-product-1.png" alt="Product">
+                    </div>
+
+    <div class="thumbnail-wrapper">
+
+        <img class="thumb active" src="/images/single-product-1.png" onclick="changeImage(this)">
+        <img class="thumb" src="/images/single-product-2.png" onclick="changeImage(this)">
+
+        <img class="thumb" src="/images/single-product-3.png" onclick="changeImage(this)">
+
+    </div>
+
+</div>
+</div>
+<div class="col-md-6">
+    <!-- Product Details -->
+    <div class="product-details">
+
+        <h1 class="product-title">
+            EQ9 Miniature Circuit Breaker
+    </h1>
+
+    <p class="product-description">
+        The EQ9 MCB range provides advanced protection against
+        overload and short circuits. Designed for residential,
+        commercial and industrial applications with high durability,
+        safety and performance standards.
+    </p>
+
+    <div class="product-actions">
+
+        <a href="/contact" class="btn-enquiry">
+            Enquire Now
+        </a>
+
+        <a href="/pdf/sample.pdf" class="btn-download" download>
+            Download PDF
+        </a>
+
+    </div>
+
+</div>
+</div>
+
+        </div>
+
+    </div>
+    </section>
+
+
+<!-- Related Products -->
+
+<section class="related-products">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <h2>Related Products</h2>
+
+            <div class="slider-buttons">
+                <button id="prevBtn">❮</button>
+                <button id="nextBtn">❯</button>
+            </div>
+
+        </div>
+
+        <div class="related-slider" id="relatedSlider">
+
+            <div class="related-card">
+                <img src="https://images.unsplash.com/photo-1516117172878-fd2c41f4a759">
+                <h5>EQ9 MCB</h5>
+            </div>
+
+            <div class="related-card">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+                <h5>EQ9 Isolator</h5>
+            </div>
+
+            <div class="related-card">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+                <h5>Distribution Board</h5>
+            </div>
+
+            <div class="related-card">
+                <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a">
+                <h5>Switch Gear</h5>
+            </div>
+
+            <div class="related-card">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+                <h5>MCB 32A</h5>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <%- include('partials/footer') %>

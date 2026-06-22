@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <a href="/product/<%= product.slug %>">
+        <img src="/uploads/<%= product.image %>" alt="">
+        <h3>
+            <%= product.name %>
+    </h3>
+</a>
+
+</div>
+    <%- include('partials/footer') %>

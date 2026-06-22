@@ -1,0 +1,138 @@
+<%- include('partials/header') %>
+
+    <section class="banner-page">
+        <div class="container">
+            <div class="row align-items-center justify-content-between gy-4">
+                <div class="col-lg-6 ">
+
+                    <div class="breadcrumb">
+                        <div class="d-flex align-items-center">
+
+                            <a href="/">
+                                Home
+                            </a>
+
+                            <span>
+                                >
+                            </span>
+                            <span>
+                                Career
+                            </span>
+                        </div>
+                    </div>
+
+                    <span class="section-label">career</span>
+                    <h1>Build something <br class="d-lg-block d-none">
+                        that
+                        <span>endures.</span>
+                    </h1>
+                    <p>Join a team that believes in doing things the right way- thoughtfully <br
+                            class="d-lg-block d-none"> engineered, responsibly
+                        built, and designed to
+                        last. <br class="d-lg-block d-none">
+                        We are always looking for people who share our values.
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="page-section bg-white">
+        <div class="container career">
+            <h4 class="text-center">
+                At Alric electric, we believe our people are the foundation <br class="d-lg-block d-none"> of everything
+                we build. We foster a culture
+                of <span>
+                    curiosity, <br class="d-lg-block d-none">
+                    collaboration and purpose
+                </span> - where every individual has <br class="d-lg-block d-none">
+                the opportunity to grow and make a lasting impact.
+            </h4>
+        </div>
+    </section>
+<hr  class="section-border" >
+    <section class="page-section bg-white">
+        <div class="container">
+            <div class="row justify-content-between align-items-start">
+                <div class="col-md-8">
+                    <span class="section-label">Join us</span>
+                    <h2 class="mt-4 mb-3 fw-bold">
+                        Ready to power the future?
+                    </h2>
+                    <p>
+                        Explore our open roles and find your place in a team that values steady progress <br
+                            class="d-lg-block d-none">
+                        over temporary trends.
+                    </p>
+                    <div class="form-support mt-4">
+                        <form action="/career" method="POST">
+                            <div class="row align-items-center justify-content-between">
+                                <div class="col-md-4">
+                                    <label for="First-name-career">
+                                        First name
+                                    </label>
+                                    <input type="text" name="first_name_career" class="form-control" placeholder="Name" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="Last-name-career">
+                                        Last name
+                                    </label>
+                                    <input type="text" name="last_name_career" class="form-control" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="phone-career">
+                                        Phone
+                                    </label>
+                                    <input type="number" name="phone_career" class="form-control" required>
+                                </div>
+                                <div class="col-md-8">
+                                    <label for="email-address-career">
+                                        email address
+                                    </label>
+                                    <input type="email" name="email_address_career" class="form-control" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="email-address-career">
+                                        Job Role
+                                    </label>
+                                    <input type="text" name="job_role" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="massage"> Massage </label>
+
+                                    <textarea name="massage_career" id="massage-career" class="form-control" rows="4"
+                                        required></textarea>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="d-flex gap-3 align-items-center">
+                                        <label for="email-address-career">
+                                            Resume
+                                        </label>
+                                        <!-- <input type="file" name="resume_file" class="" required> -->
+                                        <input type="file" id="resume_file" name="resume_file"
+                                            accept=".pdf, .doc, .docx, .jpg, .jpeg, .png" required>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-theme-danger mt-5">
+                                        Submit
+                                    </button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <%- include('partials/footer') %>

@@ -1,0 +1,191 @@
+// product slide automatically
+
+document.querySelectorAll(".product-image-slider").forEach((slider) => {
+  const slides = slider.querySelectorAll(".slide");
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove("active");
+
+    current = (current + 1) % slides.length;
+
+    slides[current].classList.add("active");
+  }, 3000);
+});
+
+// for form
+
+document.querySelectorAll("form").forEach((form) => {
+  form.addEventListener("submit", async function (e) {
+    // 1. STOP the browser from reloading the page
+    e.preventDefault();
+
+    // 2. Find or create a message box inside this specific form to show status
+    let messageBox = form.querySelector(".form-status-msg");
+    if (!messageBox) {
+      messageBox = document.createElement("p");
+      messageBox.className = "form-status-msg mt-2 font-weight-bold";
+      form.appendChild(messageBox);
+    }
+
+    messageBox.style.color = "blue";
+    messageBox.innerText = "Sending... Please wait.";
+
+    // 3. Automatically package up all input fields (including files if present)
+    const formData = new FormData(this);
+    const targetUrl = this.getAttribute("action") || window.location.pathname;
+
+    try {
+      // 4. Send data to your Node.js server in the background
+      const response = await fetch(targetUrl, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        messageBox.style.color = "green";
+        messageBox.innerText = "Email Sent Successfully!";
+        form.reset(); // Safely clears the form fields after success
+      } else {
+        throw new Error("Server returned an error");
+      }
+    } catch (error) {
+      console.error("Submission Error:", error);
+      messageBox.style.color = "#e3000f";
+      messageBox.innerText = "Failed To Send Email. Please try again.";
+    }
+  });
+});
+
+// navbar
+
+document.addEventListener("DOMContentLoaded", () => {
+  // ==========================================
+  // 1. GLOBAL NAVBAR ACTIVE PATH CHECK
+  // ==========================================
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll(".nav-link-item");
+
+  navLinks.forEach((link) => {
+    // Reset every single link to muted styles first
+    link.classList.remove("text-danger", "text-dark", "fw-bold", "active");
+    link.classList.add("text-secondary");
+
+    // Check if the link's href attribute matches our current URL path
+    if (link.getAttribute("href") === currentPath) {
+      link.classList.remove("text-secondary");
+      link.classList.add("text-danger", "active");
+    }
+  });
+
+  // ==========================================
+  // 2. MEGA MENU INNER LOGIC (RESPONSIVE)
+  // ==========================================
+  const categoryItems = document.querySelectorAll(".category-item");
+  const brandGroups = document.querySelectorAll(".brand-group");
+  const imageWrappers = document.querySelectorAll(".product-img-wrapper");
+
+  // Shared function to update content when a category is selected
+  const updateMegaMenu = (item, targetId) => {
+    // Reset sub-category textual active loops
+    categoryItems.forEach((el) => {
+      el.classList.remove("text-danger", "active");
+      el.classList.add("text-secondary");
+    });
+    item.classList.remove("text-secondary");
+    item.classList.add("text-danger", "active");
+
+    // Sync structural component flexboxes matching data target values
+    brandGroups.forEach((group) => {
+      group.classList.remove("d-flex");
+      group.classList.add("d-none");
+    });
+    const targetGroup = document.getElementById(targetId);
+    if (targetGroup) {
+      targetGroup.classList.remove("d-none");
+      targetGroup.classList.add("d-flex");
+    }
+
+    // Sync visual content boxes (Desktop layout context)
+    imageWrappers.forEach((img) => {
+      img.classList.add("d-none");
+    });
+    const targetImg = document.getElementById(`img-${targetId}`);
+    if (targetImg) {
+      targetImg.classList.remove("d-none");
+    }
+  };
+
+  // Attach dynamic events based on Screen Width (Desktop vs Mobile)
+  categoryItems.forEach((item) => {
+    const targetId = item.getAttribute("data-target");
+
+    // HOVER effect for Desktop devices (width >= 992px)
+    item.addEventListener("mouseenter", () => {
+      if (window.innerWidth >= 992) {
+        updateMegaMenu(item, targetId);
+      }
+    });
+
+    // CLICK effect for Mobile/Tablet devices (width < 992px)
+    item.addEventListener("click", (e) => {
+      if (window.innerWidth < 992) {
+        e.stopPropagation(); // Prevents bootstrap dropdown from closing early
+        updateMegaMenu(item, targetId);
+      }
+    });
+  });
+});
+
+// tab section in product page
+
+function openTab(event, tabId) {
+  const contents = document.querySelectorAll(".tab-content");
+  const buttons = document.querySelectorAll(".tab-btn");
+
+  contents.forEach((content) => {
+    content.classList.remove("active");
+  });
+
+  buttons.forEach((button) => {
+    button.classList.remove("active");
+  });
+
+  document.getElementById(tabId).classList.add("active");
+  event.currentTarget.classList.add("active");
+}
+
+
+
+
+// rwlated product slider
+
+function changeImage(element) {
+
+    document.getElementById("mainProductImage").src =
+        element.src;
+
+    document.querySelectorAll(".thumb")
+        .forEach(img => img.classList.remove("active"));
+
+    element.classList.add("active");
+}
+
+const slider =
+    document.getElementById("relatedSlider");
+
+document.getElementById("nextBtn")
+    .addEventListener("click", () => {
+        slider.scrollBy({
+            left: 300,
+            behavior: "smooth"
+        });
+    });
+
+document.getElementById("prevBtn")
+    .addEventListener("click", () => {
+        slider.scrollBy({
+            left: -300,
+            behavior: "smooth"
+        });
+    });

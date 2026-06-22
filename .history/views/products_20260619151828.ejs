@@ -1,0 +1,482 @@
+<%- include('partials/header') %>
+    <style>
+
+    </style>
+    <section class="product-banner">
+        <img src="images/EQ9.png" alt="product image" class="banner-bg-img">
+
+        <div class="container">
+            <div class="text-content-banner">
+                <div class="breadcrumb">
+                    <div class="d-flex align-items-center">
+                        <a href="/">Home</a>
+                        <span class="mx-2" style="font-weight: 400; color: #999;">&gt;</span>
+                        <span>EQ9</span>
+                    </div>
+                </div>
+
+                <h1>EQ9</h1>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="product-content">
+        <div class="container">
+            <div class="text-lg-start">
+                <h2>
+                    EQ9 Miniature Circuit Breakers (MCBs) from 0.5A to 63A 
+                </h2>
+                <p>
+                    Alric Electric’s EQ9 series premium MCBs provides reliable and safe protection against overloads and
+                    short circuits with
+                    best-in-class technology <br class="d-lg-block d-none"> and infrastructure. These MCBs are
+                    manufactured with recyclable
+                    fire-retardant engineering
+                    plastics ensuring safety and durability. <br class="d-lg-block d-none">
+                    These MCBs are must-have safety product for distribution of power at homes, residential / commercial
+                    buildings /
+                    industrial applications.  
+                </p>
+            </div>
+        </div>
+
+        <div class="container ">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'tab1')">
+                    MCB
+                </button>
+                <button class="tab-btn" onclick="openTab(event, 'tab2')">
+                    Isolator
+                </button>
+            </div>
+
+
+
+            <div id="tab1" class="tab-content active">
+                <div class="row  justify-content-between">
+                    <div class="col-md-3">
+                        <div class="filter">
+                            <div class="text-lg-start">
+                                <h3>
+                                    Filters
+                                </h3>
+                            </div>
+                            <div class="dropdown-container">
+
+                                <div class="dropdown-item">
+                                    <input type="checkbox" id="drop1" class="dropdown-check ">
+                                    <label for="drop1" class="dropdown-header">
+                                        <span>current rating</span>
+                                        <span class="dropdown-arrow"></span>
+                                    </label>
+                                    <div class="dropdown-content">
+                                        <input type="checkbox" class="filter-check">
+                                        <label for="current1">0.5A</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">0.1A</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">0.2A</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">0.3A</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">0.4A</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">0.6A</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">10A</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">16A</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">20A</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">25A</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">32A</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">40A</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">50A</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">63A</label>
+                                        </div>
+                                        </div>
+
+                                <div class="dropdown-item">
+                                    <input type="checkbox" id="drop2" class="dropdown-check">
+                                    <label for="drop2" class="dropdown-header">
+                                        <span>curve type</span>
+                                        <span class="dropdown-arrow"></span>
+                                        </label>
+
+                                    <div class="dropdown-content">
+                                        <input type="checkbox" class="filter-check">
+                                        <label for="current1">C</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">B</label>
+                                        </div>
+                                        </div>
+
+                                <div class="dropdown-item">
+                                    <input type="checkbox" id="drop3" class="dropdown-check">
+                                    <label for="drop3" class="dropdown-header">
+                                        <span>No Of Poles</span>
+                                        <span class="dropdown-arrow"></span>
+                                    </label>
+                                    <div class="dropdown-content">
+                                        <input type="checkbox" class="filter-check">
+                                        <label for="current1">Single Pole</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">Double Pole</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">Three Pole</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">Four Pole</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">Single Pole Neutral</label>
+                                        </div>
+                                        <div class="dropdown-content">
+                                            <input type="checkbox" class="filter-check">
+                                            <label for="current1">Three Pole Neutral</label>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="product-container">
+                                                <div class="row align-items-center">
+                                                    <div class="col-lg-4 pe-1">
+                                                        <div class=" product-card">
+                                                            <div class="product-card-image">
+                                                                <img src="images/product1.png" alt="product image">
+                                                            </div>
+                                                            <div class="product-details">
+                                                                <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 pe-1">
+                                                        <div class=" product-card">
+                                                            <div class="product-card-image">
+                                                                <img src="images/product1.png" alt="product image">
+                                                            </div>
+                                                            <div class="product-details">
+                                                                <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 pe-1">
+                                                        <div class=" product-card">
+                                                            <div class="product-card-image">
+                                                                <img src="images/product1.png" alt="product image">
+                                                            </div>
+                                                            <div class="product-details">
+                                                                <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 pe-1">
+                                                        <div class=" product-card">
+                                                            <div class="product-card-image">
+                                                                <img src="images/product1.png" alt="product image">
+                                                            </div>
+                                                            <div class="product-details">
+                                                                <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 pe-1">
+                                                        <div class=" product-card">
+                                                            <div class="product-card-image"> <img src="images/product1.png" alt="product image">
+                                                            </div>
+                                                            <div class="product-details">
+                                                                <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 pe-1">
+                                                        <div class=" product-card">
+                                                            <div class="product-card-image"> <img src="images/product1.png" alt="product image">
+                                                            </div>
+                                                            <div class="product-details">
+                                                                <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 pe-1">
+                                                        <div class=" product-card">
+                                                            <div class="product-card-image">
+                                                                <img src="images/product1.png" alt="product image">
+                                                            </div>
+                                                            <div class="product-details">
+                                                                <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 pe-1">
+                                                        <div class=" product-card">
+                                                            <div class="product-card-image">
+                                                                <img src="images/product1.png" alt="product image">
+                                                            </div>
+                                                            <div class="product-details">
+                                                                <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 pe-1">
+                                                        <div class=" product-card">
+                                                            <div class="product-card-image">
+                                                                <img src="images/product1.png" alt="product image">
+                                                            </div>
+                                                            <div class="product-details">
+                                                                <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row justify-content-end-lg justify-content-center mt-3">
+                                                <div class="col-md-4">
+                                                    <nav aria-label="Page navigation example">
+                                                        <ul class="pagination">
+                                                            <li class="page-item"><a class="page-link" href="#">
+                                                                    < <!-- <i class="fa-solid fa-angle-left"></i> -->
+                                                                </a> </li>
+                                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                            <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                                            <li class="page-item"><a class="page-link" href="#">7</a></li>
+                                                            <li class="page-item"><a class="page-link" href="#">
+                                                                    > <!-- <i class="fa-solid fa-angle-right"></i> -->
+                                                                </a></li>
+                                                        </ul>
+                                                    </nav>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            <div id="tab2" class="tab-content active">
+                                                <div class="row  justify-content-between">
+                                                    <div class="col-md-3">
+                                                        <div class="filter">
+                                                            <div class="text-lg-start">
+                                                                <h3>
+                                                                    Filters
+                                                                </h3>
+                                                            </div>
+                                                        <div class="dropdown-container">
+
+                                <div class="dropdown-item">
+                                    <input type="checkbox" id="drop4" class="dropdown-check ">
+                                    <label for="drop4" class="dropdown-header">
+                                        <span>current rating</span>
+                                        <span class="dropdown-arrow"></span>
+                                    </label>
+                                    <div class="dropdown-content">
+                                        <input type="checkbox" class="filter-check">
+                                        <label for="current1">0.5A</label>
+                                    </div>
+                                    <div class="dropdown-content">
+                                        <input type="checkbox" class="filter-check">
+                                        <label for="current1">16A</label>
+                                    </div>
+                                    <div class="dropdown-content">
+                                        <input type="checkbox" class="filter-check">
+                                        <label for="current1">20A</label>
+                                    </div>
+                                    <div class="dropdown-content">
+                                        <input type="checkbox" class="filter-check">
+                                        <label for="current1">40A</label>
+                                    </div>
+                                    <div class="dropdown-content">
+                                        <input type="checkbox" class="filter-check">
+                                        <label for="current1">63A</label>
+                                    </div>
+                                </div>
+
+                            <div class="dropdown-item">
+                                <input type="checkbox" id="drop5" class="dropdown-check">
+                                <label for="drop5" class="dropdown-header">
+                                    <span>No Of Poles</span>
+                                    <span class="dropdown-arrow"></span>
+                                </label>
+                                <div class="dropdown-content">
+                                    <input type="checkbox" class="filter-check">
+                                    <label for="current1">Single Pole</label>
+                                </div>
+                                <div class="dropdown-content">
+                                    <input type="checkbox" class="filter-check">
+                                    <label for="current1">Double Pole</label>
+                                </div>
+                                <div class="dropdown-content">
+                                    <input type="checkbox" class="filter-check">
+                                    <label for="current1">Three Pole</label>
+                                </div>
+                                <div class="dropdown-content">
+                                    <input type="checkbox" class="filter-check">
+                                    <label for="current1">Four Pole</label>
+                                </div>
+                            </div>
+                            </div>
+                                </div>
+                                </div>
+
+<div class="col-md-9">
+    <div class="product-container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 pe-1">
+                <div class=" product-card">
+                    <div class="product-card-image">
+                        <img src="images/isolat.png" alt="product image">
+                    </div>
+                    <div class="product-details">
+                        <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 pe-1">
+                <div class=" product-card">
+                    <div class="product-card-image">
+                        <img src="images/product1.png" alt="product image">
+                    </div>
+                    <div class="product-details">
+                        <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 pe-1">
+                <div class=" product-card">
+                    <div class="product-card-image">
+                        <img src="images/product1.png" alt="product image">
+                    </div>
+                    <div class="product-details">
+                        <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 pe-1">
+                <div class=" product-card">
+                    <div class="product-card-image">
+                        <img src="images/product1.png" alt="product image">
+                    </div>
+                    <div class="product-details">
+                        <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 pe-1">
+                <div class=" product-card">
+                    <div class="product-card-image"> <img src="images/product1.png" alt="product image">
+                    </div>
+                    <div class="product-details">
+                        <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 pe-1">
+                <div class=" product-card">
+                    <div class="product-card-image"> <img src="images/product1.png" alt="product image">
+                    </div>
+                    <div class="product-details">
+                        <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 pe-1">
+                <div class=" product-card">
+                    <div class="product-card-image">
+                        <img src="images/product1.png" alt="product image">
+                    </div>
+                    <div class="product-details">
+                        <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 pe-1">
+                <div class=" product-card">
+                    <div class="product-card-image">
+                        <img src="images/product1.png" alt="product image">
+                    </div>
+                    <div class="product-details">
+                        <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 pe-1">
+                <div class=" product-card">
+                    <div class="product-card-image">
+                        <img src="images/product1.png" alt="product image">
+                    </div>
+                    <div class="product-details">
+                        <h3>1P MCB, 0.5A C CURVE - 10kA</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                        <div class="row justify-content-end-lg justify-content-center mt-3">
+                            <div class="col-md-4">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item"><a class="page-link" href="#">
+                                                < <!-- <i class="fa-solid fa-angle-left"></i> -->
+                                            </a> </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">7</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">
+                                                > <!-- <i class="fa-solid fa-angle-right"></i> -->
+                                            </a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+
+    </section>
+    <%- include('partials/footer') %>

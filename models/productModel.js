@@ -3,18 +3,29 @@ const db = require("../config/db");
 // GET ALL / FILTER PRODUCTS
 
 exports.getFilteredProducts = (filters, callback) => {
+
   let sql = "SELECT * FROM products WHERE 1=1";
 
   const values = [];
 
-  if (filters.type) {
-    sql += " AND type = ?";
-    values.push(filters.type);
-  }
-
   if (filters.category) {
     sql += " AND category = ?";
     values.push(filters.category);
+  }
+
+  if (filters.brand) {
+    sql += " AND brand = ?";
+    values.push(filters.brand);
+  }
+
+  if (filters.subcategory) {
+    sql += " AND subcategory = ?";
+    values.push(filters.subcategory);
+  }
+
+  if (filters.type) {
+    sql += " AND type = ?";
+    values.push(filters.type);
   }
 
   if (filters.search) {
@@ -46,37 +57,41 @@ exports.getSingleProduct = (slug, callback) => {
 exports.addProduct = (data, callback) => {
   const sql = `
     INSERT INTO products
-    (
-      name,
-      slug,
-      brand,
-      category,
-      subcategory,
-      type,
-      description,
-      image,
-      pdf,
-      meta_title,
-      meta_description
-    )
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+   (
+  name,
+  slug,
+  brand,
+  category,
+  subcategory,
+  type,
+  description,
+  image,
+  related_image_1,
+  related_image_2,
+  pdf,
+  meta_title,
+  meta_description
+)
+   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `;
 
   db.query(
     sql,
     [
-      data.name,
-      data.slug,
-      data.brand,
-      data.category,
-      data.subcategory,
-      data.type,
-      data.description,
-      data.image,
-      data.pdf,
-      data.meta_title,
-      data.meta_description,
-    ],
+  data.name,
+  data.slug,
+  data.brand,
+  data.category,
+  data.subcategory,
+  data.type,
+  data.description,
+  data.image,
+  data.related_image_1,
+  data.related_image_2,
+  data.pdf,
+  data.meta_title,
+  data.meta_description,
+],
     callback
   );
 };
@@ -115,6 +130,8 @@ exports.updateProduct = (id, data, callback) => {
       description = ?,
       meta_title = ?,
       meta_description = ?
+      related_image_1 = ?,
+related_image_2 = ?,
     WHERE id = ?
   `;
 
@@ -130,6 +147,8 @@ exports.updateProduct = (id, data, callback) => {
       data.description,
       data.meta_title,
       data.meta_description,
+      data.related_image_1,
+data.related_image_2,
       id,
     ],
     callback

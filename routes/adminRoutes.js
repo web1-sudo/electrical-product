@@ -13,6 +13,7 @@ const {
   deleteProduct,
   editProductPage,
   updateProduct,
+ 
 } = require("../controllers/adminController");
 
 const { isLoggedIn } = require("../middleware/authMiddleware");
@@ -69,9 +70,11 @@ router.post(
   "/add-product",
   isLoggedIn,
   upload.fields([
-    { name: "image", maxCount: 1 },
-    { name: "pdf", maxCount: 1 },
-  ]),
+  { name: "image", maxCount: 1 },
+  { name: "image2", maxCount: 1 },
+  { name: "image3", maxCount: 1 },
+  { name: "pdf", maxCount: 1 },
+]),
   addProduct
 );
 
@@ -104,5 +107,9 @@ router.get(
   isLoggedIn,
   deleteProduct
 );
+
+
+// brnad
+
 
 module.exports = router;

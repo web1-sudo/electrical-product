@@ -39,56 +39,82 @@
                     
                         <!-- Brand -->
                     
-                        <div class="col-md-6 mb-4">
+                    <div class="col-md-6 mb-4">
                     
-                            <label class="form-label fw-semibold">
-                                Brand
-                            </label>
+                        <label class="form-label fw-semibold">
+                            Brand
+                        </label>
                     
-                            <input type="text" name="brand" class="form-control">
+                        <select name="brand" class="form-control" required>
                     
-                        </div>
+                            <option value="">Select Brand</option>
+                    
+                            <option value="EQ9">EQ9</option>
+                    
+                            <option value="Elvyx">Elvyx</option>
+                    
+                            <option value="Auralis">Auralis</option>
+                    
+                            <option value="Elvo">Elvo</option>
+                    
+                            <option value="Avina">Avina</option>
+                    
+                        </select>
+                    
+                    </div>
                     
                         <!-- Category -->
                     
-                        <div class="col-md-6 mb-4">
+                    <div class="col-md-6 mb-4">
+                        <label class="form-label fw-semibold">
+                            Category
+                        </label>
                     
-                            <label class="form-label fw-semibold">
-                                Category
-                            </label>
+                        <select name="category" class="form-control" required>
+                            <option value="">Select Category</option>
                     
-                            <select name="category" class="form-select">
-                                <option value="">
-                                    Select Category
-                                </option>
+                            <option value="Protection Devices">
+                                Protection Devices
+                            </option>
                     
-                                <option value="Protection Devices">
-                                    Protection Devices
-                                </option>
+                            <option value="Switches & Accessories">
+                                Switches & Accessories
+                            </option>
                     
-                                <option value="Switches & Accessories">
-                                    Switches & Accessories
-                                </option>
-                    
-                                <option value="Distribution Boards">
-                                    Distribution Boards
-                                </option>
-                    
-                            </select>
-                    
-                        </div>
-                    
+                            <option value="Distribution Boards">
+                                Distribution Boards
+                            </option>
+                        </select>
+                    </div>
                         <!-- Sub Category -->
                     
-                        <div class="col-md-6 mb-4">
+                    <div class="col-md-6 mb-4">
                     
-                            <label class="form-label fw-semibold">
-                                Sub Category
-                            </label>
+                        <label class="form-label fw-semibold">
+                            Sub Category
+                        </label>
                     
-                            <input type="text" name="subcategory" class="form-control">
+                        <select name="subcategory" class="form-control">
                     
-                        </div>
+                            <option value="">Select Subcategory</option>
+                    
+                            <option value="MCB">MCB</option>
+                    
+                            <option value="Isolator">Isolator</option>
+                    
+                            <option value="RCCB">RCCB</option>
+                    
+                            <option value="RCBO">RCBO</option>
+                    
+                            <option value="Switches">Switches</option>
+                    
+                            <option value="Sockets">Sockets</option>
+                    
+                            <option value="Accessories">Accessories</option>
+                    
+                        </select>
+                    
+                    </div>
                     
                         <!-- Current Rating -->
                     
@@ -158,15 +184,35 @@
                     
                         <!-- Main Image -->
                     
-                        <div class="col-md-6 mb-4">
+                    <div class="col-md-6 mb-4">
                     
-                            <label class="form-label fw-semibold">
-                                Product Image
-                            </label>
+                        <label class="form-label fw-semibold">
+                            Product Image
+                        </label>
                     
-                            <input type="file" name="image" class="form-control" accept="image/*">
+                        <input type="file" name="image" class="form-control" accept="image/*" required>
                     
-                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                    
+                        <label class="form-label fw-semibold">
+                            Product Image 2
+                        </label>
+                    
+                        <input type="file" name="image2" class="form-control" accept="image/*">
+                    
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                    
+                        <label class="form-label fw-semibold">
+                            Product Image 3
+                        </label>
+                    
+                        <input type="file" name="image3" class="form-control" accept="image/*">
+                    
+                    </div>
                     
                         <!-- PDF -->
 

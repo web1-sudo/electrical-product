@@ -1,0 +1,265 @@
+<%- include('../partials/header') %>
+
+    <div class="container py-5">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+                <h2 class="fw-bold mb-1">Add Product</h2>
+                <p class="text-muted mb-0">
+                    Create a new product
+                </p>
+            </div>
+
+            <a href="/admin/dashboard" class="btn btn-secondary">
+                Back To Dashboard
+            </a>
+            
+            </div>
+            
+            <div class="card shadow-sm border-0">
+            
+                <div class="card-body p-4">
+
+                <form action="/admin/add-product" method="POST" enctype="multipart/form-data">
+
+                    <div class="row">
+                    
+                        <!-- Product Name -->
+                    
+                        <div class="col-md-6 mb-4">
+                    
+                            <label class="form-label fw-semibold">
+                                Product Name
+                            </label>
+                    
+                            <input type="text" name="name" class="form-control" required>
+                    
+                        </div>
+                    
+                        <!-- Brand -->
+                    
+                    <div class="col-md-6 mb-4">
+                    
+                        <label class="form-label fw-semibold">
+                            Brand
+                        </label>
+                    
+                        <select name="brand" class="form-control" required>
+                    
+                            <option value="">Select Brand</option>
+                    
+                            <option value="EQ9">EQ9</option>
+                    
+                            <option value="Elvyx">Elvyx</option>
+                    
+                            <option value="Auralis">Auralis</option>
+                    
+                            <option value="Elvo">Elvo</option>
+                    
+                            <option value="Avina">Avina</option>
+                    
+                        </select>
+                    
+                    </div>
+                    
+                        <!-- Category -->
+                    
+                    <div class="col-md-6 mb-4">
+                        <label class="form-label fw-semibold">
+                            Category
+                        </label>
+                    
+                        <select name="category" class="form-control" required>
+                            <option value="">Select Category</option>
+                    
+                            <option value="Protection Devices">
+                                Protection Devices
+                            </option>
+                    
+                            <option value="Switches & Accessories">
+                                Switches & Accessories
+                            </option>
+                    
+                            <option value="Distribution Boards">
+                                Distribution Boards
+                            </option>
+                        </select>
+                    </div>
+                        <!-- Sub Category -->
+                    
+                    <div class="col-md-6 mb-4">
+                    
+                        <label class="form-label fw-semibold">
+                            Sub Category
+                        </label>
+                    
+                        <select name="subcategory" class="form-control">
+                    
+                            <option value="">Select Subcategory</option>
+                    
+                            <option value="MCB">MCB</option>
+                    
+                            <option value="Isolator">Isolator</option>
+                    
+                            <option value="RCCB">RCCB</option>
+                    
+                            <option value="RCBO">RCBO</option>
+                    
+                            <option value="Switches">Switches</option>
+                    
+                            <option value="Sockets">Sockets</option>
+                    
+                            <option value="Accessories">Accessories</option>
+                    
+                        </select>
+                    
+                    </div>
+                    
+                        <!-- Current Rating -->
+                    
+                        <div class="col-md-4 mb-4">
+                    
+                            <label class="form-label fw-semibold">
+                                Current Rating
+                            </label>
+                    
+                            <input type="text" name="rating" class="form-control" placeholder="e.g. 63A">
+                    
+                        </div>
+                    
+                        <!-- Curve Type -->
+                    
+                        <div class="col-md-4 mb-4">
+                    
+                            <label class="form-label fw-semibold">
+                                Curve Type
+                            </label>
+                    
+                            <select name="curve" class="form-select">
+                                <option value="">
+                                    Select Curve
+                                </option>
+                    
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                    
+                            </select>
+                    
+                        </div>
+                    
+                        <!-- Poles -->
+                    
+                        <div class="col-md-4 mb-4">
+                    
+                            <label class="form-label fw-semibold">
+                                Number Of Poles
+                            </label>
+                    
+                            <select name="poles" class="form-select">
+                                <option value="">
+                                    Select Poles
+                                </option>
+                    
+                                <option value="Single Pole">
+                                    Single Pole
+                                </option>
+                    
+                                <option value="Double Pole">
+                                    Double Pole
+                                </option>
+                    
+                                <option value="Three Pole">
+                                    Three Pole
+                                </option>
+                    
+                                <option value="Four Pole">
+                                    Four Pole
+                                </option>
+                    
+                            </select>
+                    
+                        </div>
+                    
+                        <!-- Main Image -->
+                    
+                        <div class="col-md-6 mb-4">
+                    
+                            <label class="form-label fw-semibold">
+                                Product Image
+                            </label>
+                    
+                            <input type="file" name="image" class="form-control" accept="image/*">
+                    
+                        </div>
+                    
+                        <!-- PDF -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product PDF
+                            </label>
+                            
+                            <input type="file" name="pdf" class="form-control" accept=".pdf">
+
+                        </div>
+
+                        <!-- Description -->
+
+                        <div class="col-12 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Description
+                            </label>
+
+                            <textarea name="description" rows="6" class="form-control"></textarea>
+
+                        </div>
+                        
+                        <!-- Meta Title -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Meta Title
+                            </label>
+
+                            <input type="text" name="meta_title" class="form-control">
+
+                        </div>
+
+                        <!-- Meta Description -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Meta Description
+                            </label>
+
+                            <textarea name="meta_description" rows="3" class="form-control"></textarea>
+
+                        </div>
+
+                        <!-- Submit -->
+
+                        <div class="col-12">
+
+                            <button type="submit" class="btn btn-primary px-5">
+                                Save Product
+                            </button>
+
+                        </div>
+                        
+                        </div>
+
+                </form>
+
+            </div>
+            
+            </div>
+
+    </div>
+
+    <%- include('../partials/footer') %>

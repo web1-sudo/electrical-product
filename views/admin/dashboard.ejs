@@ -89,6 +89,9 @@
                                 <th>Name</th>
                                 <th>Slug</th>
                                 <th>Actions</th>
+                                <th>Category</th>
+                                <th>Brand</th>
+                                <th>Subcategory</th>
                                 </tr>
 
                         </thead>
@@ -97,48 +100,54 @@
 
                                 <% products.forEach(product=> { %>
 
-                                    <tr>
+                                <tr>
+                                
+                                    <td>
+                                        <%= product.id %>
+                                    </td>
+                                
+                                    <td>
+                                        <% if(product.image){ %>
+                                            <img src="/images/<%= product.image %>" width="70" height="70" style="object-fit:cover;">
+                                            <% } else { %>
+                                                No Image
+                                                <% } %>
+                                    </td>
+                                
+                                    <td>
+                                        <%= product.name %>
+                                    </td>
+                                
+                                    <td>
+                                        <%= product.slug %>
+                                    </td>
+                                
+                                  
+                                
+                                    <td>
+                                        <%= product.category || '-' %>
+                                    </td>
+                                
+                                    <td>
+                                        <%= product.brand || '-' %>
+                                    </td>
+                                
+                                    <td>
+                                        <%= product.subcategory || '-' %>
+                                    </td>
 
-                                        <td>
-                                            <%= product.id %>
-                                        </td>
-
-                                        <td>
-
-                                            <% if(product.image){ %>
-                                            
-                                                <img src="/images/<%= product.image %>" width="70" height="70" style="object-fit:cover;">
-                                            
-                                                <% } else { %>
-                                            
-                                                    No Image
-                                            
-                                                    <% } %>
-
-                                        </td>
-
-                                        <td>
-                                            <%= product.name %>
-                                        </td>
-
-                                        <td>
-                                            <%= product.slug %>
-                                                </td>
-
-                                        <td>
-
-                                            <a href="/admin/edit-product/<%= product.id %>" class="btn btn-sm btn-warning">
-                                                Edit
-                                            </a>
-
-                                            <a href="/admin/delete-product/<%= product.id %>" class="btn btn-sm btn-danger"
-                                                onclick="return confirm('Delete this product?')">
-                                                Delete
-                                            </a>
-
-                                        </td>
-
-                                    </tr>
+                                    <td>
+                                        <a href="/admin/edit-product/<%= product.id %>" class="btn btn-sm btn-warning">
+                                            Edit
+                                        </a>
+                                    
+                                        <a href="/admin/delete-product/<%= product.id %>" class="btn btn-sm btn-danger"
+                                            onclick="return confirm('Delete this product?')">
+                                            Delete
+                                        </a>
+                                    </td>
+                                
+                                </tr>
 
                                     <% }) %>
 

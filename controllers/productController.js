@@ -1,5 +1,5 @@
 const Product = require("../models/productModel");
-
+const db = require("../config/db");
 // PRODUCTS PAGE
 
 exports.homePage = (req, res) => {
@@ -48,35 +48,194 @@ exports.homePage = (req, res) => {
   );
 };
 
-// SINGLE PRODUCT
-// SINGLE PRODUCT
+
+
+
+exports.categoryListing = (req, res) => {
+
+  const categorySlug = req.params.category;
+
+  db.query(
+    `
+    SELECT DISTINCT brand
+    FROM products
+    WHERE LOWER(REPLACE(category,' ','-')) = ?
+    `,
+    [categorySlug],
+    (err, results) => {
+
+      if (err) {
+        console.log(err);
+        return res.send("Database Error");
+      }
+
+      const brands = results.map(item => ({
+        name: item.brand,
+        slug: item.brand.toLowerCase().replace(/\s+/g, "-")
+      }));
+
+      res.render("category/category-listing", {
+        categoryName: categorySlug
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, l => l.toUpperCase()),
+        categorySlug,
+        brands
+      });
+
+    }
+  );
+};
+
+
+exports.brandListing = (req, res) => {
+
+  const categorySlug = req.params.category;
+  const brandSlug = req.params.brand;
+
+  db.query(
+    `
+    SELECT DISTINCT subcategory
+    FROM products
+    WHERE LOWER(REPLACE(category,' ','-')) = ?
+    AND LOWER(REPLACE(brand,' ','-')) = ?
+    `,
+    [categorySlug, brandSlug],
+    (err, results) => {
+
+      if (err) {
+        console.log(err);
+        return res.send("Database Error");
+      }
+
+      const subcategories = results.map(item => ({
+        name: item.subcategory,
+        slug: item.subcategory.toLowerCase().replace(/\s+/g, "-")
+      }));
+
+      res.render("brand/brand-listing", {
+        categoryName: categorySlug
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, l => l.toUpperCase()),
+
+        categorySlug,
+
+        brandName: brandSlug
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, l => l.toUpperCase()),
+
+        brandSlug,
+
+        subcategories
+      });
+
+    }
+  );
+};
+
+
+exports.subcategoryListing = (req, res) => {
+
+  const categorySlug = req.params.category;
+  const brandSlug = req.params.brand;
+  const subcategorySlug = req.params.subcategory;
+
+  db.query(
+    `
+    SELECT *
+    FROM products
+    WHERE LOWER(REPLACE(category,' ','-')) = ?
+    AND LOWER(REPLACE(brand,' ','-')) = ?
+    AND LOWER(REPLACE(subcategory,' ','-')) = ?
+    `,
+    [
+      categorySlug,
+      brandSlug,
+      subcategorySlug
+    ],
+    (err, products) => {
+
+      if (err) {
+        console.log(err);
+        return res.send("Database Error");
+      }
+
+      res.render(
+        "subcategory/subcategory-listing",
+        {
+          categoryName: categorySlug
+            .replace(/-/g, " ")
+            .replace(/\b\w/g, l => l.toUpperCase()),
+
+          categorySlug,
+
+          brandName: brandSlug
+            .replace(/-/g, " ")
+            .replace(/\b\w/g, l => l.toUpperCase()),
+
+          brandSlug,
+
+          subcategoryName: subcategorySlug
+            .replace(/-/g, " ")
+            .replace(/\b\w/g, l => l.toUpperCase()),
+
+          products
+        }
+      );
+
+    }
+  );
+};
+
+
 
 exports.singleProduct = (req, res) => {
-  Product.getSingleProduct(req.params.slug, (err, results) => {
-    if (err) {
-      console.log(err);
-      return res.send("Database Error");
-    }
 
-    if (!results.length) {
-      return res.send("Product Not Found");
-    }
+  Product.getSingleProduct(
+    req.params.slug,
+    (err, results) => {
 
-    const product = results[0];
-
-    Product.getFilteredProducts(
-      { type: product.type },
-      (err, relatedProducts) => {
-        if (err) {
-          console.log(err);
-          relatedProducts = [];
-        }
-
-        res.render("single-product", {
-          product,
-          relatedProducts,
-        });
+      if (err) {
+        console.log(err);
+        return res.send("Database Error");
       }
-    );
-  });
+
+      if (!results.length) {
+        return res.send("Product Not Found");
+      }
+
+      const product = results[0];
+
+      db.query(
+        `
+        SELECT *
+        FROM products
+        WHERE brand = ?
+        AND id != ?
+        LIMIT 8
+        `,
+        [
+          product.brand,
+          product.id
+        ],
+        (err, relatedProducts) => {
+
+          if (err) {
+            console.log(err);
+            relatedProducts = [];
+          }
+
+          res.render(
+            "product/product",
+            {
+              product,
+              relatedProducts
+            }
+          );
+
+        }
+      );
+
+    }
+  );
+
 };

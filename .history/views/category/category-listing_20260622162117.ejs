@@ -1,0 +1,78 @@
+<%- include('../partials/header') %>
+
+    <section class="product-page py-5">
+
+        <div class="container">
+
+            <div class="breadcrumb mb-4">
+
+                <a href="/">Home</a>
+
+                <span> ></span>
+
+                <a href="/products">Products</a>
+
+                <span> ></span>
+
+                <strong>
+                    <%= categoryName %>
+                </strong>
+
+            </div>
+
+            <div class="section-title text-center mb-5">
+
+                <h1>
+                    <%= categoryName %>
+                </h1>
+
+            </div>
+
+            <div class="row g-4">
+
+                <% brands.forEach(function(brand){ %>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+
+                        <a href="/products/<%= categorySlug %>/<%= brand.slug %>" class="text-decoration-none">
+
+                            <div class="product-card h-100">
+
+                                <div class="product-card-image">
+
+                                    <% if(brand.image){ %>
+
+                                        <img src="/images/<%= brand.image %>" alt="<%= brand.name %>" class="img-fluid">
+
+                                        <% } else { %>
+
+                                            <img src="/images/default-product.jpg" alt="<%= brand.name %>"
+                                                class="img-fluid">
+
+                                            <% } %>
+
+                                </div>
+
+                                <div class="product-card-content text-center p-3">
+
+                                    <h5>
+                                        <%= brand.name %>
+                                    </h5>
+
+                                </div>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                    <% }) %>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <%- include('../partials/footer') %>

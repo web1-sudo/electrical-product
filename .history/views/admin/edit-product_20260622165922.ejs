@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+    <div class="container py-5">
+
+        <h2 class="mb-4">
+
+            Edit Product
+
+        </h2>
+
+        <form action="/admin/edit-product/<%= product.id %>" method="POST">
+
+            <input type="text" name="name" value="<%= product.name %>" class="form-control mb-3">
+
+
+            <input type="text" name="brand" value="<%= product.brand %>" class="form-control mb-3">
+<img src="/images/<%= product.image %>" width="100">
+
+<img src="/images/<%= product.related_image_1 %>" width="100">
+
+<img src="/images/<%= product.related_image_2 %>" width="100">
+
+            <button type="submit" class="btn btn-primary">
+
+                Update Product
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <%- include('../partials/footer') %>

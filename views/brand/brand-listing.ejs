@@ -1,0 +1,91 @@
+<%- include('../partials/header') %>
+
+    <section class="product-page py-5">
+
+        <div class="container">
+
+            <!-- Breadcrumb -->
+
+            <div class="breadcrumb mb-4">
+
+                <a href="/">Home</a>
+
+                <span> ></span>
+
+                <a href="/products">Products</a>
+
+                <span> ></span>
+
+                <a href="/products/<%= categorySlug %>">
+                    <%= categoryName %>
+                </a>
+
+                <span> ></span>
+
+                <strong>
+                    <%= brandName %>
+                </strong>
+
+            </div>
+
+            <!-- Page Title -->
+
+            <div class="section-title text-center mb-5">
+
+                <h1>
+                    <%= brandName %>
+                </h1>
+
+            </div>
+
+            <!-- Subcategory Cards -->
+
+            <div class="row g-4">
+
+                <% subcategories.forEach(function(item){ %>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+
+                        <a href="/products/<%= categorySlug %>/<%= brandSlug %>/<%= item.slug %>"
+                            class="text-decoration-none">
+
+                            <div class="product-card h-100">
+
+                                <div class="product-card-image">
+
+                                    <% if(item.image){ %>
+
+                                        <img src="/images/<%= item.image %>" alt="<%= item.name %>" class="img-fluid">
+
+                                        <% } else { %>
+
+                                            <img src="/images/default-product.jpg" alt="<%= item.name %>"
+                                                class="img-fluid">
+
+                                            <% } %>
+
+                                </div>
+
+                                <div class="product-card-content text-center p-3">
+
+                                    <h5>
+                                        <%= item.name %>
+                                    </h5>
+
+                                </div>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                    <% }) %>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <%- include('../partials/footer') %>

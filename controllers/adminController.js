@@ -78,6 +78,7 @@ exports.addProductPage = (req, res) => {
 // ADD PRODUCT
 
 exports.addProduct = (req, res) => {
+
   const slug = slugify(req.body.name, {
     lower: true,
     strict: true,
@@ -86,29 +87,45 @@ exports.addProduct = (req, res) => {
   const data = {
     name: req.body.name,
     slug,
+
     brand: req.body.brand,
     category: req.body.category,
     subcategory: req.body.subcategory,
     type: req.body.type,
+
     description: req.body.description,
+
     meta_title: req.body.meta_title,
     meta_description: req.body.meta_description,
+
     image: req.files?.image
       ? req.files.image[0].filename
       : "",
+
+    related_image_1: req.files?.image2
+      ? req.files.image2[0].filename
+      : "",
+
+    related_image_2: req.files?.image3
+      ? req.files.image3[0].filename
+      : "",
+
     pdf: req.files?.pdf
       ? req.files.pdf[0].filename
       : "",
   };
 
   Product.addProduct(data, (err) => {
+
     if (err) {
       console.log(err);
       return res.send("Error Adding Product");
     }
 
     res.redirect("/admin/dashboard");
+
   });
+
 };
 
 // DELETE PRODUCT

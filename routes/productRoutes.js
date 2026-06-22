@@ -5,20 +5,44 @@ const router = express.Router();
 const {
   homePage,
   singleProduct,
+  categoryListing,
+  brandListing,
+  subcategoryListing,
 } = require("../controllers/productController");
 
 // PRODUCTS PAGE
 
-router.get("/products", homePage);
+router.get(
+  "/products",
+  homePage
+);
+
+// CATEGORY PAGE
+
+router.get(
+  "/products/:category",
+  categoryListing
+);
+
+// BRAND PAGE
+
+router.get(
+  "/products/:category/:brand",
+  brandListing
+);
+
+// SUBCATEGORY PAGE
+
+router.get(
+  "/products/:category/:brand/:subcategory",
+  subcategoryListing
+);
 
 // SINGLE PRODUCT PAGE
 
-router.get("/single-product", (req, res) => {
-  res.render("single-product");
-});
-
-// DYNAMIC PRODUCT PAGE
-
-router.get("/product/:slug", singleProduct);
+router.get(
+  "/product/:slug",
+  singleProduct
+);
 
 module.exports = router;

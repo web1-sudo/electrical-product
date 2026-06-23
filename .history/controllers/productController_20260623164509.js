@@ -265,9 +265,7 @@ const totalPages = Math.ceil(totalItems / perPage);
 const start = (page - 1) * perPage;
 const end = start + perPage;
 
-// const paginatedSubcategories = subcategories.slice(start, end);
-
-const paginatedProducts = products.slice(start, end);
+const paginatedSubcategories = subcategories.slice(start, end);
 
 res.render("brand/brand-listing", {
 
@@ -285,9 +283,7 @@ res.render("brand/brand-listing", {
 
   activeTab,
 
-  // subcategories: paginatedSubcategories,
-
-products: paginatedProducts,
+  subcategories: paginatedSubcategories,
 
   ratings,
   poles,
@@ -302,6 +298,7 @@ products: paginatedProducts,
    
   categorySlug,
   brandSlug,
+  subcategories,
   ratings,
   poles,
   boards,

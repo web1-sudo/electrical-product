@@ -285,9 +285,7 @@ res.render("brand/brand-listing", {
 
   activeTab,
 
-  // subcategories: paginatedSubcategories,
-
-products: paginatedProducts,
+  subcategories: paginatedSubcategories,
 
   ratings,
   poles,
@@ -302,6 +300,7 @@ products: paginatedProducts,
    
   categorySlug,
   brandSlug,
+  subcategories,
   ratings,
   poles,
   boards,

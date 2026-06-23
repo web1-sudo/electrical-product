@@ -302,6 +302,7 @@ products: paginatedProducts,
    
   categorySlug,
   brandSlug,
+  subcategories,
   ratings,
   poles,
   boards,

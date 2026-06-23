@@ -43,15 +43,15 @@
 
     <div class="product-tabs mb-4">
 
-        <a href="?tab=auralis" class="btn <%= activeTab === 'auralis' ? 'btn-theme-danger' : 'btn-theme-danger-outline' %>">
+        <a href="?tab=auralis" class="btn <%= activeTab === 'auralis' ? 'btn-danger' : 'btn-outline-danger' %>">
             Auralis
         </a>
 
-        <a href="?tab=elvo" class="btn <%= activeTab === 'elvo' ? 'btn-theme-danger' : 'btn-theme-danger-outline' %>">
+        <a href="?tab=elvo" class="btn <%= activeTab === 'elvo' ? 'btn-danger' : 'btn-outline-danger' %>">
             Elvo
         </a>
 
-        <a href="?tab=avina" class="btn <%= activeTab === 'avina' ? 'btn-theme-danger' : 'btn-theme-danger-outline' %>">
+        <a href="?tab=avina" class="btn <%= activeTab === 'avina' ? 'btn-danger' : 'btn-outline-danger' %>">
             Avina
         </a>
 
@@ -63,11 +63,11 @@
 
     <div class="product-tabs mb-4">
 
-        <a href="?tab=mcb" class="btn <%= activeTab === 'mcb' ? 'btn-theme-danger' : 'btn-theme-danger-outline' %>">
+        <a href="?tab=mcb" class="btn <%= activeTab === 'mcb' ? 'btn-danger' : 'btn-outline-danger' %>">
             MCB
         </a>
 
-        <a href="?tab=isolator" class="btn <%= activeTab === 'isolator' ? 'btn-theme-danger' : 'btn-theme-danger-outline' %>">
+        <a href="?tab=isolator" class="btn <%= activeTab === 'isolator' ? 'btn-danger' : 'btn-outline-danger' %>">
             Isolator
         </a>
 
@@ -266,7 +266,7 @@
 
                 </div>
 
-            <!-- PRODUCT CARDS -->
+                <!-- SUBCATEGORY CARDS -->
 
                 <div class="col-lg-9">
 
@@ -301,7 +301,6 @@
                         </div>
                     
                         <% }) %>
-<% if(totalPages> 1){ %>
 
     <div class="row justify-content-center mt-5">
 
@@ -314,16 +313,18 @@
                     <% if(page> 1){ %>
 
                         <li class="page-item">
+
                             <a class="page-link" href="?page=<%= page - 1 %>">
                                 &lt;
                             </a>
+
                         </li>
 
                         <% } %>
 
-                            <% for(let i=1; i <=totalPages; i++){ %>
+                            <% for(let i=1;i<=totalPages;i++){ %>
 
-                                <li class="page-item <%= page === i ? 'active' : '' %>">
+                                <li class="page-item <%= page===i ? 'active' : '' %>">
 
                                     <a class="page-link" href="?page=<%= i %>">
                                         <%= i %>
@@ -336,9 +337,11 @@
                                     <% if(page < totalPages){ %>
 
                                         <li class="page-item">
+
                                             <a class="page-link" href="?page=<%= page + 1 %>">
                                                 &gt;
                                             </a>
+
                                         </li>
 
                                         <% } %>
@@ -352,13 +355,16 @@
     </div>
 
     <% } %>
+                </div>
+
+
+
+
+
+            </div>
 
         </div>
 
-        </div>
+    </section>
 
-        </div>
-
-        </section>
-
-        <%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>

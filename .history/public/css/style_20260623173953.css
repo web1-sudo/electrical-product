@@ -479,7 +479,8 @@ text-align:start;
 }
 
 .nav-link.active {
-    color: #e52320 !important;
+    color: #dc3545 !important;
+    font-weight: 600;
 }
 .btn-theme-danger {
   height: 38px;
@@ -498,34 +499,6 @@ text-align:start;
 .btn-theme-danger:hover {
   background-color: #e3000f;
   color: #fff;
-}
-.btn-theme-danger-outline {
-  height: 38px;
-  font-size: 13px;
-  font-family: "Montserrat", sans-serif;
-  line-height: 0px;
-  letter-spacing: 5%;
-  padding: 20px 25px;
-  border-radius: 3px;
-  background-color:transparent ;
-  color: #e3000f;
-  font-weight: 400;
-   border: 1px solid #e3000f;
-  text-transform: uppercase;
-}
-.btn-theme-danger-outline:hover {
-  height: 38px;
-  font-size: 13px;
-  font-family: "Montserrat", sans-serif;
-  line-height: 0px;
-  letter-spacing: 5%;
-  padding: 20px 25px;
-  border-radius: 3px;
-  background-color: #e3000f;
-  color: #fff;
-  font-weight: 400;
-   border:none;
-  text-transform: uppercase;
 }
 .btn-theme-outline {
   height: 38px;

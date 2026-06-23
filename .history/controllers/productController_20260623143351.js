@@ -56,7 +56,7 @@ exports.categoryListing = (req, res) => {
   const categorySlug = req.params.category;
 
   const page = parseInt(req.query.page) || 1;
-  const perPage = 8;
+  const perPage = 12;
 
   db.query(
     `
@@ -112,174 +112,107 @@ exports.brandListing = (req, res) => {
   const brandSlug = req.params.brand;
 
   const page = parseInt(req.query.page) || 1;
-  const perPage = 8;
+  const perPage = 12;
 
-  let sql = `
+  db.query(
+    `
     SELECT *
     FROM products
     WHERE LOWER(REPLACE(category,' ','-')) = ?
     AND LOWER(REPLACE(brand,' ','-')) = ?
-  `;
+    `,
+    [categorySlug, brandSlug],
+    (err, results) => {
 
-  const values = [
-    categorySlug,
-    brandSlug
-  ];
+      if (err) {
+        console.log(err);
+        return res.send("Database Error");
+      }
 
-  // Rating Filter
+      const subcategories = [
+        ...new Map(
+          results.map(item => [
+            item.subcategory,
+            {
+              name: item.subcategory,
+              slug: item.subcategory.toLowerCase().replace(/\s+/g, "-"),
+              image: item.image
+            }
+          ])
+        ).values()
+      ];
 
-  if (req.query.rating) {
+      const ratings = [
+        ...new Set(
+          results
+            .map(item => item.rating)
+            .filter(Boolean)
+        )
+      ];
 
-    const ratings = Array.isArray(req.query.rating)
-      ? req.query.rating
-      : [req.query.rating];
+      const poles = [
+        ...new Set(
+          results
+            .map(item => item.poles)
+            .filter(Boolean)
+        )
+      ];
 
-    sql += ` AND rating IN (${ratings.map(() => "?").join(",")})`;
+      const boards = [
+        ...new Set(
+          results
+            .map(item => item.boards)
+            .filter(Boolean)
+        )
+      ];
 
-    values.push(...ratings);
+      const boardTypes = [
+        ...new Set(
+          results
+            .map(item => item.boards_type)
+            .filter(Boolean)
+        )
+      ];
 
-  }
+      const totalItems = subcategories.length;
+      const totalPages = Math.ceil(totalItems / perPage);
 
-  // Poles Filter
+      const start = (page - 1) * perPage;
+      const end = start + perPage;
 
-  if (req.query.poles) {
+      const paginatedSubcategories = subcategories.slice(start, end);
 
-    const poles = Array.isArray(req.query.poles)
-      ? req.query.poles
-      : [req.query.poles];
+      res.render("brand/brand-listing", {
 
-    sql += ` AND poles IN (${poles.map(() => "?").join(",")})`;
+        categoryName: categorySlug
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, l => l.toUpperCase()),
 
-    values.push(...poles);
+        categorySlug,
 
-  }
+        brandName: brandSlug
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, l => l.toUpperCase()),
 
-  // Boards Filter
+        brandSlug,
 
-  if (req.query.boards) {
+        subcategories: paginatedSubcategories,
 
-    const boards = Array.isArray(req.query.boards)
-      ? req.query.boards
-      : [req.query.boards];
+        ratings,
+        poles,
+        boards,
+        boardTypes,
 
-    sql += ` AND boards IN (${boards.map(() => "?").join(",")})`;
+        page,
+        totalPages
 
-    values.push(...boards);
+      });
 
-  }
-
-  // Boards Type Filter
-
-  if (req.query.boards_type) {
-
-    const boardTypes = Array.isArray(req.query.boards_type)
-      ? req.query.boards_type
-      : [req.query.boards_type];
-
-    sql += ` AND boards_type IN (${boardTypes.map(() => "?").join(",")})`;
-
-    values.push(...boardTypes);
-
-  }
-
-  console.log(sql);
-  console.log(values);
-
-  db.query(sql, values, (err, results) => {
-
-    if (err) {
-      console.log(err);
-      return res.send("Database Error");
     }
-
-    const subcategories = [
-      ...new Map(
-        results.map(item => [
-          item.subcategory,
-          {
-            name: item.subcategory,
-            slug: item.subcategory.toLowerCase().replace(/\s+/g, "-"),
-            image: item.image
-          }
-        ])
-      ).values()
-    ];
-
-    // Filter Options
-
-    const ratings = [
-      ...new Set(
-        results
-          .map(item => item.rating)
-          .filter(Boolean)
-      )
-    ];
-
-    const poles = [
-      ...new Set(
-        results
-          .map(item => item.poles)
-          .filter(Boolean)
-      )
-    ];
-
-    const boards = [
-      ...new Set(
-        results
-          .map(item => item.boards)
-          .filter(Boolean)
-      )
-    ];
-
-    const boardTypes = [
-      ...new Set(
-        results
-          .map(item => item.boards_type)
-          .filter(Boolean)
-      )
-    ];
-
-    // Pagination
-
-    const totalItems = subcategories.length;
-    const totalPages = Math.ceil(totalItems / perPage);
-
-    const start = (page - 1) * perPage;
-    const end = start + perPage;
-
-    const paginatedSubcategories = subcategories.slice(start, end);
-
-    res.render("brand/brand-listing", {
-
-      categoryName: categorySlug
-        .replace(/-/g, " ")
-        .replace(/\b\w/g, l => l.toUpperCase()),
-
-      categorySlug,
-
-      brandName: brandSlug
-        .replace(/-/g, " ")
-        .replace(/\b\w/g, l => l.toUpperCase()),
-
-      brandSlug,
-
-      subcategories: paginatedSubcategories,
-
-      ratings,
-      poles,
-      boards,
-      boardTypes,
-
-      selectedFilters: req.query,
-
-      page,
-      totalPages
-
-    });
-
-  });
+  );
 
 };
+
 
 
 exports.subcategoryListing = (req, res) => {
@@ -289,7 +222,7 @@ exports.subcategoryListing = (req, res) => {
   const subcategorySlug = req.params.subcategory;
 
   const page = parseInt(req.query.page) || 1;
-  const perPage = 8;
+  const perPage = 12;
 
   let sql = `
     SELECT *
@@ -364,34 +297,38 @@ exports.subcategoryListing = (req, res) => {
 
     const paginatedProducts = products.slice(start, end);
 
-     res.render("subcategory/subcategory-listing", {
-      categoryName: categorySlug
-        .replace(/-/g, " ")
-        .replace(/\b\w/g, l => l.toUpperCase()),
+    res.render(
+      "subcategory/subcategory-listing",
+      {
 
-      categorySlug,
+        categoryName: categorySlug
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, l => l.toUpperCase()),
 
-      brandName: brandSlug
-        .replace(/-/g, " ")
-        .replace(/\b\w/g, l => l.toUpperCase()),
+        categorySlug,
 
-      brandSlug,
+        brandName: brandSlug
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, l => l.toUpperCase()),
 
-      subcategoryName: subcategorySlug
-        .replace(/-/g, " ")
-        .replace(/\b\w/g, l => l.toUpperCase()),
+        brandSlug,
 
-      products: paginatedProducts,
+        subcategoryName: subcategorySlug
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, l => l.toUpperCase()),
 
-      selectedFilters: req.query,
+        products: paginatedProducts,
 
-      page,
-      totalPages
-    });
+        page,
+        totalPages
+
+      }
+    );
 
   });
 
 };
+
 exports.singleProduct = (req, res) => {
 
   Product.getSingleProduct(

@@ -68,8 +68,6 @@
                                         <%=Array.isArray(selectedFilters.rating) ? selectedFilters.rating.includes(item) ? 'checked' : '' :
                                         selectedFilters.rating===item ? 'checked' : '' %>
                                     onchange="document.getElementById('filterForm').submit()">
-
-
                                         <label class="form-check-label">
                                             <%= item %>
                                         </label>
@@ -90,9 +88,9 @@
 
                                             <div class="form-check mb-2">
 
-                                        <input class="form-check-input" type="checkbox" name="poles" value="<%= item %>" <%=Array.isArray(selectedFilters.poles)
-                                            ? selectedFilters.poles.includes(item) ? 'checked' : '' : selectedFilters.poles===item ? 'checked' : '' %>
-                                        onchange="document.getElementById('filterForm').submit()">
+                                                <input class="form-check-input" type="checkbox" name="poles"
+                                                    value="<%= item %>"
+                                                    onchange="document.getElementById('filterForm').submit()">
 
                                                 <label class="form-check-label">
                                                     <%= item %>
@@ -114,10 +112,9 @@
 
                                                             <div class="form-check mb-2">
 
-                                                            <input class="form-check-input" type="checkbox" name="boards" value="<%= item %>"
-                                                                <%=Array.isArray(selectedFilters.boards) ? selectedFilters.boards.includes(item) ? 'checked' : '' :
-                                                                selectedFilters.boards===item ? 'checked' : '' %>
-                                                            onchange="document.getElementById('filterForm').submit()">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    name="boards" value="<%= item %>"
+                                                                    onchange="document.getElementById('filterForm').submit()">
 
                                                                 <label class="form-check-label">
                                                                     <%= item %>
@@ -137,10 +134,9 @@
 
                                                                     <div class="form-check mb-2">
 
-                                                                    <input class="form-check-input" type="checkbox" name="boards_type" value="<%= item %>"
-                                                                        <%=Array.isArray(selectedFilters.boards_type) ? selectedFilters.boards_type.includes(item) ? 'checked' : '' :
-                                                                        selectedFilters.boards_type===item ? 'checked' : '' %>
-                                                                    onchange="document.getElementById('filterForm').submit()">
+                                                                        <input class="form-check-input" type="checkbox"
+                                                                            name="boards_type" value="<%= item %>"
+                                                                            onchange="document.getElementById('filterForm').submit()">
 
                                                                         <label class="form-check-label">
                                                                             <%= item %>
@@ -162,10 +158,11 @@
 
                                                                                     <div class="form-check mb-2">
 
-                                                                                    <input class="form-check-input" type="checkbox" name="boards" value="<%= item %>"
-                                                                                        <%=Array.isArray(selectedFilters.boards) ? selectedFilters.boards.includes(item) ? 'checked' : '' :
-                                                                                        selectedFilters.boards===item ? 'checked' : '' %>
-                                                                                    onchange="document.getElementById('filterForm').submit()">
+                                                                                        <input class="form-check-input"
+                                                                                            type="checkbox"
+                                                                                            name="boards"
+                                                                                            value="<%= item %>"
+                                                                                            onchange="document.getElementById('filterForm').submit()">
 
                                                                                         <label class="form-check-label">
                                                                                             <%= item %>

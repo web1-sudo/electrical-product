@@ -1,0 +1,204 @@
+<%- include('../partials/header') %>
+
+    <section class="product-page py-5">
+
+        <div class="container">
+
+            <!-- Breadcrumb -->
+
+            <div class="breadcrumb mb-4">
+
+                <a href="/">Home</a>
+
+                <span> ></span>
+
+                <a href="/products">
+                    Products
+                </a>
+
+                <span> ></span>
+
+                <a href="/products/<%= categorySlug %>">
+                    <%= categoryName %>
+                </a>
+
+                <span> ></span>
+
+                <a href="/products/<%= categorySlug %>/<%= brandSlug %>">
+                    <%= brandName %>
+                </a>
+
+                <span> ></span>
+
+                <strong>
+                    <%= subcategoryName %>
+                </strong>
+
+            </div>
+
+            <!-- Title -->
+
+            <div class="section-title text-center mb-5">
+
+                <h1>
+                    <%= brandName %>
+                        <%= subcategoryName %>
+                </h1>
+
+            </div>
+
+            <!-- Products -->
+
+        <div class="row">
+        
+            <!-- FILTER SIDEBAR -->
+        
+            <div class="col-lg-3 mb-4">
+        
+                <div class="card p-3">
+        
+                    <h5 class="mb-3">
+                        Filters
+                    </h5>
+        
+                    <% if(brandSlug==='eq9' ){ %>
+        
+                        <div class="mb-4">
+        
+                            <h6>Current Rating</h6>
+        
+                            <label><input type="checkbox"> 6A</label><br>
+                            <label><input type="checkbox"> 10A</label><br>
+                            <label><input type="checkbox"> 16A</label><br>
+                            <label><input type="checkbox"> 20A</label>
+        
+                        </div>
+        
+                        <div class="mb-4">
+        
+                            <h6>Curve Type</h6>
+        
+                            <label><input type="checkbox"> B</label><br>
+                            <label><input type="checkbox"> C</label><br>
+                            <label><input type="checkbox"> D</label>
+        
+                        </div>
+        
+                        <div class="mb-4">
+        
+                            <h6>No Of Poles</h6>
+        
+                            <label><input type="checkbox"> SP</label><br>
+                            <label><input type="checkbox"> DP</label><br>
+                            <label><input type="checkbox"> TP</label><br>
+                            <label><input type="checkbox"> TPN</label><br>
+                            <label><input type="checkbox"> FP</label>
+        
+                        </div>
+        
+                        <% } %>
+        
+                            <% if(brandSlug==='auralis' ){ %>
+        
+                                <div class="mb-4">
+        
+                                    <h6>Boards</h6>
+        
+                                    <label><input type="checkbox"> 4 Way</label><br>
+                                    <label><input type="checkbox"> 6 Way</label><br>
+                                    <label><input type="checkbox"> 8 Way</label>
+        
+                                </div>
+        
+                                <div class="mb-4">
+        
+                                    <h6>Boards Type</h6>
+        
+                                    <label><input type="checkbox"> SPN</label><br>
+                                    <label><input type="checkbox"> TPN</label>
+        
+                                </div>
+        
+                                <% } %>
+        
+                                    <% if(brandSlug==='elvo' ){ %>
+        
+                                        <div class="mb-4">
+        
+                                            <h6>Boards</h6>
+        
+                                            <label><input type="checkbox"> 4 Way</label><br>
+                                            <label><input type="checkbox"> 6 Way</label><br>
+                                            <label><input type="checkbox"> 8 Way</label>
+        
+                                        </div>
+        
+                                        <% } %>
+        
+                                            <% if(brandSlug==='avina' ){ %>
+        
+                                                <div class="mb-4">
+        
+                                                    <h6>Boards Type</h6>
+        
+                                                    <label><input type="checkbox"> SPN</label><br>
+                                                    <label><input type="checkbox"> TPN</label>
+        
+                                                </div>
+        
+                                                <% } %>
+        
+                </div>
+        
+            </div>
+        
+            <!-- PRODUCT LIST -->
+        
+            <div class="col-lg-9">
+        
+                <div class="row g-4">
+        
+                    <% products.forEach(function(product){ %>
+        
+                        <div class="col-lg-4 col-md-6">
+        
+                            <a href="/product/<%= product.slug %>" class="text-decoration-none text-dark">
+        
+                                <div class="product-card h-100">
+        
+                                    <div class="product-card-image">
+        
+                                        <img src="/images/<%= product.image %>" alt="<%= product.name %>" class="img-fluid">
+        
+                                    </div>
+        
+                                    <div class="product-card-content text-center p-3">
+        
+                                        <h5>
+                                            <%= product.name %>
+                                        </h5>
+        
+                                    </div>
+        
+                                </div>
+        
+                            </a>
+        
+                        </div>
+        
+                        <% }) %>
+        
+                </div>
+        
+            </div>
+        
+        </div>
+        </div>
+
+    </section>
+
+    <%- include('../partials/footer') %>
+
+
+
+

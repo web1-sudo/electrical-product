@@ -1,0 +1,94 @@
+<%- include('../partials/header') %>
+
+    <section class="product-page py-5">
+
+        <div class="container">
+
+            <!-- Breadcrumb -->
+
+            <div class="breadcrumb mb-4">
+
+                <a href="/">Home</a>
+
+                <span> ></span>
+
+                <a href="/products">
+                    Products
+                </a>
+
+                <span> ></span>
+
+                <a href="/products/<%= categorySlug %>">
+                    <%= categoryName %>
+                </a>
+
+                <span> ></span>
+
+                <a href="/products/<%= categorySlug %>/<%= brandSlug %>">
+                    <%= brandName %>
+                </a>
+
+                <span> ></span>
+
+                <strong>
+                    <%= subcategoryName %>
+                </strong>
+
+            </div>
+
+            <!-- Title -->
+
+            <div class="section-title text-center mb-5">
+
+                <h1>
+                    <%= brandName %>
+                        <%= subcategoryName %>
+                </h1>
+
+            </div>
+
+            <!-- Products -->
+
+            <div class="row g-4">
+
+                <% products.forEach(function(product){ %>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+
+                        <a href="/product/<%= product.slug %>" class="text-decoration-none text-dark">
+
+                            <div class="product-card h-100">
+
+                                <div class="product-card-image">
+
+                                    <img src="/images/<%= product.image %>" alt="<%= product.name %>" class="img-fluid">
+
+                                </div>
+
+                                <div class="product-card-content text-center p-3">
+
+                                    <h5>
+                                        <%= product.name %>
+                                    </h5>
+
+                                </div>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                    <% }) %>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <%- include('../partials/footer') %>
+
+
+
+    

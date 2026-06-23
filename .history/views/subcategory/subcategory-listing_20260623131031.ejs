@@ -35,8 +35,7 @@
             </div>
 
             <div class="row">
-<h2>Total Products: <%= products.length %>
-</h2>
+
                 <!-- FILTER SIDEBAR -->
 
                 <div class="col-lg-3">
@@ -63,15 +62,7 @@
 
                                     <div class="dropdown-content">
 
-                                        <input type="checkbox" class="filter-check" name="rating" value="2A">
-
-                                        <label>2A</label>
-
-                                    </div>
-
-                                    <div class="dropdown-content">
-
-                                        <input type="checkbox" class="filter-check" name="rating" value="6A">
+                                        <input type="checkbox" class="filter-check" name="rating[]" value="6A">
 
                                         <label>6A</label>
 
@@ -87,7 +78,7 @@
 
                                     <div class="dropdown-content">
 
-                                        <input type="checkbox" class="filter-check" name="rating" value="16A">
+                                        <input type="checkbox" class="filter-check" name="rating[]" value="16A">
 
                                         <label>16A</label>
 
@@ -95,7 +86,7 @@
 
                                     <div class="dropdown-content">
 
-                                        <input type="checkbox" class="filter-check" name="rating" value="20A">
+                                        <input type="checkbox" class="filter-check" name="rating[]" value="20A">
 
                                         <label>20A</label>
 
@@ -117,7 +108,7 @@
 
                                     <div class="dropdown-content">
 
-                                        <input type="checkbox" class="filter-check" name="curve_type" value="B">
+                                        <input type="checkbox" class="filter-check" name="curve_type[]" value="B">
 
                                         <label>B</label>
 
@@ -125,7 +116,7 @@
 
                                     <div class="dropdown-content">
 
-                                        <input type="checkbox" class="filter-check" name="curve_type" value="C">
+                                        <input type="checkbox" class="filter-check" name="curve_type[]" value="C">
 
                                         <label>C</label>
 
@@ -147,7 +138,7 @@
 
                                     <div class="dropdown-content">
 
-                                        <input type="checkbox" class="filter-check" name="poles" value="Single Pole">
+                                        <input type="checkbox" class="filter-check" name="poles[]" value="Single Pole">
 
                                         <label>Single Pole</label>
 
@@ -155,7 +146,7 @@
 
                                     <div class="dropdown-content">
 
-                                        <input type="checkbox" class="filter-check" name="poles" value="Double Pole">
+                                        <input type="checkbox" class="filter-check" name="poles[]" value="Double Pole">
 
                                         <label>Double Pole</label>
 
@@ -163,7 +154,7 @@
 
                                     <div class="dropdown-content">
 
-                                        <input type="checkbox" class="filter-check" name="poles" value="Three Pole">
+                                        <input type="checkbox" class="filter-check" name="poles[]" value="Three Pole">
 
                                         <label>Three Pole</label>
 
@@ -171,7 +162,7 @@
 
                                     <div class="dropdown-content">
 
-                                        <input type="checkbox" class="filter-check" name="poles" value="Four Pole">
+                                        <input type="checkbox" class="filter-check" name="poles[]" value="Four Pole">
 
                                         <label>Four Pole</label>
 
@@ -187,7 +178,7 @@
 
                                     <div class="dropdown-content">
 
-                                        <input type="checkbox" class="filter-check" name="boards" value="4 Way">
+                                        <input type="checkbox" class="filter-check" name="boards[]" value="4 Way">
 
                                         <label>4 Way</label>
 
@@ -195,7 +186,7 @@
 
                                     <div class="dropdown-content">
 
-                                        <input type="checkbox" class="filter-check" name="boards_type" value="SPN">
+                                        <input type="checkbox" class="filter-check" name="boards_type[]" value="SPN">
 
                                         <label>SPN</label>
 
@@ -207,7 +198,7 @@
 
                                             <div class="dropdown-content">
 
-                                                <input type="checkbox" class="filter-check" name="boards"
+                                                <input type="checkbox" class="filter-check" name="boards[]"
                                                     value="4 Way">
 
                                                 <label>4 Way</label>
@@ -220,7 +211,7 @@
 
                                                     <div class="dropdown-content">
 
-                                                        <input type="checkbox" class="filter-check" name="boards_type"
+                                                        <input type="checkbox" class="filter-check" name="boards_type[]"
                                                             value="TPN">
 
                                                         <label>TPN</label>

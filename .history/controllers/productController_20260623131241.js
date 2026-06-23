@@ -155,7 +155,39 @@ exports.subcategoryListing = (req, res) => {
   ];
 
   // EQ9 Filters
-// EQ9 Filters
+
+  if (req.query.rating) {
+
+    const ratings = Array.isArray(req.query.rating)
+      ? req.query.rating
+      : [req.query.rating];
+
+    sql += ` AND rating IN (${ratings.map(() => "?").join(",")})`;
+
+    values.push(...ratings);
+  }
+
+  if (req.query.poles) {
+
+    const poles = Array.isArray(req.query.poles)
+      ? req.query.poles
+      : [req.query.poles];
+
+    sql += ` AND poles IN (${poles.map(() => "?").join(",")})`;
+
+    values.push(...poles);
+  }
+
+  if (req.query.curve_type) {
+
+    const curves = Array.isArray(req.query.curve_type)
+      ? req.query.curve_type
+      : [req.query.curve_type];
+
+    sql += ` AND curve_type IN (${curves.map(() => "?").join(",")})`;
+
+    values.push(...curves);
+  }
 
 if (req.query.rating) {
 
@@ -167,7 +199,6 @@ if (req.query.rating) {
 
   values.push(...ratings);
 }
-
 if (req.query.poles) {
 
   const poles = Array.isArray(req.query.poles)
@@ -179,44 +210,34 @@ if (req.query.poles) {
   values.push(...poles);
 }
 
-// Only if you actually have curve_type column
-if (req.query.curve_type) {
+  // Auralis / Elvo
 
-  const curves = Array.isArray(req.query.curve_type)
-    ? req.query.curve_type
-    : [req.query.curve_type];
+  if (req.query.boards) {
 
-  sql += ` AND curve_type IN (${curves.map(() => "?").join(",")})`;
+    const boards = Array.isArray(req.query.boards)
+      ? req.query.boards
+      : [req.query.boards];
 
-  values.push(...curves);
-}
+    sql += ` AND boards IN (${boards.map(() => "?").join(",")})`;
 
-// Distribution Board Filters
+    values.push(...boards);
+  }
 
-if (req.query.boards) {
+  // Auralis / Avina
 
-  const boards = Array.isArray(req.query.boards)
-    ? req.query.boards
-    : [req.query.boards];
+  if (req.query.boards_type) {
 
-  sql += ` AND boards IN (${boards.map(() => "?").join(",")})`;
+    const boardTypes = Array.isArray(req.query.boards_type)
+      ? req.query.boards_type
+      : [req.query.boards_type];
 
-  values.push(...boards);
-}
+    sql += ` AND boards_type IN (${boardTypes.map(() => "?").join(",")})`;
 
-if (req.query.boards_type) {
+    values.push(...boardTypes);
+  }
 
-  const boardTypes = Array.isArray(req.query.boards_type)
-    ? req.query.boards_type
-    : [req.query.boards_type];
-
-  sql += ` AND boards_type IN (${boardTypes.map(() => "?").join(",")})`;
-
-  values.push(...boardTypes);
-}
-
-console.log(sql);
-console.log(values);
+  console.log(sql);
+  console.log(values);
 
   db.query(sql, values, (err, products) => {
 

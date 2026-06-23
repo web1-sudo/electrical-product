@@ -155,7 +155,39 @@ exports.subcategoryListing = (req, res) => {
   ];
 
   // EQ9 Filters
-// EQ9 Filters
+
+  if (req.query.rating) {
+
+    const ratings = Array.isArray(req.query.rating)
+      ? req.query.rating
+      : [req.query.rating];
+
+    sql += ` AND rating IN (${ratings.map(() => "?").join(",")})`;
+
+    values.push(...ratings);
+  }
+
+  if (req.query.poles) {
+
+    const poles = Array.isArray(req.query.poles)
+      ? req.query.poles
+      : [req.query.poles];
+
+    sql += ` AND poles IN (${poles.map(() => "?").join(",")})`;
+
+    values.push(...poles);
+  }
+
+  if (req.query.curve_type) {
+
+    const curves = Array.isArray(req.query.curve_type)
+      ? req.query.curve_type
+      : [req.query.curve_type];
+
+    sql += ` AND curve_type IN (${curves.map(() => "?").join(",")})`;
+
+    values.push(...curves);
+  }
 
 if (req.query.rating) {
 
@@ -168,55 +200,34 @@ if (req.query.rating) {
   values.push(...ratings);
 }
 
-if (req.query.poles) {
+  // Auralis / Elvo
 
-  const poles = Array.isArray(req.query.poles)
-    ? req.query.poles
-    : [req.query.poles];
+  if (req.query.boards) {
 
-  sql += ` AND poles IN (${poles.map(() => "?").join(",")})`;
+    const boards = Array.isArray(req.query.boards)
+      ? req.query.boards
+      : [req.query.boards];
 
-  values.push(...poles);
-}
+    sql += ` AND boards IN (${boards.map(() => "?").join(",")})`;
 
-// Only if you actually have curve_type column
-if (req.query.curve_type) {
+    values.push(...boards);
+  }
 
-  const curves = Array.isArray(req.query.curve_type)
-    ? req.query.curve_type
-    : [req.query.curve_type];
+  // Auralis / Avina
 
-  sql += ` AND curve_type IN (${curves.map(() => "?").join(",")})`;
+  if (req.query.boards_type) {
 
-  values.push(...curves);
-}
+    const boardTypes = Array.isArray(req.query.boards_type)
+      ? req.query.boards_type
+      : [req.query.boards_type];
 
-// Distribution Board Filters
+    sql += ` AND boards_type IN (${boardTypes.map(() => "?").join(",")})`;
 
-if (req.query.boards) {
+    values.push(...boardTypes);
+  }
 
-  const boards = Array.isArray(req.query.boards)
-    ? req.query.boards
-    : [req.query.boards];
-
-  sql += ` AND boards IN (${boards.map(() => "?").join(",")})`;
-
-  values.push(...boards);
-}
-
-if (req.query.boards_type) {
-
-  const boardTypes = Array.isArray(req.query.boards_type)
-    ? req.query.boards_type
-    : [req.query.boards_type];
-
-  sql += ` AND boards_type IN (${boardTypes.map(() => "?").join(",")})`;
-
-  values.push(...boardTypes);
-}
-
-console.log(sql);
-console.log(values);
+  console.log(sql);
+  console.log(values);
 
   db.query(sql, values, (err, products) => {
 

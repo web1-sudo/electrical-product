@@ -26,7 +26,7 @@ exports.homePage = (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        const perPage = 9;
+        const perPage = 8;
 
         const start = (filters.page - 1) * perPage;
 
@@ -56,7 +56,7 @@ exports.categoryListing = (req, res) => {
   const categorySlug = req.params.category;
 
   const page = parseInt(req.query.page) || 1;
-  const perPage = 9;
+  const perPage = 8;
 
   db.query(
     `
@@ -114,7 +114,7 @@ const brandSlug = req.params.brand;
 const activeTab = req.query.tab || "mcb";
 
 const page = parseInt(req.query.page) || 1;
-const perPage = 9;
+const perPage = 8;
 
 let sql = `SELECT * FROM products WHERE LOWER(REPLACE(category,' ','-')) = ? AND LOWER(REPLACE(brand,' ','-')) = ?`;
 
@@ -293,6 +293,7 @@ res.render("brand/brand-listing", {
 
    
   categorySlug,
+  brandName,
   brandSlug,
   subcategories,
   ratings,
@@ -317,7 +318,7 @@ exports.subcategoryListing = (req, res) => {
   const subcategorySlug = req.params.subcategory;
 
   const page = parseInt(req.query.page) || 1;
-  const perPage = 9;
+  const perPage = 8;
 
   let sql = `
     SELECT *

@@ -26,7 +26,7 @@ exports.homePage = (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        const perPage = 9;
+        const perPage = 8;
 
         const start = (filters.page - 1) * perPage;
 
@@ -56,7 +56,7 @@ exports.categoryListing = (req, res) => {
   const categorySlug = req.params.category;
 
   const page = parseInt(req.query.page) || 1;
-  const perPage = 9;
+  const perPage = 8;
 
   db.query(
     `
@@ -114,7 +114,7 @@ const brandSlug = req.params.brand;
 const activeTab = req.query.tab || "mcb";
 
 const page = parseInt(req.query.page) || 1;
-const perPage = 9;
+const perPage = 8;
 
 let sql = `SELECT * FROM products WHERE LOWER(REPLACE(category,' ','-')) = ? AND LOWER(REPLACE(brand,' ','-')) = ?`;
 
@@ -227,34 +227,6 @@ const boardTypes = [
   ...new Set(results.map(item => item.boards_type).filter(Boolean))
 ];
 
-
-if (categorySlug === "distribution-boards") {
-
-  if (activeTab === "auralis") {
-    sql += " AND LOWER(REPLACE(brand,' ','-')) = ?";
-    values.push("auralis");
-  }
-
-  if (activeTab === "elvo") {
-    sql += " AND LOWER(REPLACE(brand,' ','-')) = ?";
-    values.push("elvo");
-  }
-
-  if (activeTab === "avina") {
-    sql += " AND LOWER(REPLACE(brand,' ','-')) = ?";
-    values.push("avina");
-  }
-
-} else {
-
-  sql += `
-    AND LOWER(REPLACE(brand,' ','-')) = ?
-  `;
-
-  values.push(brandSlug);
-
-}
-
 const totalItems = subcategories.length;
 const totalPages = Math.ceil(totalItems / perPage);
 
@@ -289,19 +261,6 @@ res.render("brand/brand-listing", {
   selectedFilters: req.query,
 
   page,
-  totalPages ,
-
-   
-  categorySlug,
-  brandSlug,
-  subcategories,
-  ratings,
-  poles,
-  boards,
-  boardTypes,
-  activeTab,
-  selectedFilters: req.query,
-  page,
   totalPages
 
 });
@@ -317,7 +276,7 @@ exports.subcategoryListing = (req, res) => {
   const subcategorySlug = req.params.subcategory;
 
   const page = parseInt(req.query.page) || 1;
-  const perPage = 9;
+  const perPage = 8;
 
   let sql = `
     SELECT *

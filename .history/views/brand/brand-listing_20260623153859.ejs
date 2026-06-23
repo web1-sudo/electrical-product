@@ -85,9 +85,7 @@
                             Filters
                         </h4>
 
-                    <form id="filterForm" method="GET">
-                    
-                        <input type="hidden" name="tab" value="<%= activeTab %>">
+                        <form id="filterForm" method="GET">
 
                             <% if(brandSlug==='eq9' ){ %>
 
@@ -229,11 +227,7 @@
 
                                                                                                 <h6
                                                                                                     class="fw-bold mb-3">
-                                                                                                <% if(activeTab==='avina' ){ %>
-                                                                                                
-                                                                                                    Boards Type Filter
-                                                                                                
-                                                                                                    <% } %>
+                                                                                                    Boards Type
                                                                                                 </h6>
 
                                                                                                 <% boardTypes.forEach(function(item){
@@ -276,9 +270,8 @@
 
                             <div class="col-lg-4 col-md-6">
 
-                              <a href="/products/<%= categorySlug %>/<%= brandSlug %>/<%= item.slug %>"
-                                    class="text-decoration-none"> 
-
+                                <a href="/products/<%= categorySlug %>/<%= brandSlug %>/<%= item.slug %>"
+                                    class="text-decoration-none">
 
                                     <div class="product-card h-100">
 
@@ -371,10 +364,6 @@
 
     <% } %>
                 </div>
-
-
-
-
 
             </div>
 

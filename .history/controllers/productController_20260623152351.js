@@ -26,7 +26,7 @@ exports.homePage = (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        const perPage = 9;
+        const perPage = 8;
 
         const start = (filters.page - 1) * perPage;
 
@@ -56,7 +56,7 @@ exports.categoryListing = (req, res) => {
   const categorySlug = req.params.category;
 
   const page = parseInt(req.query.page) || 1;
-  const perPage = 9;
+  const perPage = 8;
 
   db.query(
     `
@@ -108,205 +108,168 @@ exports.categoryListing = (req, res) => {
 
 exports.brandListing = (req, res) => {
 
-const categorySlug = req.params.category;
-const brandSlug = req.params.brand;
+  const categorySlug = req.params.category;
+  const brandSlug = req.params.brand;
 
-const activeTab = req.query.tab || "mcb";
+  const page = parseInt(req.query.page) || 1;
+  const perPage = 8;
 
-const page = parseInt(req.query.page) || 1;
-const perPage = 9;
+  // Default tab
+  const activeTab = req.query.tab || "auralis";
 
-let sql = `SELECT * FROM products WHERE LOWER(REPLACE(category,' ','-')) = ? AND LOWER(REPLACE(brand,' ','-')) = ?`;
-
-const values = [
-categorySlug,
-brandSlug
-];
-
-// =========================
-// TAB FILTERS
-// =========================
-
-if (brandSlug === "eq9") {
-
-if (activeTab === "mcb") {
-  sql += ` AND LOWER(REPLACE(subcategory,' ','-')) = 'mcb'`;
-}
-
-if (activeTab === "isolator") {
-  sql += ` AND LOWER(REPLACE(subcategory,' ','-')) = 'isolator'`;
-}
-
-}
-
-// =========================
-// FILTERS
-// =========================
-
-if (req.query.rating) {
-
-const ratings = Array.isArray(req.query.rating)
-  ? req.query.rating
-  : [req.query.rating];
-
-sql += ` AND rating IN (${ratings.map(() => "?").join(",")})`;
-
-values.push(...ratings);
-
-}
-
-if (req.query.poles) {
-
-const poles = Array.isArray(req.query.poles)
-  ? req.query.poles
-  : [req.query.poles];
-
-sql += ` AND poles IN (${poles.map(() => "?").join(",")})`;
-
-values.push(...poles);
-
-}
-
-if (req.query.boards) {
-
-const boards = Array.isArray(req.query.boards)
-  ? req.query.boards
-  : [req.query.boards];
-
-sql += ` AND boards IN (${boards.map(() => "?").join(",")})`;
-
-values.push(...boards);
-
-}
-
-if (req.query.boards_type) {
-
-const boardTypes = Array.isArray(req.query.boards_type)
-  ? req.query.boards_type
-  : [req.query.boards_type];
-
-sql += ` AND boards_type IN (${boardTypes.map(() => "?").join(",")})`;
-
-values.push(...boardTypes);
-
-}
-
-db.query(sql, values, (err, results) => {
-
-if (err) {
-  console.log(err);
-  return res.send("Database Error");
-}
-
-const subcategories = [
-  ...new Map(
-    results.map(item => [
-      item.subcategory,
-      {
-        name: item.subcategory,
-        slug: item.subcategory.toLowerCase().replace(/\s+/g, "-"),
-        image: item.image
-      }
-    ])
-  ).values()
-];
-
-const ratings = [
-  ...new Set(results.map(item => item.rating).filter(Boolean))
-];
-
-const poles = [
-  ...new Set(results.map(item => item.poles).filter(Boolean))
-];
-
-const boards = [
-  ...new Set(results.map(item => item.boards).filter(Boolean))
-];
-
-const boardTypes = [
-  ...new Set(results.map(item => item.boards_type).filter(Boolean))
-];
-
-
-if (categorySlug === "distribution-boards") {
-
-  if (activeTab === "auralis") {
-    sql += " AND LOWER(REPLACE(brand,' ','-')) = ?";
-    values.push("auralis");
-  }
-
-  if (activeTab === "elvo") {
-    sql += " AND LOWER(REPLACE(brand,' ','-')) = ?";
-    values.push("elvo");
-  }
-
-  if (activeTab === "avina") {
-    sql += " AND LOWER(REPLACE(brand,' ','-')) = ?";
-    values.push("avina");
-  }
-
-} else {
-
-  sql += `
-    AND LOWER(REPLACE(brand,' ','-')) = ?
+  let sql = `
+    SELECT *
+    FROM products
+    WHERE LOWER(REPLACE(category,' ','-')) = ?
   `;
 
-  values.push(brandSlug);
+  const values = [categorySlug];
 
-}
+  // Distribution Boards Tabs
+  if (categorySlug === "distribution-boards") {
 
-const totalItems = subcategories.length;
-const totalPages = Math.ceil(totalItems / perPage);
+    if (activeTab === "auralis") {
+      sql += ` AND LOWER(REPLACE(brand,' ','-')) = 'auralis'`;
+    }
 
-const start = (page - 1) * perPage;
-const end = start + perPage;
+    if (activeTab === "elvo") {
+      sql += ` AND LOWER(REPLACE(brand,' ','-')) = 'elvo'`;
+    }
 
-const paginatedSubcategories = subcategories.slice(start, end);
+    if (activeTab === "avina") {
+      sql += ` AND LOWER(REPLACE(brand,' ','-')) = 'avina'`;
+    }
 
-res.render("brand/brand-listing", {
+  } else {
 
-  categoryName: categorySlug
-    .replace(/-/g, " ")
-    .replace(/\b\w/g, l => l.toUpperCase()),
+    sql += `
+      AND LOWER(REPLACE(brand,' ','-')) = ?
+    `;
 
-  categorySlug,
+    values.push(brandSlug);
 
-  brandName: brandSlug
-    .replace(/-/g, " ")
-    .replace(/\b\w/g, l => l.toUpperCase()),
+  }
 
-  brandSlug,
+  // Boards Filter
 
-  activeTab,
+  if (req.query.boards) {
 
-  subcategories: paginatedSubcategories,
+    const boards = Array.isArray(req.query.boards)
+      ? req.query.boards
+      : [req.query.boards];
 
-  ratings,
-  poles,
-  boards,
-  boardTypes,
+    sql += ` AND boards IN (${boards.map(() => "?").join(",")})`;
 
-  selectedFilters: req.query,
+    values.push(...boards);
+  }
 
-  page,
-  totalPages ,
+  // Boards Type Filter
 
-   
-  categorySlug,
-  brandSlug,
-  subcategories,
-  ratings,
-  poles,
-  boards,
-  boardTypes,
-  activeTab,
-  selectedFilters: req.query,
-  page,
-  totalPages
+  if (req.query.boards_type) {
 
-});
+    const boardTypes = Array.isArray(req.query.boards_type)
+      ? req.query.boards_type
+      : [req.query.boards_type];
 
-});
+    sql += ` AND boards_type IN (${boardTypes.map(() => "?").join(",")})`;
+
+    values.push(...boardTypes);
+  }
+
+  // EQ9 Filters
+
+  if (req.query.rating) {
+
+    const ratings = Array.isArray(req.query.rating)
+      ? req.query.rating
+      : [req.query.rating];
+
+    sql += ` AND rating IN (${ratings.map(() => "?").join(",")})`;
+
+    values.push(...ratings);
+  }
+
+  if (req.query.poles) {
+
+    const poles = Array.isArray(req.query.poles)
+      ? req.query.poles
+      : [req.query.poles];
+
+    sql += ` AND poles IN (${poles.map(() => "?").join(",")})`;
+
+    values.push(...poles);
+  }
+
+  console.log(sql);
+  console.log(values);
+
+  db.query(sql, values, (err, results) => {
+
+    if (err) {
+      console.log(err);
+      return res.send("Database Error");
+    }
+
+    const subcategories = [
+      ...new Map(
+        results.map(item => [
+          item.subcategory,
+          {
+            name: item.subcategory,
+            slug: item.subcategory.toLowerCase().replace(/\s+/g, "-"),
+            image: item.image
+          }
+        ])
+      ).values()
+    ];
+
+    const ratings = [...new Set(results.map(x => x.rating).filter(Boolean))];
+
+    const poles = [...new Set(results.map(x => x.poles).filter(Boolean))];
+
+    const boards = [...new Set(results.map(x => x.boards).filter(Boolean))];
+
+    const boardTypes = [...new Set(results.map(x => x.boards_type).filter(Boolean))];
+
+    const totalItems = subcategories.length;
+    const totalPages = Math.ceil(totalItems / perPage);
+
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
+
+    const paginatedSubcategories = subcategories.slice(start, end);
+
+    res.render("brand/brand-listing", {
+
+      categoryName: categorySlug
+        .replace(/-/g, " ")
+        .replace(/\b\w/g, l => l.toUpperCase()),
+
+      categorySlug,
+
+      brandName: brandSlug
+        .replace(/-/g, " ")
+        .replace(/\b\w/g, l => l.toUpperCase()),
+
+      brandSlug,
+
+      subcategories: paginatedSubcategories,
+
+      ratings,
+      poles,
+      boards,
+      boardTypes,
+
+      activeTab,
+
+      selectedFilters: req.query,
+
+      page,
+      totalPages
+
+    });
+
+  });
 
 };
 
@@ -317,7 +280,7 @@ exports.subcategoryListing = (req, res) => {
   const subcategorySlug = req.params.subcategory;
 
   const page = parseInt(req.query.page) || 1;
-  const perPage = 9;
+  const perPage = 8;
 
   let sql = `
     SELECT *

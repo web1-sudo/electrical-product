@@ -39,41 +39,25 @@
             </div>
 
             <div class="row">
-<% if(categorySlug==='distribution-boards' ){ %>
 
-    <div class="product-tabs mb-4">
 
-        <a href="?tab=auralis" class="btn <%= activeTab === 'auralis' ? 'btn-danger' : 'btn-outline-danger' %>">
-            Auralis
-        </a>
+<% if(brandSlug === 'eq9'){ %>
 
-        <a href="?tab=elvo" class="btn <%= activeTab === 'elvo' ? 'btn-danger' : 'btn-outline-danger' %>">
-            Elvo
-        </a>
+<div class="product-tabs mb-4">
 
-        <a href="?tab=avina" class="btn <%= activeTab === 'avina' ? 'btn-danger' : 'btn-outline-danger' %>">
-            Avina
-        </a>
+    <a href="?tab=mcb"
+       class="btn <%= activeTab === 'mcb' ? 'btn-danger' : 'btn-outline-danger' %>">
+       MCB
+    </a>
 
-    </div>
+    <a href="?tab=isolator"
+       class="btn <%= activeTab === 'isolator' ? 'btn-danger' : 'btn-outline-danger' %>">
+       Isolator
+    </a>
 
-    <% } %>
+</div>
 
-<% if(brandSlug==='eq9' ){ %>
-
-    <div class="product-tabs mb-4">
-
-        <a href="?tab=mcb" class="btn <%= activeTab === 'mcb' ? 'btn-danger' : 'btn-outline-danger' %>">
-            MCB
-        </a>
-
-        <a href="?tab=isolator" class="btn <%= activeTab === 'isolator' ? 'btn-danger' : 'btn-outline-danger' %>">
-            Isolator
-        </a>
-
-    </div>
-
-    <% } %>
+<% } %>
 
                 <!-- FILTERS -->
 
@@ -85,9 +69,7 @@
                             Filters
                         </h4>
 
-                    <form id="filterForm" method="GET">
-                    
-                        <input type="hidden" name="tab" value="<%= activeTab %>">
+                        <form id="filterForm" method="GET">
 
                             <% if(brandSlug==='eq9' ){ %>
 
@@ -144,13 +126,7 @@
                                                     <% if(brandSlug==='auralis' ){ %>
 
                                                         <h6 class="fw-bold mb-3">
-                                                        <% if(activeTab==='auralis' ){ %>
-                                                        
-                                                            Boards Filter
-                                                        
-                                                            Boards Type Filter
-                                                        
-                                                            <% } %>
+                                                            Boards
                                                         </h6>
 
                                                         <% boards.forEach(function(item){ %>
@@ -198,11 +174,7 @@
                                                                             <% if(brandSlug==='elvo' ){ %>
 
                                                                                 <h6 class="fw-bold mb-3">
-                                                                                <% if(activeTab==='elvo' ){ %>
-                                                                                
-                                                                                    Boards Filter
-                                                                                
-                                                                                    <% } %>
+                                                                                    Boards
                                                                                 </h6>
 
                                                                                 <% boards.forEach(function(item){ %>
@@ -229,11 +201,7 @@
 
                                                                                                 <h6
                                                                                                     class="fw-bold mb-3">
-                                                                                                <% if(activeTab==='avina' ){ %>
-                                                                                                
-                                                                                                    Boards Type Filter
-                                                                                                
-                                                                                                    <% } %>
+                                                                                                    Boards Type
                                                                                                 </h6>
 
                                                                                                 <% boardTypes.forEach(function(item){
@@ -276,9 +244,8 @@
 
                             <div class="col-lg-4 col-md-6">
 
-                              <a href="/products/<%= categorySlug %>/<%= brandSlug %>/<%= item.slug %>"
-                                    class="text-decoration-none"> 
-
+                                <a href="/products/<%= categorySlug %>/<%= brandSlug %>/<%= item.slug %>"
+                                    class="text-decoration-none">
 
                                     <div class="product-card h-100">
 
@@ -371,10 +338,6 @@
 
     <% } %>
                 </div>
-
-
-
-
 
             </div>
 

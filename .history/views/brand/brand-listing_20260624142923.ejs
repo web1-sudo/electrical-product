@@ -1,0 +1,405 @@
+<%- include('../partials/header') %>
+
+    <section class="product-banner py-5">
+        <img src="images/EQ9.png" alt="product image" class="banner-bg-img">
+        <div class="container">
+
+            <div class="text-content-banner">
+                <div class="breadcrumb">
+                    <div class="d-flex align-items-center">
+                        <a href="/">Home</a>
+                        <span class="mx-2" style="font-weight: 400; color: #999;">&gt;</span>
+
+                        <a href="/products/<%= categorySlug %>">
+                            <%= categoryName %>
+                        </a>
+                        <span class="mx-2" style="font-weight: 400; color: #999;">&gt;</span>
+
+                        <strong>
+                            <%= brandName %>
+                        </strong>
+                    </div>
+                </div>
+
+                <h1>
+                    <%= brandName %>
+                </h1>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="product-content">
+        <div class="container">
+            <div class="text-lg-start">
+                <div class="for-EQ9">
+<h2 class="fw-bolder">
+
+    EQ9 Miniature Circuit Breakers (MCBs) <br class="d-lg-block d-none"> from 0.5A To 63 A
+
+</h2>
+<p>
+    Alric Electric’s EQ9 series premium MCBs provides reliable and safe protection against overloads and
+    short circuits with
+    best-in-class technology <br class="d-lg-block d-none"> and infrastructure. These MCBs are
+    manufactured with recyclable
+    fire-retardant engineering
+    plastics ensuring safety and durability. <br class="d-lg-block d-none">
+    These MCBs are must-have safety product for distribution of power at homes, residential / commercial
+    buildings /
+    industrial applications.  
+</p>
+                </div>
+              
+                <div class="for-distribution-boards">
+<h2 class="fw-bolder">
+Auralis DBs
+
+</h2>
+<p>
+This range is crafted for demanding installations, offering high‑precision protection, advanced safety features, and
+premium‑grade materials. <br class="d-lg-block d-none" >
+Auralic DBs offers perfect solution for high‑end residential and commercial projects, corporate environments,
+architect‑specified installations, builders and industry. 
+</p>
+
+<span class="show-list" > Read More <i class="fa-solid fa-chevron-down"></i> </span>
+
+<ul>
+    <li>
+        Aesthetically pleasing contemporary DB design with rounded corners of metallic door
+    </li>
+    <li>
+        4-piece architecture DBs consisting of Wall box, DB frame, separate protection shield and DB door, comes with IP43 &
+        IK09 protection
+    </li>
+    <li>
+        Can opt for requirements such as IP54 protection, acrylic door, Mivan compatible DBs in 1.6mm thickness or special
+        customized Engineered To Order (ETO) DBs
+    </li>
+    <li>
+        DBs supplied with specially developed process by using rust resistant Galvanized Iron (GI) sheet pre-treated with water
+        spray-based nano-coating technology
+        followed by powder coating. Giving excellent best in class rust protection
+    </li>
+    <li>
+        DB Door can be assembled reversibly on either side of DB providing flexibility to customer at site based on space
+        availability.
+    </li>
+</ul>
+
+                </div>
+                
+
+            </div>
+        </div>
+        <div class="container tab-content active">
+            <div class="row">
+                <% if(categorySlug==='distribution-boards' ){ %>
+
+                    <div class="product-tabs tabs text-center ">
+                        <a href="/products/distribution-boards/auralis?tab=auralis"
+                            class="btn <%= activeTab === 'auralis' ? 'btn-theme-danger' : 'btn-theme-danger-outline' %>">
+                            Auralis
+                        </a>
+
+                        <a href="/products/distribution-boards/elvo?tab=elvo"
+                            class="btn <%= activeTab === 'elvo' ?  'btn-theme-danger' : 'btn-theme-danger-outline' %>">
+                            Elvo
+                        </a>
+
+                        <a href="/products/distribution-boards/avina?tab=avina"
+                            class="btn <%= activeTab === 'avina' ?  'btn-theme-danger' : 'btn-theme-danger-outline' %>">
+                            Avina
+                        </a>
+
+
+                    </div>
+
+                    <% } %>
+
+                        <% if(brandSlug==='eq9' ){ %>
+
+                            <div class="product-tabs text-center tabs">
+
+                                <a href="?tab=mcb"
+                                    class="btn <%= activeTab === 'mcb' ? 'btn-theme-danger' : 'btn-theme-danger-outline' %>">
+                                    MCB
+                                </a>
+
+                                <a href="?tab=isolator"
+                                    class="btn <%= activeTab === 'isolator' ? 'btn-theme-danger' : 'btn-theme-danger-outline' %>">
+                                    Isolator
+                                </a>
+
+                            </div>
+
+                            <% } %>
+
+                            <div class="row row  justify-content-between">
+                                <!-- FILTERS -->
+                            
+                                <div class="col-lg-3 mb-4">
+                            
+                                    <div class="filter-box filter ">
+                            
+                                        <div class="text-lg-start">
+                                            <h3>
+                                                Filters
+                                            </h3>
+                                        </div>
+                                        <div class="dropdown-container">
+                                            <form id="filterForm" method="GET">
+                            
+                                                <input type="hidden" name="tab" value="<%= activeTab %>">
+                            
+                                                <% if(brandSlug==='eq9' ){ %>
+                            
+                                                    <!-- Rating -->
+                                                    <div class="dropdown-item">
+                            
+                                                        <input type="checkbox" id="drop1" class="dropdown-check ">
+                                                        <label for="drop1" class="dropdown-header">
+                                                            <span>current rating</span>
+                                                            <span class="dropdown-arrow"></span>
+                                                        </label>
+                            
+                                                        <div class="dropdown-content">
+                                                            <% ratings.forEach(function(item){ %>
+                            
+                                                                <div class="form-check mb-2">
+                            
+                                                                    <input class="form-check-input" type="checkbox" name="rating"
+                                                                        value="<%= item %>" <%=Array.isArray(selectedFilters.rating) ?
+                                                                        selectedFilters.rating.includes(item) ? 'checked' : '' :
+                                                                        selectedFilters.rating===item ? 'checked' : '' %>
+                                                                    onchange="document.getElementById('filterForm').submit()">
+                            
+                            
+                                                                    <label class="form-check-label">
+                                                                        <%= item %>
+                                                                    </label>
+                            
+                                                                </div>
+                            
+                                                                <% }) %>
+                                                        </div>
+                            
+                            
+                                                    </div>
+                            
+                                                    <!-- Curve -->
+                                                    <div class="dropdown-item">
+                                                        <input type="checkbox" id="drop2" class="dropdown-check">
+                                                        <label for="drop2" class="dropdown-header">
+                                                            <span>curve type</span>
+                                                            <span class="dropdown-arrow"></span>
+                                                        </label>
+                            
+                                                        <div class="dropdown-content">
+                                                            <% curve_type.forEach(function(item){ %>
+                            
+                                                                <div class="form-check mb-2">
+                            
+                                                                    <input class="form-check-input" type="checkbox" name="curve_type"
+                                                                        value="<%= item %>" <%=Array.isArray(selectedFilters.curve_type) ?
+                                                                        selectedFilters.curve_type.includes(item) ? 'checked' : '' :
+                                                                        selectedFilters.curve_type===item ? 'checked' : '' %>
+                                                                    onchange="document.getElementById('filterForm').submit()">
+                            
+                            
+                                                                    <label class="form-check-label">
+                                                                        <%= item %>
+                                                                    </label>
+                            
+                                                                </div>
+                            
+                                                                <% }) %>
+                                                        </div>
+                                                    </div>
+                            
+                            
+                            
+                                                    <!-- Poles -->
+                            
+                                                    <div class="dropdown-item">
+                                                        <input type="checkbox" id="drop3" class="dropdown-check">
+                                                        <label for="drop3" class="dropdown-header">
+                                                            <span>No Of Poles</span>
+                                                            <span class="dropdown-arrow"></span>
+                                                        </label>
+                                                        <div class="dropdown-content">
+                                                            <% poles.forEach(function(item){ %>
+                            
+                                                                <div class="form-check mb-2">
+                            
+                                                                    <input class="form-check-input" type="checkbox" name="poles" value="<%= item %>"
+                                                                        <%=Array.isArray(selectedFilters.poles) ?
+                                                                        selectedFilters.poles.includes(item) ? 'checked' : '' :
+                                                                        selectedFilters.poles===item ? 'checked' : '' %>
+                                                                    onchange="document.getElementById('filterForm').submit()">
+                            
+                                                                    <label class="form-check-label">
+                                                                        <%= item %>
+                                                                    </label>
+                            
+                                                                </div>
+                            
+                                                                <% }) %>
+                                                        </div>
+                                                    </div>
+                            
+                            
+                            
+                                                    <!-- For Boards -->
+                            
+                                                    <% } %>
+                            
+                                                        <% boardStructure.forEach(function(group , index){ %>
+                            
+                                                            <div class="dropdown-item">
+                                                                <input type="checkbox" id="drop<%= index %>" class="dropdown-check">
+                                                                <label for="drop<%= index %>" class="dropdown-header">
+                                                                    <span>
+                                                                        <%= group.board %>
+                                                                    </span>
+                                                                    <span class="dropdown-arrow"></span>
+                                                                </label>
+                                                                <div class="dropdown-content">
+                                                                    <% group.types.forEach(function(type){ %>
+                            
+                            
+                                                                        <div class="form-check">
+                            
+                                                                            <input class="form-check-input" type="checkbox" name="boards_type"
+                                                                                value="<%= type %>"
+                                                                                onchange="document.getElementById('filterForm').submit()">
+                            
+                                                                            <label class="form-check-label">
+                                                                                <%= type %>
+                                                                            </label>
+                            
+                                                                        </div>
+                            
+                                                                        <% }) %>
+                                                                </div>
+                                                            </div>
+                            
+                            
+                            
+                                                            <% }) %>
+                            
+                            
+                            
+                                            </form>
+                            
+                                        </div>
+                            
+                                    </div>
+                            
+                                </div>
+                            
+                                <!-- PRODUCT CARDS -->
+                            
+                                <div class="col-lg-9">
+                                    <div class="product-container">
+                                        <div class="row align-items-center">
+                            
+                                            <% products.forEach(function(product){ %>
+                            
+                                                <div class="col-lg-4 pe-1 mb-4">
+                            
+                            
+                            
+                                                    <div class="product-card">
+                                                        <a href="/product/<%= product.slug %>">
+                                                            <div class="product-card-image">
+                            
+                                                                <img src="/images/<%= product.image %>" alt="<%= product.name %>" class="img-fluid">
+                            
+                                                            </div>
+                            
+                                                            <div class="product-details">
+                            
+                                                                <h3>
+                                                                    <%= product.name %>
+                                                                </h3>
+                            
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                            
+                            
+                            
+                                                </div>
+                            
+                                                <% }) %>
+                                                    <% if(totalPages> 1){ %>
+                            
+                                                        <div class="row justify-content-center mt-5">
+                            
+                                                            <div class="col-auto">
+                            
+                                                                <nav>
+                            
+                                                                    <ul class="pagination">
+                            
+                                                                        <% if(page> 1){ %>
+                            
+                                                                            <li class="page-item">
+                                                                                <a class="page-link" href="?page=<%= page - 1 %>">
+                                                                                    &lt;
+                                                                                </a>
+                                                                            </li>
+                            
+                                                                            <% } %>
+                            
+                                                                                <% for(let i=1; i <=totalPages; i++){ %>
+                            
+                                                                                    <li class="page-item <%= page === i ? 'active' : '' %>">
+                            
+                                                                                        <a class="page-link" href="?page=<%= i %>">
+                                                                                            <%= i %>
+                                                                                        </a>
+                            
+                                                                                    </li>
+                            
+                                                                                    <% } %>
+                            
+                                                                                        <% if(page < totalPages){ %>
+                            
+                                                                                            <li class="page-item">
+                                                                                                <a class="page-link" href="?page=<%= page + 1 %>">
+                                                                                                    &gt;
+                                                                                                </a>
+                                                                                            </li>
+                            
+                                                                                            <% } %>
+                            
+                                                                    </ul>
+                            
+                                                                </nav>
+                            
+                                                            </div>
+                            
+                                                        </div>
+                            
+                                                        <% } %>
+                            
+                                        </div>
+                                    </div>
+                            
+                            
+                                </div>
+                            </div>
+
+            </div>
+
+
+
+
+           
+        </div>
+    </section>
+
+    <%- include('../partials/footer') %>

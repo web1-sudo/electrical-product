@@ -43,7 +43,7 @@
                         </h6>
 
                         <h2 class="fw-bold text-success">
-                            0
+                          <%= products.length ? products[0].category : '' %>
                         </h2>
 
                     </div>
@@ -57,7 +57,7 @@
                                     Brands
                                 </h6>
                                 <h2 class="fw-bold text-warning">
-                                    0
+                                    <%= products.brand ? products[0].category : '' %>
                                 </h2>
                             </div>
                         </div>

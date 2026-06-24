@@ -272,7 +272,32 @@ const boardStructure = Object.keys(boardGroups).map(board => ({
   types: boardGroups[board]
 }));
 
+if (categorySlug === "distribution-boards") {
 
+  if (activeTab === "auralis") {
+    sql += " AND LOWER(REPLACE(brand,' ','-')) = ?";
+    values.push("auralis");
+  }
+
+  if (activeTab === "elvo") {
+    sql += " AND LOWER(REPLACE(brand,' ','-')) = ?";
+    values.push("elvo");
+  }
+
+  if (activeTab === "avina") {
+    sql += " AND LOWER(REPLACE(brand,' ','-')) = ?";
+    values.push("avina");
+  }
+
+} else {
+
+  sql += `
+    AND LOWER(REPLACE(brand,' ','-')) = ?
+  `;
+
+  values.push(brandSlug);
+
+}
 
 // const totalItems = subcategories.length;
 

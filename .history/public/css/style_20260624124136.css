@@ -436,8 +436,8 @@ p {
 .product-content .tab-content .product-card .product-card-image {
   background-color: #fff;
     width: 100%;
-    max-width: 270px;
-    height: 270px; 
+    max-width: 300px;
+    height: 300px; 
     text-align: center;
     object-fit: cover;
     border: 1px solid #D9D9D9;

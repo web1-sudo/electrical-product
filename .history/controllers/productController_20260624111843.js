@@ -138,25 +138,7 @@ if (activeTab === "isolator") {
 }
 
 }
-// =========================
-// DISTRIBUTION BOARD TABS
-// =========================
 
-if (categorySlug === "distribution-boards") {
-
-  if (activeTab === "auralis") {
-    sql += ` AND LOWER(REPLACE(brand,' ','-')) = 'auralis'`;
-  }
-
-  if (activeTab === "elvo") {
-    sql += ` AND LOWER(REPLACE(brand,' ','-')) = 'elvo'`;
-  }
-
-  if (activeTab === "avina") {
-    sql += ` AND LOWER(REPLACE(brand,' ','-')) = 'avina'`;
-  }
-
-}
 // =========================
 // FILTERS
 // =========================
@@ -272,7 +254,32 @@ const boardStructure = Object.keys(boardGroups).map(board => ({
   types: boardGroups[board]
 }));
 
+if (categorySlug === "distribution-boards") {
 
+  if (activeTab === "auralis") {
+    sql += " AND LOWER(REPLACE(brand,' ','-')) = ?";
+    values.push("auralis");
+  }
+
+  if (activeTab === "elvo") {
+    sql += " AND LOWER(REPLACE(brand,' ','-')) = ?";
+    values.push("elvo");
+  }
+
+  if (activeTab === "avina") {
+    sql += " AND LOWER(REPLACE(brand,' ','-')) = ?";
+    values.push("avina");
+  }
+
+} else {
+
+  sql += `
+    AND LOWER(REPLACE(brand,' ','-')) = ?
+  `;
+
+  values.push(brandSlug);
+
+}
 
 // const totalItems = subcategories.length;
 
@@ -326,7 +333,6 @@ products: paginatedProducts,
   boards,
   boardTypes,
   activeTab,
-  boardStructure,
   selectedFilters: req.query,
   page,
   totalPages
@@ -346,21 +352,19 @@ exports.subcategoryListing = (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const perPage = 9;
 
- let sql = `
-SELECT *
-FROM products
-WHERE LOWER(REPLACE(category,' ','-')) = ?
-`;
-
-const values = [categorySlug];
-
-if (categorySlug !== "distribution-boards") {
-  sql += `
+  let sql = `
+    SELECT *
+    FROM products
+    WHERE LOWER(REPLACE(category,' ','-')) = ?
     AND LOWER(REPLACE(brand,' ','-')) = ?
+    AND LOWER(REPLACE(subcategory,' ','-')) = ?
   `;
 
-  values.push(brandSlug);
-}
+  const values = [
+    categorySlug,
+    brandSlug,
+    subcategorySlug
+  ];
 
   if (req.query.rating) {
 

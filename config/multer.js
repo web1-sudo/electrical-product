@@ -1,29 +1,31 @@
 const multer = require("multer");
-
 const path = require("path");
 
-// STORAGE
-
 const storage = multer.diskStorage({
+
   destination: function (req, file, cb) {
-    if (file.fieldname === "image") {
+
+    if (
+      file.fieldname === "image" ||
+      file.fieldname === "image2" ||
+      file.fieldname === "image3"
+    ) {
       cb(null, "public/images");
-    } else {
+    } else if (file.fieldname === "pdf") {
       cb(null, "public/pdf");
     }
+
   },
 
   filename: function (req, file, cb) {
+
     cb(
       null,
-
-      Date.now() + path.extname(file.originalname),
+      Date.now() + path.extname(file.originalname)
     );
-  },
+
+  }
+
 });
 
-const upload = multer({
-  storage: storage,
-});
-
-module.exports = upload;
+module.exports = multer({ storage });

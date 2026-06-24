@@ -261,36 +261,6 @@ p {
     border: 1px solid #e3000f;
     letter-spacing: 5%;
 }
-.product-tabs .btn-theme-danger {
-    height: 48px;
-    font-size: 14px;
-    font-family: "Figtree", sans-serif;
-    line-height: 10px;
-    letter-spacing: 5%;
-    padding: 20px;
-    border-radius: 3px;
-    background-color: #e3000f;
-    color: #fff;
-    border: none;
-    text-transform: capitalize;
-    width: 140px;
-    font-weight: 600;
-}
-.product-tabs .btn-theme-danger-outline {
-    height: 48px;
-    font-size: 14px;
-    font-family: "Figtree", sans-serif;
-    line-height: 10px;
-    letter-spacing: 5%;
-    padding: 20px;
-    border-radius: 3px;
-    background-color: transparent;
-    color: #e3000f;
-    border-color: #e3000f;
-    text-transform: capitalize;
-    width: 140px;
-    font-weight: 600;
-}
 
 .product-content .tab-btn.active {
   background: #e3000f;
@@ -544,18 +514,18 @@ text-align:start;
   text-transform: uppercase;
 }
 .btn-theme-danger-outline:hover {
- height: 48px;
-    font-size: 14px;
-    font-family: "Figtree", sans-serif;
-    line-height: 10px;
-    letter-spacing: 5%;
-    padding: 20px;
-    border-radius: 3px;
-    background-color: #e3000f;
-    color: #fff;
-    border: none;
-    width: 140px;
-    font-weight: 600;
+  height: 38px;
+  font-size: 13px;
+  font-family: "Montserrat", sans-serif;
+  line-height: 0px;
+  letter-spacing: 5%;
+  padding: 20px 25px;
+  border-radius: 3px;
+  background-color: #e3000f;
+  color: #fff;
+  font-weight: 400;
+   border:none;
+  text-transform: uppercase;
 }
 .btn-theme-outline {
   height: 38px;

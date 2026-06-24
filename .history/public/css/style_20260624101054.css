@@ -272,7 +272,7 @@ p {
     background-color: #e3000f;
     color: #fff;
     border: none;
-    text-transform: capitalize;
+    text-transform: uppercase;
     width: 140px;
     font-weight: 600;
 }
@@ -287,7 +287,7 @@ p {
     background-color: transparent;
     color: #e3000f;
     border-color: #e3000f;
-    text-transform: capitalize;
+    text-transform: uppercase;
     width: 140px;
     font-weight: 600;
 }

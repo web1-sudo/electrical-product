@@ -33,7 +33,7 @@
         <div class="container">
             <div class="text-lg-start">
                 <h2>
-                    Our Products
+                  
                 </h2>
                 <p>
                     Alric Electric’s EQ9 series premium MCBs provides reliable and safe protection against overloads and
@@ -52,7 +52,7 @@
             <div class="row">
                 <% if(categorySlug==='distribution-boards' ){ %>
 
-                    <div class="product-tabs tabs text-center ">
+                    <div class="product-tabs mb-4">
 
                         <a href="?tab=auralis"
                             class="btn <%= activeTab === 'auralis' ? 'btn-theme-danger' : 'btn-theme-danger-outline' %>">
@@ -75,7 +75,7 @@
 
                         <% if(brandSlug==='eq9' ){ %>
 
-                            <div class="product-tabs text-center tabs">
+                            <div class="product-tabs mb-4">
 
                                 <a href="?tab=mcb"
                                     class="btn <%= activeTab === 'mcb' ? 'btn-theme-danger' : 'btn-theme-danger-outline' %>">
@@ -121,33 +121,6 @@
                                                             value="<%= item %>" <%=Array.isArray(selectedFilters.rating)
                                                             ? selectedFilters.rating.includes(item) ? 'checked' : '' :
                                                             selectedFilters.rating===item ? 'checked' : '' %>
-                                                        onchange="document.getElementById('filterForm').submit()">
-
-
-                                                        <label class="form-check-label">
-                                                            <%= item %>
-                                                        </label>
-
-                                                    </div>
-
-                                                    <% }) %>
-
-                                                        <hr>
-
-                                                <!-- Curve -->
-
-                                                <h6 class="fw-bold mb-3">
-                                                    Curve
-                                                </h6>
-
-                                                <% curve_type.forEach(function(item){ %>
-
-                                                    <div class="form-check mb-2">
-
-                                                        <input class="form-check-input" type="checkbox" name="curve_type"
-                                                            value="<%= item %>" <%=Array.isArray(selectedFilters.curve_type)
-                                                            ? selectedFilters.curve_type.includes(item) ? 'checked' : '' :
-                                                            selectedFilters.curve_type===item ? 'checked' : '' %>
                                                         onchange="document.getElementById('filterForm').submit()">
 
 

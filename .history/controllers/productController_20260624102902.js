@@ -294,7 +294,6 @@ res.render("brand/brand-listing", {
 products: paginatedProducts,
 
   ratings,
-  curve_type,
   poles,
   boards,
   boardTypes,

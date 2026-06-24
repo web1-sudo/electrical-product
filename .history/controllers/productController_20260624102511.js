@@ -216,10 +216,6 @@ const ratings = [
   ...new Set(results.map(item => item.rating).filter(Boolean))
 ];
 
-const curve_type = [
-  ...new Set(results.map(item => item.curve_type).filter(Boolean))
-];
-
 const poles = [
   ...new Set(results.map(item => item.poles).filter(Boolean))
 ];
@@ -355,7 +351,7 @@ exports.subcategoryListing = (req, res) => {
 
     values.push(...ratings);
   }
-if (req.query.curve_type) {
+  if (req.query.curve_type) {
 
   const curveTypes = Array.isArray(req.query.curve_type)
     ? req.query.curve_type
@@ -364,7 +360,6 @@ if (req.query.curve_type) {
   sql += ` AND curve_type IN (${curveTypes.map(() => "?").join(",")})`;
 
   values.push(...curveTypes);
-
 }
 
   if (req.query.poles) {

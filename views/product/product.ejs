@@ -177,18 +177,27 @@
                                                         <h4  >
                                                             Downloads
                                                         </h4>
-                                                      
-                                                    <p>
-                                                        <i class="fa-solid fa-circle"></i> product data sheet
-                                                    </p>
-                                                    <hr>
-                                                    <p>
-                                                        <i class="fa-solid fa-circle"></i> product catalogs
-                                                    </p>
+                                                <p>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                
+                                                    <a href="/pdf/<%= product.pdf %>" download>
+                                                        Product Data Sheet
+                                                    </a>
+                                                </p>
+                                                
+                                                <hr>
+                                                
+                                                <p>
+                                                    <i class="fa-solid fa-circle"></i>
+                                                
+                                                    <a href="/pdf/<%= product.catalog_pdf %>" download>
+                                                        Product Catalog
+                                                    </a>
+                                                </p>
                                                                                                         <hr  class="mb-0" >
                                                     </div>
                                                     <div class="col-md-6">
-                                                      <img src="/images/mcb.png" alt="mcb">
+                                                    <img src="/images/<%= product.image %>" alt="<%= product.name %>" class="img-fluid">
                                                     </div>
                                                 </div>
                                                </div>

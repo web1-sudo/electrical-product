@@ -99,8 +99,13 @@ const data = {
   curve_type: req.body.curve_type,
 
   image: req.files?.image ? req.files.image[0].filename : "",
-  pdf: req.files?.pdf ? req.files.pdf[0].filename : "",
+ pdf: req.files?.pdf
+  ? req.files.pdf[0].filename
+  : "",
 
+catalog_pdf: req.files?.catalog_pdf
+  ? req.files.catalog_pdf[0].filename
+  : "",
   description: req.body.description,
   meta_title: req.body.meta_title,
   meta_description: req.body.meta_description,

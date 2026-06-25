@@ -70,11 +70,12 @@ router.post(
   "/add-product",
   isLoggedIn,
   upload.fields([
-  { name: "image", maxCount: 1 },
-  { name: "image2", maxCount: 1 },
-  { name: "image3", maxCount: 1 },
-  { name: "pdf", maxCount: 1 },
-]),
+    { name: "image", maxCount: 1 },
+    { name: "image2", maxCount: 1 },
+    { name: "image3", maxCount: 1 },
+    { name: "pdf", maxCount: 1 },
+    { name: "catalog_pdf", maxCount: 1 }
+  ]),
   addProduct
 );
 
@@ -95,6 +96,13 @@ router.get(
 router.post(
   "/edit-product/:id",
   isLoggedIn,
+  upload.fields([
+    { name: "image", maxCount: 1 },
+    { name: "image2", maxCount: 1 },
+    { name: "image3", maxCount: 1 },
+    { name: "pdf", maxCount: 1 },
+    { name: "catalog_pdf", maxCount: 1 }
+  ]),
   updateProduct
 );
 

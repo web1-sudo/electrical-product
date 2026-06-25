@@ -50,13 +50,13 @@
 
             </div>
 
-            <div class="card-body p-0">
+            <div class="card-body p-0"  >
             
-            <div class="table-responsive">
+            <div class="table-responsive" style="width:100%; white-space:nowrap;height: 600px;overflow-x: scroll;" >
             
-                <table class="table table-hover align-middle mb-0" style="width:100%; white-space:nowrap;">
+                <table class="table table-hover table-striped align-middle mb-0" style="width:100%; white-space:nowrap;height: 600px;overflow-x: scroll;">
             
-                    <thead class="table-light">
+                    <thead class="table-light"  style="position: sticky; top: 0px; z-index: 10;" >
                         <tr>
                             <th>ID</th>
                             <th>Main Image</th>
@@ -71,7 +71,6 @@
                             <th>Curve Type</th>
                             <th>Image 2</th>
                             <th>Image 3</th>
-                            <th>PDF</th>
                             <th>Description</th>
                             <th>Created At</th>
                             <th>Action</th>
@@ -164,16 +163,8 @@
                                                 <% } %>
                                     </td>
             
-                                    <!-- PDF -->
-                                    <td>
-                                        <% if(product.pdf){ %>
-                                            <a href="/images/<%= product.pdf %>" target="_blank" class="btn btn-sm btn-info">
-                                                View PDF
-                                            </a>
-                                            <% } else { %>
-                                                No PDF
-                                                <% } %>
-                                    </td>
+                                  
+                                   
             
                                     <!-- Description -->
                                     <td style="max-width:300px;">
@@ -187,9 +178,9 @@
             
                                     <!-- Actions -->
                                     <td>
-                                        <a href="/admin/edit-product/<%= product.id %>" class="btn btn-sm btn-warning mb-1">
+                                        <!-- <a href="/admin/edit-product/<%= product.id %>" class="btn btn-sm btn-warning mb-1">
                                             Edit
-                                        </a>
+                                        </a> -->
             
                                         <a href="/admin/delete-product/<%= product.id %>" class="btn btn-sm btn-danger"
                                             onclick="return confirm('Delete this product?')">

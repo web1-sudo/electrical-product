@@ -10,9 +10,16 @@ const storage = multer.diskStorage({
       file.fieldname === "image2" ||
       file.fieldname === "image3"
     ) {
+
       cb(null, "public/images");
-    } else if (file.fieldname === "pdf") {
+
+    } else if (
+      file.fieldname === "pdf" ||
+      file.fieldname === "catalog_pdf"
+    ) {
+
       cb(null, "public/pdf");
+
     }
 
   },

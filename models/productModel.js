@@ -70,6 +70,7 @@ exports.addProduct = (data, callback) => {
       image2,
       image3,
       pdf,
+      catalog_pdf,
       meta_title,
       meta_description,
       rating,
@@ -79,7 +80,7 @@ exports.addProduct = (data, callback) => {
       curve_type
 
     )
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ? , ?)
   `;
 
   db.query(
@@ -95,6 +96,7 @@ exports.addProduct = (data, callback) => {
       data.image2,
       data.image3,
       data.pdf,
+      data.catalog_pdf,
       data.meta_title,
       data.meta_description,
       data.rating,
@@ -147,6 +149,8 @@ exports.updateProduct = (id, data, callback) => {
       image = ?,
       image2 = ?,
       image3 = ?,
+      pdf = ?
+      catalog_pdf = ?
       rating = ?,
       poles = ?,
       boards = ?,
@@ -169,6 +173,8 @@ exports.updateProduct = (id, data, callback) => {
       data.image,
       data.image2,
       data.image3,
+      data.pdf,
+      data.catalog_pdf,
       data.rating,
       data.poles,
       data.boards,

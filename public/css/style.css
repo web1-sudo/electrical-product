@@ -1255,6 +1255,8 @@ text-align:start;
     font-size: 6px;
     margin-right: 10px;
 }
+
+ #model-download a ,
  #model-download p {
      font-size: 18px;
     letter-spacing: 0%;

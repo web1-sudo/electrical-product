@@ -1,0 +1,298 @@
+<%- include('../partials/header') %>
+
+    <style>
+        body {
+            background: #ffffff;
+        }
+    </style>
+
+    <section class="single-product-page">
+
+        <div class="container">
+
+            <div class="breadcrumb">
+
+                <div class="d-flex align-items-center">
+
+                    <a href="/">Home</a>
+
+                    <span class="mx-2" style="font-weight: 400; color: #999;">&gt;</span>
+
+
+                    <a href="/products/<%= product.category.toLowerCase().replace(/\s+/g,'-') %>">
+                        <%= product.category %>
+                    </a>
+
+                <span class="mx-2" style="font-weight: 400; color: #999;">&gt;</span>
+
+
+                    <a
+                        href="/products/<%= product.category.toLowerCase().replace(/\s+/g,'-') %>/<%= product.brand.toLowerCase().replace(/\s+/g,'-') %>">
+                        <%= product.brand %>
+                    </a>
+
+                <span class="mx-2" style="font-weight: 400; color: #999;">&gt;</span>
+
+
+                    <a
+                        href="/products/<%= product.category.toLowerCase().replace(/\s+/g,'-') %>/<%= product.brand.toLowerCase().replace(/\s+/g,'-') %>/<%= product.subcategory.toLowerCase().replace(/\s+/g,'-') %>">
+                        <%= product.subcategory %>
+                    </a>
+
+                    <span class="mx-2" style="font-weight: 400; color: #999;">&gt;</span>
+
+
+                    <strong>
+                        <%= product.name %>
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="single-product-section">
+
+        <div class="container">
+
+            <div class="row justify-content-between ">
+
+                <!-- PRODUCT IMAGES -->
+
+                <div class="col-md-5">
+
+                    <div class="product-gallery">
+
+                        <div class="main-image">
+
+                            <img id="mainProductImage" src="/images/<%= product.image %>" alt="<%= product.name %>">
+
+                        </div>
+
+                        <div class="thumbnail-wrapper">
+
+                            <div class="thumbnail active">
+
+                                <img class="thumb" src="/images/<%= product.image %>" onclick="changeImage(this)">
+
+                            </div>
+
+                            <% if(product.image2){ %>
+
+                                <div class="thumbnail">
+
+                                    <img class="thumb" src="/images/<%= product.image2 %>"
+                                        onclick="changeImage(this)">
+
+                                </div>
+
+                                <% } %>
+
+                                    <% if(product.image3){ %>
+
+                                        <div class="thumbnail">
+
+                                            <img class="thumb" src="/images/<%= product.image3 %>"
+                                                onclick="changeImage(this)">
+
+                                        </div>
+
+                                        <% } %>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- PRODUCT DETAILS -->
+
+                <div class="col-md-6">
+
+                    <div class="product-details">
+
+                        <h1 class="product-title">
+                            <%= product.name %>
+                        </h1>
+
+                        <ul>
+
+                            <% if(product.description){ %>
+
+                                <% product.description.split('\n').forEach(function(line){ %>
+
+                                    <li class="product-description">
+                                        <%= line %>
+                                    </li>
+
+                                    <% }) %>
+
+                                        <% } %>
+
+                        </ul>
+
+                        <div class="product-actions">
+
+                            <a href="/contact" class="btn btn-theme-danger">
+                                Enquiry
+                            </a>
+
+                            <!-- <% if(product.pdf){ %>
+
+                                <a href="/pdf/<%= product.pdf %>" class="btn btn-theme-outline" download>
+                                    Download
+                                </a>
+
+                                <% } %> -->
+
+                             
+
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-theme-outline" data-bs-toggle="modal" data-bs-target="#model-download">
+                                    Download
+                                </button>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="model-download" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                               <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <h4>
+                                                            Downloads   
+                                                        </h4>
+                                                        <li>
+                                                            product data sheet
+                                                        </li>
+                                                        <li>
+                                                            product catalogs
+                                                        </li>
+                                                    </div>
+                                                    <div class="col-md-7"></div>
+                                                </div>
+                                               </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="related-products">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <h2>Related Products</h2>
+
+                <div class="slider-buttons">
+
+                    <button id="prevBtn">
+
+                        <img src="/images/arrow-right-single-product.svg" alt="">
+
+                    </button>
+
+                    <button id="nextBtn">
+
+                        <img src="/images/arrow-right-product-single.svg" alt="">
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="related-slider" id="relatedSlider">
+
+                <% relatedProducts.forEach(function(item){ %>
+
+                    <div class="related-card">
+
+                        <a href="/product/<%= item.slug %>" class="text-decoration-none text-dark">
+
+                            <div class="related-card-img">
+
+                                <img src="/images/<%= item.image %>" alt="<%= item.name %>">
+
+                            </div>
+
+                            <h5>
+                                <%= item.name %>
+                            </h5>
+
+                        </a>
+
+                    </div>
+
+                    <% }) %>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+
+        function changeImage(element) {
+
+            document.getElementById("mainProductImage").src =
+                element.src;
+
+            document.querySelectorAll(".thumb")
+                .forEach(img => img.classList.remove("active"));
+
+            element.classList.add("active");
+        }
+
+        const slider =
+            document.getElementById("relatedSlider");
+
+        document.getElementById("nextBtn")
+            ?.addEventListener("click", () => {
+
+                slider.scrollBy({
+                    left: 350,
+                    behavior: "smooth"
+                });
+
+            });
+
+        document.getElementById("prevBtn")
+            ?.addEventListener("click", () => {
+
+                slider.scrollBy({
+                    left: -350,
+                    behavior: "smooth"
+                });
+
+            });
+
+    </script>
+
+    <%- include('../partials/footer') %>

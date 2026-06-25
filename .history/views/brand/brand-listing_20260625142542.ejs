@@ -1,37 +1,35 @@
 <%- include('../partials/header') %>
 
-    <section class="product-banner ">
+    <section class="product-banner py-5">
+        <img src="/images/products-bg-image.png" alt="product image" class="banner-bg-img">
+        <img src="/images/products-bg-image.png" alt="product image" class="banner-bg-boottom-img">
         <div class="container">
-        
+
             <div class="text-content-banner">
                 <div class="breadcrumb">
                     <div class="d-flex align-items-center">
                         <a href="/">Home</a>
                         <span class="mx-2" style="font-weight: 400; color: #999;">&gt;</span>
-        
+
                         <!-- <a href="/products/<%= categorySlug %>">
-                                    <%= categoryName %>
-                                </a> -->
+                            <%= categoryName %>
+                        </a> -->
                         <a href="#">
                             <%= categoryName %>
                         </a>
                         <span class="mx-2" style="font-weight: 400; color: #999;">&gt;</span>
-        
+
                         <strong>
                             <%= brandName %>
                         </strong>
                     </div>
                 </div>
-        
+
                 <h1>
                     <%= brandName %>
                 </h1>
             </div>
         </div>
-        <img src="/images/products-bg-image.png" alt="product image" class="banner-bg-img">
-       
-       
-         <img src="/images/product-background.png" alt="product image" class="banner-bg-boottom-img w-100">
     </section>
 
 

@@ -182,7 +182,7 @@ p {
 
 .product-banner .breadcrumb {
   font-size: 14px;
-  margin-bottom: 160px;
+  margin-bottom: 50px;
   background: transparent;
   padding: 0;
 }
@@ -456,9 +456,6 @@ text-align:start;
     border-top-right-radius: 0;
     border-bottom-right-radius:0;
 }
-.pagination{
-  overflow-x: scroll;
-}
 .product-content .tab-content .pagination .page-link {
        padding: 0px 10px;
     font-size: 16px;
@@ -466,7 +463,6 @@ text-align:start;
     font-weight: 300;
     letter-spacing: 0%;
     color: #B2B2B2;
-
 }
 .product-content .tab-content .pagination .page-item {
     margin: 0 7px;
@@ -2594,11 +2590,8 @@ font-size: 16px;
   .product-banner .banner-bg-img {
     position: relative;
     max-width: 100%;
-    width: 100%;
     margin-top: 30px;
     transform: translateY(0);
-    right: 0;
-    padding: 10px;
   }
 
   .product-banner h1 {
@@ -2613,37 +2606,13 @@ font-size: 16px;
 }
 @media (max-width: 480px) {
   .header-spacer {
-    height: auto;
+    height: 80px;
   }
   .navbar {
     min-height: auto;
   }
   .cta-panel {
     padding: 0px 0px;
-}
-.product-content {
-    background-color: #fff;
-    padding:50px 5px;
-}
-.product-content h2 {
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 35px;
-    letter-spacing: -2%;
-    color: #1d1d1f;
-    margin-bottom: 10px;
-}
-.product-content .filter {
-    padding: 0px 30px 0px 0px;
-    border-right: 1px solid #d9d9d9;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-}
-.product-content .tab-content .product-card .product-card-image {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
 }
   .thumbnail-wrapper .thumbnail {
     width: 70px;

@@ -39,7 +39,6 @@ exports.homePage = (req, res) => {
         res.render("products", {
           // products: paginatedProducts,
 products: results,
-products,
           filters,
 
           // totalPages,
@@ -292,7 +291,7 @@ const boardStructure = Object.keys(boardGroups).map(board => ({
 
 // const paginatedSubcategories = subcategories.slice(start, end);
 
-// const paginatedProducts = products.slice(start, end);
+const paginatedProducts = products.slice(start, end);
 
 res.render("brand/brand-listing", {
 
@@ -322,8 +321,8 @@ products,
 
   selectedFilters: req.query,
 
-  // page,
-  // totalPages ,
+  page,
+  totalPages ,
 
    
   categorySlug,
@@ -335,8 +334,8 @@ products,
   activeTab,
   boardStructure,
   selectedFilters: req.query,
-  // page,
-  // totalPages
+  page,
+  totalPages
 
 });
 

@@ -335,8 +335,8 @@ products,
   activeTab,
   boardStructure,
   selectedFilters: req.query,
-  // page,
-  // totalPages
+  page,
+  totalPages
 
 });
 

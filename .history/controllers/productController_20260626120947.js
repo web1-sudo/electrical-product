@@ -39,7 +39,6 @@ exports.homePage = (req, res) => {
         res.render("products", {
           // products: paginatedProducts,
 products: results,
-products,
           filters,
 
           // totalPages,
@@ -322,8 +321,8 @@ products,
 
   selectedFilters: req.query,
 
-  // page,
-  // totalPages ,
+  page,
+  totalPages ,
 
    
   categorySlug,
@@ -335,8 +334,8 @@ products,
   activeTab,
   boardStructure,
   selectedFilters: req.query,
-  // page,
-  // totalPages
+  page,
+  totalPages
 
 });
 

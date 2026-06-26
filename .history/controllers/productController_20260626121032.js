@@ -322,8 +322,8 @@ products,
 
   selectedFilters: req.query,
 
-  // page,
-  // totalPages ,
+  page,
+  totalPages ,
 
    
   categorySlug,
@@ -335,8 +335,8 @@ products,
   activeTab,
   boardStructure,
   selectedFilters: req.query,
-  // page,
-  // totalPages
+  page,
+  totalPages
 
 });
 

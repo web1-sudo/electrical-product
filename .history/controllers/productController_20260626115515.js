@@ -16,7 +16,7 @@ exports.homePage = (req, res) => {
 
     sort: req.query.sort || "",
 
-    // page: parseInt(req.query.page) || 1,
+    page: parseInt(req.query.page) || 1,
   };
 
   Product.getFilteredProducts(
@@ -26,23 +26,22 @@ exports.homePage = (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        // const perPage = 9;
+        const perPage = 9;
 
-        // const start = (filters.page - 1) * perPage;
+        const start = (filters.page - 1) * perPage;
 
-        // const end = start + perPage;
+        const end = start + perPage;
 
-        // const paginatedProducts = results.slice(start, end);
+        const paginatedProducts = results.slice(start, end);
 
-        // const totalPages = Math.ceil(results.length / perPage);
+        const totalPages = Math.ceil(results.length / perPage);
 
         res.render("products", {
-          // products: paginatedProducts,
-products: results,
-products,
+          products: paginatedProducts,
+
           filters,
 
-          // totalPages,
+          totalPages,
         });
       }
     },
@@ -56,8 +55,8 @@ exports.categoryListing = (req, res) => {
 
   const categorySlug = req.params.category;
 
-  // const page = parseInt(req.query.page) || 1;
-  // const perPage = 9;
+  const page = parseInt(req.query.page) || 1;
+  const perPage = 9;
 
   db.query(
     `
@@ -97,8 +96,7 @@ exports.categoryListing = (req, res) => {
 
         categorySlug,
 
-        // brands: paginatedBrands,
-brands,
+        brands: paginatedBrands,
 
         // page,
         // totalPages
@@ -120,8 +118,8 @@ const brandSlug = req.params.brand;
 
 const activeTab = req.query.tab || "mcb";
 
-// const page = parseInt(req.query.page) || 1;
-// const perPage = 9;
+const page = parseInt(req.query.page) || 1;
+const perPage = 9;
 
 let sql = `SELECT * FROM products WHERE LOWER(REPLACE(category,' ','-')) = ? AND LOWER(REPLACE(brand,' ','-')) = ?`;
 
@@ -283,16 +281,16 @@ const boardStructure = Object.keys(boardGroups).map(board => ({
 
 // const totalItems = subcategories.length;
 
-// const totalItems = products.length;
+const totalItems = products.length;
 
-// const totalPages = Math.ceil(totalItems / perPage);
+const totalPages = Math.ceil(totalItems / perPage);
 
-// const start = (page - 1) * perPage;
-// const end = start + perPage;
+const start = (page - 1) * perPage;
+const end = start + perPage;
 
 // const paginatedSubcategories = subcategories.slice(start, end);
 
-// const paginatedProducts = products.slice(start, end);
+const paginatedProducts = products.slice(start, end);
 
 res.render("brand/brand-listing", {
 
@@ -312,8 +310,8 @@ res.render("brand/brand-listing", {
 
   // subcategories: paginatedSubcategories,
 
-// products: paginatedProducts,
-products,
+products: paginatedProducts,
+
   ratings,
   curve_type,
   poles,
@@ -322,8 +320,8 @@ products,
 
   selectedFilters: req.query,
 
-  // page,
-  // totalPages ,
+  page,
+  totalPages ,
 
    
   categorySlug,
@@ -335,8 +333,8 @@ products,
   activeTab,
   boardStructure,
   selectedFilters: req.query,
-  // page,
-  // totalPages
+  page,
+  totalPages
 
 });
 
@@ -350,8 +348,8 @@ exports.subcategoryListing = (req, res) => {
   const brandSlug = req.params.brand;
   const subcategorySlug = req.params.subcategory;
 
-  // const page = parseInt(req.query.page) || 1;
-  // const perPage = 9;
+  const page = parseInt(req.query.page) || 1;
+  const perPage = 9;
 
  let sql = `
 SELECT *
@@ -457,9 +455,9 @@ if (req.query.curve_type) {
         .replace(/\b\w/g, l => l.toUpperCase()),
 
       // products: paginatedProducts,
-products,
-      selectedFilters: req.query,
 
+      selectedFilters: req.query,
+products,
       // page,
       // totalPages
     });

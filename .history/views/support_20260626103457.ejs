@@ -1,0 +1,275 @@
+<%- include('partials/header') %>
+
+    <section class="banner-page">
+        <div class="container">
+            <div class="row align-items-center justify-content-between gy-4">
+                <div class="col-lg-6 ">
+
+                    <div class="breadcrumb">
+                        <div class="d-flex align-items-center">
+
+                            <a href="/">
+                                Home
+                            </a>
+
+                            <span>
+                                >
+                            </span>
+                            <span>
+                                Support
+                            </span>
+                        </div>
+                    </div>
+
+                    <span class="section-label">Support</span>
+                    <h1>We are here
+                        <br class="d-lg-block d-none"> to  <br class="d-lg-none d-block">  <span>help you.</span>
+                    </h1>
+                    <p>Our team is ready to assist with product queries, technical <br class="d-lg-block d-none">
+                        guidance and after-sales
+                        support. Reach out and we will <br class="d-lg-block d-none">
+                        respond promptly.</p>
+                </div>
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="content">
+                            <div class="">
+                                <img src="/images/icon-call.svg" alt="icon-call">
+                            </div>
+                            <div class="ms-3">
+                                <span class="">
+                                    Toll free
+                                </span>
+
+                                <a href="tel:18002683200">
+                                    1800 2683 200
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="">
+                                <img src="/images/icon-mail.svg" alt="icon-call">
+                            </div>
+                            <div class="ms-3">
+                                <span class="">
+                                    Emial
+                                </span>
+
+                                <a href="mailto:info@alric.in">
+                                    info@alric.in
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="">
+                                <img src="/images/icon-location.svg" alt="icon-call">
+                            </div>
+                            <div class="ms-3">
+                                <span class="">
+                                    office
+                                </span>
+
+                                <a href="#">
+                                    Vikhroli, Mumbai
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="">
+                                <img src="/images/icon-clock.svg" alt="icon-call">
+                            </div>
+                            <div class="ms-3">
+                                <span class="">
+                                    hours
+                                </span>
+
+                                <a href="#">
+                                    Mon-Sat 9 AM - 6 PM
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="page-section bg-white">
+        <div class="container">
+            <div class="row justify-content-between align-items-start">
+                <div class="col-md-6">
+                    <span class="section-label">get in touch</span>
+                    <h2 class="mt-4 mb-3 fw-bold">
+                        Send us a message.
+                    </h2>
+                    <p>
+                        Whether you need product information, technical <br class="d-lg-block d-none"> assistance or
+                        want to request samples
+                        -fill in the form <br class="d-lg-block d-none">
+                        and our team will get back to you promptly.
+                    </p>
+                </div>
+                <div class="col-md-5 form-support">
+                    <form action="/support" method="POST" class="pe-3" >
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-md-4 mb-2">
+                                <label for="first_name_support">First name</label>
+                                <input type="text" id="first_name_support" name="first_name_support"
+                                    class="form-control" required>
+                            </div>
+
+                            <div class="col-md-4 mb-2">
+                                <label for="last_name_support">Last name</label>
+                                <input type="text" id="last_name_support" name="last_name_support" class="form-control"
+                                    required>
+                            </div>
+
+                            <div class="col-md-4 mb-2">
+                                <label for="phone_support">Phone</label>
+                                <input type="number" id="phone_support" name="phone_support" class="form-control"
+                                    required>
+                            </div>
+
+                            <div class="col-md-8 mb-3">
+                                <label for="email_address_support">Email address</label>
+                                <input type="email" id="email_address_support" name="email_address_support"
+                                    class="form-control" required>
+                            </div>
+
+                            <div class="col-md-4 mb-2">
+                                <label for="company_project_support">Company / Project</label>
+                                <input type="text" id="company_project_support" name="company_project_support"
+                                    class="form-control" required>
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <!-- <label for="topic">Enquiry Topic</label> -->
+                                <select name="topic" id="topic" class="form-select" required>
+                                    <option value="" disabled selected>Select a topic</option>
+                                    <option value="product-information">Product Information</option>
+                                    <option value="technical-support">Technical Support</option>
+                                    <option value="sample-request">Sample Request</option>
+                                    <option value="warranty">Warranty</option>
+                                    <option value="dealer-distribution">Dealer / Distribution</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label for="massage-support">Message</label>
+                                <textarea name="massage_support" id="massage-support" class="form-control" rows="4"
+                                    required></textarea>
+                            </div>
+
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-theme-danger my-3">
+                                    Send Message
+                                </button>
+
+<% if (success) { %>
+
+    <div class="alert <%= success === 'Email Sent Successfully' ? 'alert-success' : 'alert-danger' %>">
+        <%= success %>
+    </div>
+
+    <% } %>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class=" support-contact">
+
+        <div class="container">
+            <span class="section-label">details</span>
+            <h2 class="mt-lg-4 fw-bold mt-2 mb-4 ">
+                Contact Us
+            </h2>
+            <div class="row  justify-content-between">
+                <div class="col-md-3">
+                    <h3>
+                        Office Hours
+                    </h3>
+                    <p class="text-dark fst-normal mb-2">
+                       
+                            Monday - Friday
+                       
+                    </p>
+                    <p class="text-secandary fst-normal">
+                       
+                            9:00 AM - 6:00 PM IST
+                        
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h3>
+                        Registered Office
+                    </h3>
+                    <p class="address">
+                        <span>
+                            Alric Electric Pvt. Ltd.
+                        </span> <br class="">
+                        Office No. 609, 6th Floor, I Wing, <br class="d-lg-block d-none">
+                        CTS No 1/7,
+                        Veer Sawarkar Marg, Vikhroli, <br class="d-lg-block d-none">
+                        Mumbai - 400 079. India.
+                    </p>
+                    <a href="tel:18002683200">
+                        1800 2683 200
+                    </a>
+                    <a href="mailto:info@alric.in" style="color: #e3000f;">
+                        info@alric.in
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <span>
+                            response time
+                        </span>
+                        <p>
+                            We aim to respond to all enquiries <br class="d-lg-block d-none">
+                            within 1-2 business days.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-contact-section">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6">
+                    <h2>
+                        Still need help?  <br class="d-lg-none d-block" > <span>
+                            We’ve got you.
+                        </span>
+                    </h2>
+                    <p>
+                        Our support team is available Monday through Saturday. <br class="d-lg-block d-none">
+                        Call us, email us, or visit our Mumbai office - we are here to help.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-lg-flex d-none justify-content-end aling-items-center">
+                        <a href="tel:18002683200" class=" btn btn-theme-danger me-3">Call 1800 2683 200</a>
+                        <a href="mailto:info@altric.in" class=" btn btn-theme-outline">Email Us</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <%- include('partials/footer') %>

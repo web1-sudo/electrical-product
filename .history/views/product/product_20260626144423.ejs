@@ -80,36 +80,32 @@
                         </div>
 
                         <div class="thumbnail-wrapper row justify-content-center align-items-center">
-<div class="col-lg-4">
-    <div class="thumbnail col-lg-4 active">
-    
-        <img class="thumb" src="/images/<%= product.image %>" onclick="changeImage(this)">
-    
-    </div>
-</div>
-                          
+
+                            <div class="thumbnail col-lg-4 active">
+
+                                <img class="thumb" src="/images/<%= product.image %>" onclick="changeImage(this)">
+
+                            </div>
 
                             <% if(product.image2){ %>
-<div class="col-lg-4">
-    <div class="thumbnail  ">
-    
-        <img class="thumb" src="/images/<%= product.image2 %>" onclick="changeImage(this)">
-    
-    </div>
-</div>
-                                
+
+                                <div class="thumbnail col-lg-4 ">
+
+                                    <img class="thumb" src="/images/<%= product.image2 %>"
+                                        onclick="changeImage(this)">
+
+                                </div>
 
                                 <% } %>
 
                                     <% if(product.image3){ %>
-<div class="col-lg-4">
-    <div class="thumbnail col-lg-4 ">
-    
-        <img class="thumb" src="/images/<%= product.image3 %>" onclick="changeImage(this)">
-    
-    </div>
-</div>
-                                      
+
+                                        <div class="thumbnail col-lg-4 ">
+
+                                            <img class="thumb" src="/images/<%= product.image3 %>"
+                                                onclick="changeImage(this)">
+
+                                        </div>
 
                                         <% } %>
 

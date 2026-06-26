@@ -313,7 +313,7 @@ p {
   letter-spacing: 5%;
 }
 .product-content .tab-content .product-container{
- max-width: 99%;  
+ max-width: 875px;  
 }
 .product-content .tab-content {
   display: none;
@@ -444,7 +444,7 @@ p {
   background-color: #fff;
     width: 100%;
     max-width: 100%;
-    height: 100%; 
+    height: auto; 
     text-align: center;
     object-fit: cover;
     border: 1px solid #D9D9D9;
@@ -1088,13 +1088,13 @@ text-align:start;
   border-color: #e3000f;
 }
 .product-card-image {
-  min-height: 100%;
+  min-height: 240px;
   background: #f8fafc;
 }
 
 .product-card-image img,
 .product-detail-image img {
-  max-height: 100%;
+  max-height: 240px;
   object-fit: contain;
 }
 
@@ -2373,7 +2373,7 @@ select option:active {
 }
 .thumbnail-wrapper .thumbnail img{
     width: 100%;
-    height: auto;
+    height: 100px;
 }
 .thumbnail-wrapper .thumbnail:hover,
 .thumbnail-wrapper .thumbnail.active {

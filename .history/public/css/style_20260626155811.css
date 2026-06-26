@@ -313,7 +313,7 @@ p {
   letter-spacing: 5%;
 }
 .product-content .tab-content .product-container{
- max-width: 99%;  
+ max-width: 875px;  
 }
 .product-content .tab-content {
   display: none;

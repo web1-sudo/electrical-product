@@ -263,7 +263,7 @@ dependable performance for standard residential and light‑commercial electrica
             </div>
         </div>
         <div class="container tab-content active">
-            <div class="">
+            <div class="row">
                 <% if(categorySlug==='distribution-boards' ){ %>
 
                     <div class="product-tabs tabs text-center ">
@@ -471,46 +471,42 @@ dependable performance for standard residential and light‑commercial electrica
                                 <!-- PRODUCT CARDS -->
                             
                                 <div class="col-lg-9">
-<div class="w-100 p-0 m-0"  style="height: 1010px;overflow-y: scroll;overflow-x: hidden;"    >
-<div class="product-container">
-    <div class="row align-items-center">
-
-        <% products.forEach(function(product){ %>
-
-            <div class="col-lg-4 pe-1 mb-4">
-
-
-
-                <div class="product-card">
-                    <a href="/product/<%= product.slug %>">
-                        <div class="product-card-image">
-
-                            <img src="/images/<%= product.image %>" alt="<%= product.name %>" class="img-fluid">
-
-                        </div>
-
-                        <div class="product-details">
-
-                            <h3>
-                                <%= product.name %>
-                            </h3>
-
-                        </div>
-                    </a>
-                </div>
-
-
-
-            </div>
-
-            <% }) %>
-
-
-    </div>
-</div>
-</div>
-
-                                  
+                                    <div class="product-container" >
+                                        <div class="row align-items-center">
+                            
+                                            <% products.forEach(function(product){ %>
+                            
+                                                <div class="col-lg-4 pe-1 mb-4">
+                            
+                            
+                            
+                                                    <div class="product-card">
+                                                        <a href="/product/<%= product.slug %>">
+                                                            <div class="product-card-image">
+                            
+                                                                <img src="/images/<%= product.image %>" alt="<%= product.name %>" class="img-fluid">
+                            
+                                                            </div>
+                            
+                                                            <div class="product-details">
+                            
+                                                                <h3>
+                                                                    <%= product.name %>
+                                                                </h3>
+                            
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                            
+                            
+                            
+                                                </div>
+                            
+                                                <% }) %>
+                                                  
+                            
+                                        </div>
+                                    </div>
                             
                             
                                 </div>

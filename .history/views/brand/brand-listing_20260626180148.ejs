@@ -356,40 +356,42 @@ dependable performance for standard residential and light‑commercial electrica
                             
                             
                                                     </div>
-                       
+                            
                                                     <!-- Curve -->
-                                                    <% if (!(brandSlug==="eq9" && activeTab==="isolator" )) { %>
-                                                    
-                                                        <div class="dropdown-item">
-                                                            <input type="checkbox" id="drop2" class="dropdown-check">
-                                                    
-                                                            <label for="drop2" class="dropdown-header">
-                                                                <span>Curve Type</span>
-                                                                <span class="dropdown-arrow"></span>
-                                                            </label>
-                                                    
-                                                            <div class="dropdown-content">
-                                                                <% curve_type.forEach(function(item){ %>
-                                                    
-                                                                    <div class="form-check mb-2">
-                                                    
-                                                                        <input class="form-check-input" type="checkbox" name="curve_type" value="<%= item %>"
-                                                                            <%=Array.isArray(selectedFilters.curve_type) ? (selectedFilters.curve_type.includes(item)
-                                                                            ? "checked" : "" ) : (selectedFilters.curve_type===item ? "checked" : "" ) %>
-                                                                        onchange="document.getElementById('filterForm').submit()"
+                                                    <div class="dropdown-item">
+                                                        <input type="checkbox" id="drop2" class="dropdown-check">
+                                                        <label for="drop2" class="dropdown-header">
+                                                            <span>curve type</span>
+                                                            <span class="dropdown-arrow"></span>
+                                                        </label>
+                            
+                                                        <div class="dropdown-content">
+                                                        <% if (brandSlug !=="eq9" || activeTab==="mcb" ) { %>
+                                                        
+                                                            <div class="filter-box">
+                                                                <h5>Curve Type</h5>
+                                                        
+                                                                <% curve_type.forEach(function(curve){ %>
+                                                        
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" name="curve_type" value="<%= curve %>"
+                                                                            onchange="document.getElementById('filterForm').submit()" <%=selectedFilters.curve_type==curve
+                                                                            ? "checked" : "" %>
                                                                         >
-                                                    
+                                                        
                                                                         <label class="form-check-label">
-                                                                            <%= item %>
+                                                                            <%= curve %>
                                                                         </label>
-                                                    
                                                                     </div>
-                                                    
+                                                        
                                                                     <% }) %>
+                                                        
                                                             </div>
+                                                        
+                                                            <% } %>
                                                         </div>
-                                                    
-                                                        <% } %>
+                                                    </div>
+                            
                             
                             
                                                     <!-- Poles -->

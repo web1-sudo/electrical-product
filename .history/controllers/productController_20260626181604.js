@@ -39,7 +39,7 @@ exports.homePage = (req, res) => {
         res.render("products", {
           // products: paginatedProducts,
 products: results,
-
+products,
           filters,
 
           // totalPages,
@@ -87,7 +87,7 @@ exports.categoryListing = (req, res) => {
       // const paginatedBrands = brands.slice(start, end);
 
 
-    
+      products,
 
       res.render("category/category-listing", {
 
@@ -123,27 +123,12 @@ const activeTab = req.query.tab || "mcb";
 // const page = parseInt(req.query.page) || 1;
 // const perPage = 9;
 
-
-// console.log(req.query);
-// console.log("Curve Type:", req.query.curve_type);
-
 let sql = `SELECT * FROM products WHERE LOWER(REPLACE(category,' ','-')) = ? AND LOWER(REPLACE(brand,' ','-')) = ?`;
 
 const values = [
 categorySlug,
 brandSlug
 ];
-
-if (req.query.curve_type) {
-
-  const curveTypes = Array.isArray(req.query.curve_type)
-    ? req.query.curve_type
-    : [req.query.curve_type];
-
-  sql += ` AND curve_type IN (${curveTypes.map(() => "?").join(",")})`;
-
-  values.push(...curveTypes);
-}
 
 // =========================
 // TAB FILTERS
@@ -230,8 +215,7 @@ sql += ` AND boards_type IN (${boardTypes.map(() => "?").join(",")})`;
 values.push(...boardTypes);
 
 }
-console.log(sql);
-console.log(values);
+
 db.query(sql, values, (err, results) => {
 
 if (err) {
@@ -311,30 +295,50 @@ const boardStructure = Object.keys(boardGroups).map(board => ({
 // const paginatedProducts = products.slice(start, end);
 
   res.render("brand/brand-listing", {
-  categoryName: categorySlug
-    .replace(/-/g, " ")
-    .replace(/\b\w/g, l => l.toUpperCase()),
 
-  categorySlug,
+    categoryName: categorySlug
+      .replace(/-/g, " ")
+      .replace(/\b\w/g, l => l.toUpperCase()),
 
-  brandName: brandSlug
-    .replace(/-/g, " ")
-    .replace(/\b\w/g, l => l.toUpperCase()),
+    categorySlug,
 
-  brandSlug,
+    brandName: brandSlug
+      .replace(/-/g, " ")
+      .replace(/\b\w/g, l => l.toUpperCase()),
 
-  activeTab,
+    brandSlug,
 
+    activeTab,
+
+    // subcategories: paginatedSubcategories,
+
+  // products: paginatedProducts,
   products,
-  ratings,
-  curve_type,
-  poles,
-  boards,
-  boardTypes,
-  boardStructure,
+    ratings,
+    curve_type,
+    poles,
+    boards,
+    boardTypes,
 
-  selectedFilters: req.query,
-});
+    selectedFilters: req.query,
+
+    // page,
+    // totalPages ,
+
+    
+    categorySlug,
+    brandSlug,
+    ratings,
+    poles,
+    boards,
+    boardTypes,
+    activeTab,
+    boardStructure,
+    selectedFilters: req.query,
+    // page,
+    // totalPages
+
+  });
 
   });
 

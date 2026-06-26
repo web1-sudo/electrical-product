@@ -123,27 +123,12 @@ const activeTab = req.query.tab || "mcb";
 // const page = parseInt(req.query.page) || 1;
 // const perPage = 9;
 
-
-// console.log(req.query);
-// console.log("Curve Type:", req.query.curve_type);
-
 let sql = `SELECT * FROM products WHERE LOWER(REPLACE(category,' ','-')) = ? AND LOWER(REPLACE(brand,' ','-')) = ?`;
 
 const values = [
 categorySlug,
 brandSlug
 ];
-
-if (req.query.curve_type) {
-
-  const curveTypes = Array.isArray(req.query.curve_type)
-    ? req.query.curve_type
-    : [req.query.curve_type];
-
-  sql += ` AND curve_type IN (${curveTypes.map(() => "?").join(",")})`;
-
-  values.push(...curveTypes);
-}
 
 // =========================
 // TAB FILTERS
@@ -230,8 +215,7 @@ sql += ` AND boards_type IN (${boardTypes.map(() => "?").join(",")})`;
 values.push(...boardTypes);
 
 }
-console.log(sql);
-console.log(values);
+
 db.query(sql, values, (err, results) => {
 
 if (err) {

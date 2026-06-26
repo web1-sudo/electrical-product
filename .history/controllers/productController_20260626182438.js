@@ -124,8 +124,8 @@ const activeTab = req.query.tab || "mcb";
 // const perPage = 9;
 
 
-// console.log(req.query);
-// console.log("Curve Type:", req.query.curve_type);
+console.log(req.query);
+console.log("Curve Type:", req.query.curve_type);
 
 let sql = `SELECT * FROM products WHERE LOWER(REPLACE(category,' ','-')) = ? AND LOWER(REPLACE(brand,' ','-')) = ?`;
 

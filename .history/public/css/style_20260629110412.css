@@ -216,12 +216,12 @@ p {
 }
 
 .product-banner h1 {
-     font-size: 52px;
-    font-weight: bold;
-    color: #1D1D1F;
-    letter-spacing: -2%;
-    margin: 0;
-    text-transform: uppercase;
+  font-size: 64px;
+  font-weight: 800;
+  color: #111111;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin: 0;
 }
 .product-content {
   background-color: #fff;
@@ -375,24 +375,14 @@ p {
     display: block;
     align-items: center;
 }
-.form-check {
-    display: flex;
-    min-height: 1.5rem;
-    padding-left: 1.5em;
-    margin-bottom: .125rem;
-    align-items: center;
-    gap: 10px;
-}
-.form-check-input[type=checkbox] {
-    border-radius: 0;
-}
+
 .product-content .dropdown-content label {
     font-size: 14px;
     color: #1D1D1F;
     line-height: 40px;
     letter-spacing: 0%;
     font-family: "Figtree", sans-serif;
-    margin-top: 6px;
+    margin-bottom: -3px;
 }
 .product-content .dropdown-content .filter-check {
  
@@ -1334,9 +1324,6 @@ text-align:start;
   font-weight: 300;
   margin-left: 10px;
   font-family: "Montserrat", sans-serif;
-}
-.breadcrumb strong{
-    text-transform: uppercase;
 }
 a {
   text-decoration: none;
@@ -2337,7 +2324,7 @@ select option:active {
     font-family: "Montserrat", sans-serif;
 }
 .single-product-page .breadcrumb {
-    margin-top: 15px;
+    margin-top: 50px;
     margin-bottom: 0px;
 }
 .single-product-section {
@@ -2398,7 +2385,7 @@ select option:active {
 .product-title {
     font-size: 34px;
     font-weight: bold;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
     letter-spacing: -2%;
     color: #222222;
 }
@@ -2673,13 +2660,6 @@ font-size: 16px;
   .cta-panel {
     padding: 0px 0px;
 }
-.about-banner {
-    padding: 0px 0 35px 0px;
-}
-.about-banner     .breadcrumb {
-        margin-top: 100px;
-        margin-bottom: 25px;
-    }
 .product-content {
     background-color: #fff;
     padding:50px 5px;
@@ -2823,7 +2803,7 @@ font-size: 16px;
     padding: 3rem 0 0rem;
   }
   .breadcrumb {
-    margin-top: 100px;
+    margin-top: 30px;
     margin-bottom: 25px;
   }
   .about-banner h1 {

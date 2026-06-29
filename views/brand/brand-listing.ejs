@@ -23,7 +23,7 @@
                     </div>
                 </div>
         
-                <h1>
+                <h1  >
                     <%= brandName %>
                 </h1>
             </div>
@@ -35,7 +35,7 @@
     </section>
 
 
-    <section class="product-content">
+    <section class="product-content" id="products-section" >
         <div class="container">
             <div class="text-lg-start">
 
@@ -267,17 +267,17 @@ dependable performance for standard residential and light‑commercial electrica
                 <% if(categorySlug==='distribution-boards' ){ %>
 
                     <div class="product-tabs tabs text-center ">
-                        <a href="/products/distribution-boards/auralis?tab=auralis"
+                        <a href="/products/distribution-boards/auralis?tab=auralis#products-section"
                             class="btn <%= activeTab === 'auralis' ? 'btn-theme-danger' : 'btn-theme-danger-outline' %>">
                             Auralis
                         </a>
 
-                        <a href="/products/distribution-boards/elvo?tab=elvo"
+                        <a href="/products/distribution-boards/elvo?tab=elvo#products-section"
                             class="btn <%= activeTab === 'elvo' ?  'btn-theme-danger' : 'btn-theme-danger-outline' %>">
                             Elvo
                         </a>
 
-                        <a href="/products/distribution-boards/avina?tab=avina"
+                        <a href="/products/distribution-boards/avina?tab=avina#products-section"
                             class="btn <%= activeTab === 'avina' ?  'btn-theme-danger' : 'btn-theme-danger-outline' %>">
                             Avina
                         </a>
@@ -291,12 +291,12 @@ dependable performance for standard residential and light‑commercial electrica
 
                             <div class="product-tabs text-center tabs">
 
-                                <a href="?tab=mcb"
+                                <a href="?tab=mcb#products-section"
                                     class="btn <%= activeTab === 'mcb' ? 'btn-theme-danger' : 'btn-theme-danger-outline' %>">
                                     MCB
                                 </a>
 
-                                <a href="?tab=isolator"
+                                <a href="?tab=isolator#products-section"
                                     class="btn <%= activeTab === 'isolator' ? 'btn-theme-danger' : 'btn-theme-danger-outline' %>">
                                     Isolator
                                 </a>
@@ -474,7 +474,7 @@ dependable performance for standard residential and light‑commercial electrica
                                 <!-- PRODUCT CARDS -->
                             
                                 <div class="col-lg-9">
-<div class="w-100 p-0 m-0"  style="height: 1010px;overflow-y: scroll;overflow-x: hidden;"    >
+<div class="w-100 p-0 m-0"    style="height: 1010px;overflow-y: scroll;overflow-x: hidden;"    >
 <div class="product-container">
     <div class="row align-items-center">
 
@@ -586,7 +586,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <!-- for read more button in product section -->
-
+<!-- 
 <script>
 
 document.querySelectorAll('.read-more-btn').forEach(btn => {
@@ -612,4 +612,4 @@ document.querySelectorAll('.read-more-btn').forEach(btn => {
     });
 
 });
-</script>
+</script> -->

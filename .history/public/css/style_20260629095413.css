@@ -2510,7 +2510,12 @@ font-size: 16px;
 .product-content .tab-content .product-container {
     max-width: 97%;
 }
-
+.btn-theme-danger {
+    height: 38px;
+    font-size: 10px;
+    letter-spacing: 0%;
+    padding: 20px 16px;
+}
   .page-hero h1 {
     line-height: 75px;
   }
@@ -2528,11 +2533,6 @@ font-size: 16px;
   .brand-quote .quote-text {
     line-height: 50px;
 }
-.product-banner .breadcrumb
- {
-    margin-bottom: 100px;
-}
-
 }
 @media (max-width: 991px) {
   .page-section .feature-grid,

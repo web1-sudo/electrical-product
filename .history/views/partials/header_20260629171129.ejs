@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= typeof product !=='undefined' ? product.meta_title || product.name : 'Alric Electric ' %>
+    </title>
+    <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon">
+    <meta name="description"
+        content="<%= typeof product !== 'undefined' ? product.meta_description : 'Electrical Products Website' %>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="<%= typeof product !== 'undefined' ? product.name : 'Electrical Website' %>">
+    <meta property="og:description"
+        content="<%= typeof product !== 'undefined' ? product.meta_description : 'Electrical Website' %>">
+    <meta property="og:image" content="<%= typeof product !== 'undefined' ? '/images/' + product.image : '' %>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- SCHEMA -->
+    <% if (typeof product !=='undefined' ) { %>
+        <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "<%= product.name %>",
+      "image": "/images/<%= product.image %>",
+      "description": "<%= product.meta_description %>",
+      "brand": {
+     "@type": "Brand",
+     "name": "<%= product.brand %>"
+      }
+  }
+   </script>
+        <% } %>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container-fluid padding-x">
+            <a class="navbar-brand  d-flex align-items-center" href="/">
+                <img src="/images/logo.svg" class="logo" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+
+                <span class="menu-open">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                    </svg>
+                </span>
+
+                <span class="menu-close d-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                        class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path
+                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                    </svg>
+                </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-item text-danger  active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-item text-secondary" href="/about">About</a>
+                    </li>
+
+                    <li class="nav-item dropdown position-static">
+                        <!-- <a class="nav-link nav-link-item text-secondary dropdown-toggle hide-caret" href="#"
+                            id="productsDropdown"   role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            PRODUCTS
+                        </a> -->
+
+<a class="nav-link nav-link-item dropdown-toggle hide-caret 
+<%= (currentPath && (currentPath.startsWith('/products') || currentPath.startsWith('/product')))
+    ? 'active text-danger'
+    : 'text-secondary' %>" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown"
+    aria-expanded="false">
+    PRODUCTS
+</a>
+
+                        <div class="dropdown-menu mega-menu-wrapper    p-4" aria-labelledby="productsDropdown">
+                            <ul class="moblie-menu list-unstyled mb-0 d-block d-md-none">
+                                <li class="category-item py-2   text-danger border-bottom border-light-subtle cursor-pointer active"
+                                    data-target="protection">
+                                    PROTECTION DEVICES
+
+                                    <div class="mobile-brand-group">
+                                        <a href="/products/protection-devices/eq9">EQ9</a>
+                                        <a href="/products/protection-devices/eq9?tab=mcb">MCB</a>
+                                        <a href="/products/protection-devices/eq9?tab=isolator">Isolator</a>
+                                    </div>
+                                </li>
+
+                                <li class="category-item py-2   text-secondary border-bottom border-light-subtle cursor-pointer"
+                                    data-target="switches">
+                                    SWITCHES & ACCESSORIES
+
+                                    <div class="mobile-brand-group">
+                                        <a href="/products/switches-and-accessories/elvyx">Elvyx</a>
+                                    </div>
+                                </li>
+
+                                <li class="category-item py-2   text-secondary cursor-pointer"
+                                    data-target="distribution">
+                                    DISTRIBUTION BOARDS
+
+                                    <div class="mobile-brand-group">
+                                        <a href="/products/distribution-boards/auralis?tab=auralis">Auralis</a>
+                                        <a href="/products/distribution-boards/elvo?tab=elvo">Elvo</a>
+                                        <!-- <a href="/products/distribution-boards/avina?tab=avina">Avina</a> -->
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="row mx-0 d-none d-lg-flex">
+
+                                <div class="col-lg-5  border-light-subtle">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="category-item py-2   text-danger border-bottom border-light-subtle cursor-pointer active"
+                                            data-target="protection">PROTECTION DEVICES</li>
+                                        <li class="category-item py-2   text-secondary border-bottom border-light-subtle cursor-pointer"
+                                            data-target="switches">SWITCHES & ACCESSORIES</li>
+                                        <li class="category-item py-2   text-secondary cursor-pointer"
+                                            data-target="distribution">DISTRIBUTION BOARDS</li>
+                                        <li class="category-item py-2   text-secondary cursor-pointer"
+                                            data-target="evcharger">
+                                        
+                                        EV Chager</li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-lg-3 px-4">
+                                    <span class="d-block text-danger  mb-3 tracking-wide"
+                                        style="font-size: 11px;">BRANDS</span>
+
+                                    <div id="protection" class="brand-group  d-flex flex-column  active">
+                                        <a href="/products/protection-devices/eq9" class="text-dark   "> <b>
+EQ9
+                                        </b> </a>
+                                        <a href="/products/protection-devices/eq9?tab=mcb" class="">MCB</a>
+                                        <a href="/products/protection-devices/eq9?tab=isolator" class="">Isolator</a>
+                                    </div>
+
+                                    <div id="switches" class="brand-group d-none flex-column gap-2">
+                                        <a href="/products/switches-and-accessories/elvyx" class="">Elvyx</a>
+                                    </div>
+
+                                    <div id="distribution" class="brand-group d-none flex-column gap-2">
+                                        <a href="/products/distribution-boards/auralis?tab=auralis" class="">Auralis</a>
+                                        <a href="/products/distribution-boards/elvo?tab=elvo" class="">Elvo</a>
+                                        <!-- <a href="/products/distribution-boards/avina?tab=avina" class="">Avina</a> -->
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="col-lg-4 bg-light rounded d-flex align-items-center justify-content-center p-3">
+                                    <div id="img-protection" class="product-img-wrapper active">
+                                        <img src="/images/protection.png" class="img-fluid" alt="Protection Device">
+                                    </div>
+                                    <div id="img-switches" class="product-img-wrapper d-none">
+                                        <img src="/images/swiches.png" class="img-fluid" alt="Switches">
+                                    </div>
+                                    <div id="img-distribution" class="product-img-wrapper d-none">
+                                        <img src="/images/boards.png" class="img-fluid" alt="Distribution Board">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link nav-link-item text-secondary  " href="/support">Support</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link nav-link-item text-secondary  " href="/career">Career</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link nav-link-item text-secondary  " href="/contact">Contact</a>
+                    </li>
+                </ul>
+
+                <button type="button" class="btn btn-theme-danger" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    ENQUIRE NOW
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="header-spacer"></div>

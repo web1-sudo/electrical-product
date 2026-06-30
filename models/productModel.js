@@ -59,28 +59,62 @@ exports.getSingleProduct = (slug, callback) => {
 exports.addProduct = (data, callback) => {
 
   const sql = `
-    INSERT INTO products (
-      name,
-      slug,
-      brand,
-      category,
-      subcategory,
-      description,
-      image,
-      image2,
-      image3,
-      pdf,
-      catalog_pdf,
-      meta_title,
-      meta_description,
-      rating,
-      boards,
-      boards_type,
-      poles,
-      curve_type
+   INSERT INTO products (
+    name,
+    slug,
+    brand,
+    category,
+    subcategory,
+    description,
+    image,
+    image2,
+    image3,
+    pdf,
+    catalog_pdf,
+    meta_title,
+    meta_description,
+    rating,
+    boards,
+    boards_type,
+    poles,
+    curve_type,
 
-    )
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ? , ?)
+    variant1_name,
+    variant1_catalogue,
+    variant1_datasheet,
+    variant1_catalog,
+    variant1_installation,
+
+    variant2_name,
+    variant2_catalogue,
+    variant2_datasheet,
+    variant2_catalog,
+    variant2_installation,
+
+    variant3_name,
+    variant3_catalogue,
+    variant3_datasheet,
+    variant3_catalog,
+    variant3_installation,
+
+    variant4_name,
+    variant4_catalogue,
+    variant4_datasheet,
+    variant4_catalog,
+    variant4_installation
+)
+
+VALUES (
+?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,
+
+?,?,?,?,?,
+
+?,?,?,?,?,
+
+?,?,?,?,?,
+
+?,?,?,?,?
+)
   `;
 
   db.query(
@@ -103,7 +137,34 @@ exports.addProduct = (data, callback) => {
       data.boards,
       data.boards_type,
       data.poles,
-      data.curve_type
+      data.curve_type,
+      // Variant 1
+data.variant1_name,
+data.variant1_catalogue,
+data.variant1_datasheet,
+data.variant1_catalog,
+data.variant1_installation,
+
+// Variant 2
+data.variant2_name,
+data.variant2_catalogue,
+data.variant2_datasheet,
+data.variant2_catalog,
+data.variant2_installation,
+
+// Variant 3
+data.variant3_name,
+data.variant3_catalogue,
+data.variant3_datasheet,
+data.variant3_catalog,
+data.variant3_installation,
+
+// Variant 4
+data.variant4_name,
+data.variant4_catalogue,
+data.variant4_datasheet,
+data.variant4_catalog,
+data.variant4_installation
     ],
     callback
   );
@@ -138,25 +199,54 @@ exports.updateProduct = (id, data, callback) => {
 
   const sql = `
     UPDATE products SET
-      name = ?,
-      slug = ?,
-      brand = ?,
-      category = ?,
-      subcategory = ?,
-      description = ?,
-      meta_title = ?,
-      meta_description = ?,
-      image = ?,
-      image2 = ?,
-      image3 = ?,
-      pdf = ?
-      catalog_pdf = ?
-      rating = ?,
-      poles = ?,
-      boards = ?,
-      boards_type = ?,
-      curve_type = ?
-    WHERE id = ?
+
+name=?,
+slug=?,
+brand=?,
+category=?,
+subcategory=?,
+description=?,
+meta_title=?,
+meta_description=?,
+
+image=?,
+image2=?,
+image3=?,
+
+pdf=?,
+catalog_pdf=?,
+
+rating=?,
+poles=?,
+boards=?,
+boards_type=?,
+curve_type=?,
+
+variant1_name=?,
+variant1_catalogue=?,
+variant1_datasheet=?,
+variant1_catalog=?,
+variant1_installation=?,
+
+variant2_name=?,
+variant2_catalogue=?,
+variant2_datasheet=?,
+variant2_catalog=?,
+variant2_installation=?,
+
+variant3_name=?,
+variant3_catalogue=?,
+variant3_datasheet=?,
+variant3_catalog=?,
+variant3_installation=?,
+
+variant4_name=?,
+variant4_catalogue=?,
+variant4_datasheet=?,
+variant4_catalog=?,
+variant4_installation=?
+
+WHERE id=?
   `;
 
   db.query(
@@ -180,7 +270,32 @@ exports.updateProduct = (id, data, callback) => {
       data.boards,
       data.boards_type,
       data.curve_type,
-      id
+      data.variant1_name,
+data.variant1_catalogue,
+data.variant1_datasheet,
+data.variant1_catalog,
+data.variant1_installation,
+
+data.variant2_name,
+data.variant2_catalogue,
+data.variant2_datasheet,
+data.variant2_catalog,
+data.variant2_installation,
+
+data.variant3_name,
+data.variant3_catalogue,
+data.variant3_datasheet,
+data.variant3_catalog,
+data.variant3_installation,
+
+data.variant4_name,
+data.variant4_catalogue,
+data.variant4_datasheet,
+data.variant4_catalog,
+data.variant4_installation,
+
+id
+      
     ],
     callback
   );

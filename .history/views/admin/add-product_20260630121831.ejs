@@ -1,0 +1,520 @@
+<%- include('../partials/header') %>
+
+    <div class="container py-5">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+                <h2 class="fw-bold mb-1">Add Product</h2>
+                <p class="text-muted mb-0">
+                    Create a new product
+                </p>
+            </div>
+
+            <a href="/admin/dashboard" class="btn btn-secondary">
+                Back To Dashboard
+            </a>
+
+        </div>
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body p-4">
+
+                <form action="/admin/add-product" method="POST" enctype="multipart/form-data">
+
+                    <div class="row">
+
+                        <!-- Product Name -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Name
+                            </label>
+
+                            <input type="text" name="name" class="form-control" required>
+
+                        </div>
+
+
+                        <!-- Category -->
+
+                        <div class="col-md-6 mb-4">
+                            <label class="form-label fw-semibold">
+                                Category
+                            </label>
+
+                            <select name="category" class="form-control" required>
+                                <option value="">Select Category</option>
+
+                                <option value="Protection Devices">
+                                    Protection Devices
+                                </option>
+
+                                <option value="Switches & Accessories">
+                                    Switches & Accessories
+                                </option>
+
+                                <option value="Distribution Boards">
+                                    Distribution Boards
+                                </option>
+                                <option value="Ev Charger">
+                                    Ev Charger
+                                </option>
+                            </select>
+                        </div>
+                        <!-- Sub Category -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Sub Category
+                            </label>
+
+                            <select name="subcategory" class="form-control">
+
+                                <option value="">Select Subcategory</option>
+
+                                <option value="MCB">MCB</option>
+
+                                <option value="Isolator">Isolator</option>
+
+                                <option value="RCCB">RCCB</option>
+
+                                <option value="RCBO">RCBO</option>
+
+                                <option value="Switches">Switches</option>
+
+                                <option value="Sockets">Sockets</option>
+
+                                <option value="Accessories">Accessories</option>
+
+                                <option value="AC">AC</option>
+
+                                <option value="DC">DC</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Brand -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Brand
+                            </label>
+
+                            <select name="brand" class="form-control" required>
+
+                                <option value="">Select Brand</option>
+
+                                <option value="EQ9">EQ9</option>
+
+                                <option value="Elvyx">Elvyx</option>
+
+                                <option value="Auralis">Auralis</option>
+
+                                <option value="Elvo">Elvo</option>
+
+                                <option value="Avina">Avina</option>
+
+                                <option value="A2Z">A2Z</option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- Current Rating -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Current Rating
+                            </label>
+
+
+                            <select name="rating" class="form-select">
+                                <option value="">
+                                    Select Current Rating
+                                </option>
+
+                                <option value="0.5 A">0.5 A</option>
+                                <option value="01 A">01 A</option>
+                                <option value="02 A">02 A</option>
+                                <option value="03 A">03 A</option>
+                                <option value="04 A">04 A</option>
+                                <option value="06 A">06 A</option>
+                                <option value="10 A">10 A</option>
+                                <option value="16 A">16 A</option>
+                                <option value="20 A">20 A</option>
+                                <option value="25 A">25 A</option>
+                                <option value="32 A">32 A</option>
+                                <option value="40 A">40 A</option>
+                                <option value="50 A">50 A</option>
+                                <option value="63 A">63 A</option>
+
+                            </select>
+                        </div>
+
+                        <!-- Curve Type -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Curve Type
+                            </label>
+
+                            <select name="curve_type" class="form-select">
+                                <option value="">
+                                    Select Curve
+                                </option>
+
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Poles -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Number Of Poles
+                            </label>
+
+                            <select name="poles" class="form-select">
+                                <option value="">
+                                    Select Poles
+                                </option>
+
+                                <option value="Single Pole">
+                                    Single Pole
+                                </option>
+
+                                <option value="Double Pole">
+                                    Double Pole
+                                </option>
+
+                                <option value="Three Pole">
+                                    Three Pole
+                                </option>
+
+                                <option value="Four Pole">
+                                    Four Pole
+                                </option>
+
+                                <option value="Single Pole Neutral">
+                                    Single Pole Neutral
+                                </option>
+                                
+                                <option value="Three Pole Neutral">
+                                    Three Pole Neutral
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Select Boards -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Select Distribution Boards
+                            </label>
+
+                            <select name="boards" class="form-select">
+                                <option value="">
+                                    Select Boards
+                                </option>
+
+                                <option value="SPN">
+                                    SPN
+                                </option>
+
+                                <option value="TPN">
+                                    TPN
+                                </option>
+
+                                <option value="Flexi Tier">
+                                    Flexi Tier
+                                </option>
+
+                                <option value="VTPN MCB Incomer">
+                                    VTPN MCB Incomer
+                                </option>
+                                <option value="VTPN MCCB Incomer">
+                                    VTPN MCCB Incomer
+                                </option>
+                                <option value="Phase Segregated 7 Segment">
+                                    Phase Segregated 7 Segment
+                                </option>
+                                <option value="Phase Segregated 8 Segment">
+                                    Phase Segregated 8 Segment
+                                </option>
+                                <option value="Phase Selector">
+                                    Phase Selector
+                                </option>
+                                <option value="TV Telephone SPN">
+                                    TV Telephone SPN
+                                </option>
+                                <option value="TV Telephone TPN">
+                                    TV Telephone TPN
+                                </option>
+                                <option value="Metal Enclosure">
+                                    Metal Enclosure
+                                </option>
+                                <option value="PPI Kit">
+                                    PPI Kit
+                                </option>
+                                <option value="SPN SD DB">
+                                    SPN SD DB
+                                </option>
+                                <option value="TPN SD DB">
+                                    TPN SD DB
+                                </option>
+                                <option value="SPN DD DB">
+                                    SPN DD DB
+                                </option>
+                                <option value="TPN DD DB">
+                                    TPN DD DB
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- select boards type -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Select Distribution Boards Type
+                            </label>
+
+                            <select name="boards_type" class="form-select">
+                                <option value="">
+                                    Select Boards Type
+                                </option>
+
+                                <option value="Single Door">
+                                    Single Door
+                                </option>
+
+                                <option value="Double Door">
+                                    Double Door
+                                </option>
+
+                                <option value="Mivan Compatible">
+                                    Mivan Compatible
+                                </option>
+
+                                <option value="Mivan Compatible Super Strong">
+                                    Mivan Compatible Super Strong
+                                </option>
+                                <option value="Double Door IP54">
+                                    Double Door IP54
+                                </option>
+                                <option value="Double Door Acrylic Door">
+                                    Double Door Acrylic Door
+                                </option>
+                                <option value="Single Row">
+                                    Single Row
+                                </option>
+                                <option value="Double Row">
+                                    Double Row
+                                </option>
+
+
+                            </select>
+
+                        </div>
+
+                        <!-- Main Image -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Image Main
+                            </label>
+
+                            <input type="file" name="image" class="form-control" accept="image/*"   required>
+
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Image 2
+                            </label>
+
+                            <input type="file" name="image2" class="form-control" accept="image/*">
+
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Image 3
+                            </label>
+
+                            <input type="file" name="image3" class="form-control" accept="image/*">
+
+                        </div>
+
+                        <!-- PDF -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Data Sheet PDF
+                            </label>
+
+                            <input type="file" name="pdf" class="form-control" accept=".pdf">
+
+                        </div>
+                        <!-- PDF -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Catalog PDF
+                            </label>
+
+                            <input type="file" name="catalog_pdf" class="form-control" accept=".pdf">
+
+                        </div>
+
+                        <!-- Description -->
+
+                        <div class="col-12 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Description
+                            </label>
+
+                            <textarea name="description" rows="6" class="form-control"></textarea>
+
+                        </div>
+
+<!-- Variant 1 (Standard) -->
+
+                        <div class="col-6 mb-4">
+
+                        <h5 class="mt-4">Variant 1 - Standard</h5>
+                        
+                        <input type="text" name="variant1_name" class="form-control mb-2" placeholder="Variant Name">
+                        
+                        <input type="text" name="variant1_catalogue" class="form-control mb-2" placeholder="Catalogue Number">
+                        
+                        <input type="file" name="variant1_datasheet" class="form-control mb-2">
+                        
+                        <input type="file" name="variant1_catalog" class="form-control mb-2">
+                        
+                        <input type="file" name="variant1_installation" class="form-control mb-4">
+
+                        </div>
+
+<!--  <h5>Variant 2 - Mivon</h5> -->
+
+                        <div class="col-6 mb-4">
+
+                    <h5>Variant 2 - Mivon</h5>
+                    
+                    <input type="text" name="variant2_name" class="form-control mb-2">
+                    
+                    <input type="text" name="variant2_catalogue" class="form-control mb-2">
+                    
+                    <input type="file" name="variant2_datasheet" class="form-control mb-2">
+                    
+                    <input type="file" name="variant2_catalog" class="form-control mb-2">
+                    
+                    <input type="file" name="variant2_installation" class="form-control mb-4">
+
+                        </div>
+
+<!--  Variant 3 - Mivon Extra Strong -->
+
+                        <div class="col-6 mb-4">
+<h5>Variant 3 - Mivon Extra Strong</h5>
+
+<input type="text" name="variant3_name" class="form-control mb-2">
+
+<input type="text" name="variant3_catalogue" class="form-control mb-2">
+
+<input type="file" name="variant3_datasheet" class="form-control mb-2">
+
+<input type="file" name="variant3_catalog" class="form-control mb-2">
+
+<input type="file" name="variant3_installation" class="form-control mb-4">
+
+                        </div>
+
+<!--  Variant 4 - IP54 -->
+
+                        <div class="col-6 mb-4">
+<h5>Variant 4 - IP54</h5>
+
+<input type="text" name="variant4_name" class="form-control mb-2">
+
+<input type="text" name="variant4_catalogue" class="form-control mb-2">
+
+<input type="file" name="variant4_datasheet" class="form-control mb-2">
+
+<input type="file" name="variant4_catalog" class="form-control mb-2">
+
+<input type="file" name="variant4_installation" class="form-control mb-4">
+                        </div>
+
+                        <!-- Meta Title -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Meta Title
+                            </label>
+
+                            <input type="text" name="meta_title" placeholder="Add Product Name" class="form-control">
+
+                        </div>
+
+                        <!-- Meta Description -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Meta Description
+                            </label>
+
+                            <textarea name="meta_description" rows="3"  placeholder="Add Product Description" class="form-control"></textarea>
+
+                        </div>
+
+                        <!-- Submit -->
+
+                        <div class="col-12">
+
+                            <button type="submit" class="btn btn-primary px-5">
+                                Save Product
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <%- include('../partials/footer') %>

@@ -125,12 +125,89 @@
 
                     <div class="product-details">
 
-                        <h1 class="product-title">
-                            <%= product.name %>
-                        </h1>
-<hr>
-
-                        <ul class="mt-lg-5" >
+                    <h1 class="product-title">
+                        <%= product.name %>
+                    </h1>
+                    
+                    <hr>
+                    
+                    <!-- Variant Section -->
+                    
+                    <div class="variant-section mt-4 mb-4">
+                    
+                        <div class="row g-2">
+                    
+                            <% if(product.variant1_name){ %>
+                                <div class="col-lg-3 col-6">
+                                    <button class=" w-100 variant-btn active" data-variant="1">
+                    
+                                        <strong>
+                                            <%= product.variant1_name %>
+                                        </strong><br>
+                    
+                                        <small>
+                                            <%= product.variant1_catalogue %>
+                                        </small>
+                    
+                                    </button>
+                                </div>
+                                <% } %>
+                    
+                                    <% if(product.variant2_name){ %>
+                                        <div class="col-lg-3 col-6">
+                                            <button class=" w-100 variant-btn" data-variant="2">
+                    
+                                                <strong>
+                                                    <%= product.variant2_name %>
+                                                </strong><br>
+                    
+                                                <small>
+                                                    <%= product.variant2_catalogue %>
+                                                </small>
+                    
+                                            </button>
+                                        </div>
+                                        <% } %>
+                    
+                                            <% if(product.variant3_name){ %>
+                                                <div class="col-lg-3 col-6">
+                                                    <button class=" w-100 variant-btn" data-variant="3">
+                    
+                                                        <strong>
+                                                            <%= product.variant3_name %>
+                                                        </strong><br>
+                    
+                                                        <small>
+                                                            <%= product.variant3_catalogue %>
+                                                        </small>
+                    
+                                                    </button>
+                                                </div>
+                                                <% } %>
+                    
+                                                    <% if(product.variant4_name){ %>
+                                                        <div class="col-lg-3 col-6">
+                                                            <button class=" w-100 variant-btn" data-variant="4">
+                    
+                                                                <strong>
+                                                                    <%= product.variant4_name %>
+                                                                </strong><br>
+                    
+                                                                <small>
+                                                                    <%= product.variant4_catalogue %>
+                                                                </small>
+                    
+                                                            </button>
+                                                        </div>
+                                                        <% } %>
+                    
+                        </div>
+                    
+                    </div>
+                    
+                    <hr>
+                    
+                    <ul class="mt-lg-5">
 
                             <% if(product.description){ %>
 
@@ -168,49 +245,72 @@
                                 </button>
                                 
                                 <!-- Modal -->
-                                <div class="modal fade" id="model-download" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="model-download" tabindex="-1">
+                            
                                 <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                               <div class="container">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <h4  >
-                                                            Downloads
-                                                        </h4>
-                                                <p>
-                                                    <i class="fa-solid fa-circle"></i>
-                                                
-                                                    <a href="/pdf/<%= product.pdf %>" download>
-                                                        Product Data Sheet
-                                                    </a>
-                                                </p>
-                                                
-                                                <hr>
-                                                
-                                                <p>
-                                                    <i class="fa-solid fa-circle"></i>
-                                                
-                                                    <a href="/pdf/<%= product.catalog_pdf %>" download>
-                                                        Product Catalog
-                                                    </a>
-                                                </p>
-                                                                                                        <hr  class="mb-0" >
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                    <img src="/images/<%= product.image %>" alt="<%= product.name %>" class="img-fluid mt-3 mt-lg-0">
-                                                    </div>
-                                                </div>
-                                               </div>
-                                            </div>
-                                           
+                            
+                                    <div class="modal-content">
+                            
+                                        <div class="modal-header">
+                                      
+                            
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                            </button>
+                            
                                         </div>
+                            
+                                        <div class="modal-body">
+                            
+<div class="row justify-content-between align-items-start">
+    <div class="col-md-5">
+          <h5 class="modal-title">Downloads</h5>
+        <p>
+            <i class="fa-solid fa-circle"></i>
+        
+            <a id="datasheetLink" href="/pdf/<%= product.variant1_datasheet || product.pdf %>" class="" target="_blank">
+                Product Data Sheet
+            </a>
+        
+        </p>
+        
+        <p>
+        
+            <i class="fa-solid fa-circle"></i>
+            <a id="catalogLink" href="/pdf/<%= product.variant1_catalog || product.catalog_pdf %>" class="" target="_blank">
+                Product Catalog
+            </a>
+        
+        </p>
+        
+        <% if(product.category && product.category.toLowerCase()==="distribution boards" ){ %>
+        
+            <p id="installationRow">
+        
+                <i class="fa-solid fa-circle"></i>
+        
+                <a id="installationLink" href="/pdf/<%= product.variant1_installation %>" class="" target="_blank">
+                    Installation Sheet
+                </a>
+        
+            </p>
+        
+            <% } %>
+    </div>
+    <div class="col-md-7">
+        <img  src="/images/<%= product.image %>" alt="<%= product.name %>" class="img-fluid" >
+
+    </div>
+</div>
+
+                                          
+                            
+                                        </div>
+                            
                                     </div>
+                            
                                 </div>
+                            
+                            </div>
 
                         </div>
 
@@ -280,7 +380,7 @@
 
     </section>
 
-    <script>
+    <!-- <script>
 
         function changeImage(element) {
 
@@ -316,6 +416,77 @@
 
             });
 
-    </script>
+    </script> -->
+
+
+
 
     <%- include('../partials/footer') %>
+
+
+    <script>
+    console.log("<%= product.variant1_datasheet %>");
+    console.log("<%= product.variant2_datasheet %>");
+    console.log("<%= product.variant3_datasheet %>");
+    console.log("<%= product.variant4_datasheet %>");
+        const variants = {
+            1: {
+                datasheet: "<%= product.variant1_datasheet %>",
+                catalog: "<%= product.variant1_catalog %>",
+                installation: "<%= product.variant1_installation %>"
+            },
+            2: {
+                datasheet: "<%= product.variant2_datasheet %>",
+                catalog: "<%= product.variant2_catalog %>",
+                installation: "<%= product.variant2_installation %>"
+            },
+            3: {
+                datasheet: "<%= product.variant3_datasheet %>",
+                catalog: "<%= product.variant3_catalog %>",
+                installation: "<%= product.variant3_installation %>"
+            },
+            4: {
+                datasheet: "<%= product.variant4_datasheet %>",
+                catalog: "<%= product.variant4_catalog %>",
+                installation: "<%= product.variant4_installation %>"
+            }
+        };
+
+    </script>
+
+    <script>
+
+        const buttons = document.querySelectorAll(".variant-btn");
+
+        buttons.forEach(button => {
+
+            button.addEventListener("click", function () {
+
+
+                
+                buttons.forEach(btn => btn.classList.remove("active"));
+
+                this.classList.add("active");
+
+                const variant = variants[this.dataset.variant];
+
+                if (!variant) return;
+
+                document.getElementById("datasheetLink").href =
+                    "/pdf/" + variant.datasheet;
+
+                document.getElementById("catalogLink").href =
+                    "/pdf/" + variant.catalog;
+
+                const installation = document.getElementById("installationLink");
+
+                if (installation) {
+                    installation.href =
+                        "/pdf/" + variant.installation;
+                }
+
+            });
+
+        });
+
+    </script>

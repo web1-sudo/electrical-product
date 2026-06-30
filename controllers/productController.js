@@ -511,13 +511,22 @@ exports.singleProduct = (req, res) => {
             relatedProducts = [];
           }
 
-          res.render(
-            "product/product",
-            {
-              product,
-              relatedProducts
-            }
-          );
+       res.render("product/product", {
+  product,
+  relatedProducts,
+
+  categorySlug: product.category
+    .toLowerCase()
+    .replace(/\s+/g, "-"),
+
+  brandSlug: product.brand
+    .toLowerCase()
+    .replace(/\s+/g, "-"),
+
+  subcategorySlug: product.subcategory
+    ? product.subcategory.toLowerCase().replace(/\s+/g, "-")
+    : ""
+});
 
         }
       );

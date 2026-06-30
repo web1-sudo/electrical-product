@@ -106,6 +106,59 @@ const data = {
 catalog_pdf: req.files?.catalog_pdf
   ? req.files.catalog_pdf[0].filename
   : "",
+
+// Variant 1
+variant1_name: req.body.variant1_name,
+variant1_catalogue: req.body.variant1_catalogue,
+variant1_datasheet: req.files?.variant1_datasheet
+  ? req.files.variant1_datasheet[0].filename
+  : "",
+variant1_catalog: req.files?.variant1_catalog
+  ? req.files.variant1_catalog[0].filename
+  : "",
+variant1_installation: req.files?.variant1_installation
+  ? req.files.variant1_installation[0].filename
+  : "",
+
+// Variant 2
+variant2_name: req.body.variant2_name,
+variant2_catalogue: req.body.variant2_catalogue,
+variant2_datasheet: req.files?.variant2_datasheet
+  ? req.files.variant2_datasheet[0].filename
+  : "",
+variant2_catalog: req.files?.variant2_catalog
+  ? req.files.variant2_catalog[0].filename
+  : "",
+variant2_installation: req.files?.variant2_installation
+  ? req.files.variant2_installation[0].filename
+  : "",
+
+// Variant 3
+variant3_name: req.body.variant3_name,
+variant3_catalogue: req.body.variant3_catalogue,
+variant3_datasheet: req.files?.variant3_datasheet
+  ? req.files.variant3_datasheet[0].filename
+  : "",
+variant3_catalog: req.files?.variant3_catalog
+  ? req.files.variant3_catalog[0].filename
+  : "",
+variant3_installation: req.files?.variant3_installation
+  ? req.files.variant3_installation[0].filename
+  : "",
+
+// Variant 4
+variant4_name: req.body.variant4_name,
+variant4_catalogue: req.body.variant4_catalogue,
+variant4_datasheet: req.files?.variant4_datasheet
+  ? req.files.variant4_datasheet[0].filename
+  : "",
+variant4_catalog: req.files?.variant4_catalog
+  ? req.files.variant4_catalog[0].filename
+  : "",
+variant4_installation: req.files?.variant4_installation
+  ? req.files.variant4_installation[0].filename
+  : "",
+
   description: req.body.description,
   meta_title: req.body.meta_title,
   meta_description: req.body.meta_description,
@@ -189,6 +242,63 @@ exports.updateProduct = (req, res) => {
 
     image: req.files?.image ? req.files.image[0].filename : "",
     pdf: req.files?.pdf ? req.files.pdf[0].filename : "",
+
+    
+catalog_pdf: req.files?.catalog_pdf
+  ? req.files.catalog_pdf[0].filename
+  : "",
+
+// Variant 1
+variant1_name: req.body.variant1_name,
+variant1_catalogue: req.body.variant1_catalogue,
+variant1_datasheet: req.files?.variant1_datasheet
+  ? req.files.variant1_datasheet[0].filename
+  : "",
+variant1_catalog: req.files?.variant1_catalog
+  ? req.files.variant1_catalog[0].filename
+  : "",
+variant1_installation: req.files?.variant1_installation
+  ? req.files.variant1_installation[0].filename
+  : "",
+
+// Variant 2
+variant2_name: req.body.variant2_name,
+variant2_catalogue: req.body.variant2_catalogue,
+variant2_datasheet: req.files?.variant2_datasheet
+  ? req.files.variant2_datasheet[0].filename
+  : "",
+variant2_catalog: req.files?.variant2_catalog
+  ? req.files.variant2_catalog[0].filename
+  : "",
+variant2_installation: req.files?.variant2_installation
+  ? req.files.variant2_installation[0].filename
+  : "",
+
+// Variant 3
+variant3_name: req.body.variant3_name,
+variant3_catalogue: req.body.variant3_catalogue,
+variant3_datasheet: req.files?.variant3_datasheet
+  ? req.files.variant3_datasheet[0].filename
+  : "",
+variant3_catalog: req.files?.variant3_catalog
+  ? req.files.variant3_catalog[0].filename
+  : "",
+variant3_installation: req.files?.variant3_installation
+  ? req.files.variant3_installation[0].filename
+  : "",
+
+// Variant 4
+variant4_name: req.body.variant4_name,
+variant4_catalogue: req.body.variant4_catalogue,
+variant4_datasheet: req.files?.variant4_datasheet
+  ? req.files.variant4_datasheet[0].filename
+  : "",
+variant4_catalog: req.files?.variant4_catalog
+  ? req.files.variant4_catalog[0].filename
+  : "",
+variant4_installation: req.files?.variant4_installation
+  ? req.files.variant4_installation[0].filename
+  : "",
 
     image2: req.files?.image2
       ? req.files.image2[0].filename

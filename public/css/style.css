@@ -56,7 +56,9 @@ p {
     padding-right: 6rem !important;
     padding-left: 6rem !important;
 }
-
+.fixed-top{
+    z-index:9999 !important;
+}
 .navbar {
   min-height: 55px;
   padding-bottom: 1px;
@@ -1854,7 +1856,32 @@ color: #000;
 .page-section {
   padding: 140px 0;
 }
-
+.variant-section .variant-btn{
+     padding: 15px;
+    border: 1px solid #0000001A;
+    background: transparent;
+    color:#1D1D1F;
+     opacity: 50%;
+}
+.variant-section  .active{
+    
+     opacity: 100%;
+}
+.variant-section .variant-btn strong{
+    color: #1D1D1F;
+    font-size: 16px;
+    font-weight: bolder;
+    /* line-height: 40px; */
+    letter-spacing: 0%;
+    font-family: "Figtree", sans-serif;
+}
+.variant-section .variant-btn small{
+    color: #1D1D1F;
+    font-size: 14px;
+    /* line-height: 40px; */
+    letter-spacing: 0%;
+    font-family: "Figtree", sans-serif;
+}
 #exampleModal h2 {
   font-size: 32px;
   line-height: 20px;
@@ -2541,6 +2568,7 @@ font-size: 16px;
     width: auto;
     max-width: 60%;
 }
+
 .product-banner {
     width: 100%;
     min-height: 400px;

@@ -1,0 +1,615 @@
+<%- include('../partials/header') %>
+
+    <div class="container py-5">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+                <h2 class="fw-bold mb-1">Edit Product</h2>
+                <p class="text-muted mb-0">
+                    Update Product Details
+                </p>
+            </div>
+
+            <a href="/admin/dashboard" class="btn btn-secondary">
+                Back To Dashboard
+            </a>
+
+        </div>
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body p-4">
+
+                <form action="/admin/edit-product/<%= product.id %>" method="POST" enctype="multipart/form-data">
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <h4 class="fw-bold mt-3 mb-4">
+                                Product Details
+                            </h4>
+                        </div>
+
+                        <!-- Product Name -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Name
+                            </label>
+
+                            <input type="text" name="name" class="form-control" value="<%= product.name %>" required>
+
+                        </div>
+
+                        <!-- Meta Title -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Meta Title
+                            </label>
+
+                            <input type="text" name="meta_title" class="form-control" value="<%= product.meta_title %>">
+
+                        </div>
+
+                        <!-- Category -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Category
+                            </label>
+
+                            <select name="category" class="form-select" required>
+
+                                <option value="">Select Category</option>
+
+                                <option value="Protection Devices" <%=product.category=="Protection Devices"
+                                    ? "selected" : "" %>>
+                                    Protection Devices
+                                </option>
+
+                                <option value="Switches & Accessories" <%=product.category=="Switches & Accessories"
+                                    ? "selected" : "" %>>
+                                    Switches & Accessories
+                                </option>
+
+                                <option value="Distribution Boards" <%=product.category=="Distribution Boards"
+                                    ? "selected" : "" %>>
+                                    Distribution Boards
+                                </option>
+
+                                <option value="Ev Charger" <%=product.category=="Ev Charger" ? "selected" : "" %>>
+                                    Ev Charger
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Sub Category -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Sub Category
+                            </label>
+
+                            <select name="subcategory" class="form-select">
+
+                                <option value="">Select Subcategory</option>
+
+                                <option value="MCB" <%=product.subcategory=="MCB" ? "selected" :"" %>>MCB</option>
+
+                                <option value="Isolator" <%=product.subcategory=="Isolator" ? "selected" :"" %>>Isolator
+                                </option>
+
+                                <option value="RCCB" <%=product.subcategory=="RCCB" ? "selected" :"" %>>RCCB</option>
+
+                                <option value="RCBO" <%=product.subcategory=="RCBO" ? "selected" :"" %>>RCBO</option>
+
+                                <option value="Switches" <%=product.subcategory=="Switches" ? "selected" :"" %>>Switches
+                                </option>
+
+                                <option value="Sockets" <%=product.subcategory=="Sockets" ? "selected" :"" %>>Sockets
+                                </option>
+
+                                <option value="Accessories" <%=product.subcategory=="Accessories" ? "selected" :"" %>
+                                    >Accessories</option>
+
+                                <option value="AC" <%=product.subcategory=="AC" ? "selected" :"" %>>AC</option>
+
+                                <option value="DC" <%=product.subcategory=="DC" ? "selected" :"" %>>DC</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Brand -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Brand
+                            </label>
+
+                            <select name="brand" class="form-select" required>
+
+                                <option value="">Select Brand</option>
+
+                                <option value="EQ9" <%=product.brand=="EQ9" ? "selected" :"" %>>EQ9</option>
+
+                                <option value="EL9" <%=product.brand=="EL9" ? "selected" :"" %>>EL9</option>
+
+                                <option value="Elvyx" <%=product.brand=="Elvyx" ? "selected" :"" %>>Elvyx</option>
+
+                                <option value="Auralis" <%=product.brand=="Auralis" ? "selected" :"" %>>Auralis</option>
+
+                                <option value="Elvo" <%=product.brand=="Elvo" ? "selected" :"" %>>Elvo</option>
+
+                                <option value="Avina" <%=product.brand=="Avina" ? "selected" :"" %>>Avina</option>
+
+                                <option value="A2Z" <%=product.brand=="A2Z" ? "selected" :"" %>>A2Z</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Main Image -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Image Main
+                            </label>
+
+                            <% if(product.image){ %>
+
+                                <div class="mb-3">
+                                    <img src="/uploads/<%= product.image %>" class="img-thumbnail" width="180">
+                                </div>
+
+                                <% } %>
+
+                                    <input type="file" name="image" class="form-control" accept="image/*">
+
+                        </div>
+
+                        <!-- Image 2 -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Image 2
+                            </label>
+
+                            <% if(product.image2){ %>
+
+                                <div class="mb-3">
+                                    <img src="/uploads/<%= product.image2 %>" class="img-thumbnail" width="180">
+                                </div>
+
+                                <% } %>
+
+                                    <input type="file" name="image2" class="form-control" accept="image/*">
+
+                        </div>
+
+                        <!-- Image 3 -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Image 3
+                            </label>
+
+                            <% if(product.image3){ %>
+
+                                <div class="mb-3">
+                                    <img src="/uploads/<%= product.image3 %>" class="img-thumbnail" width="180">
+                                </div>
+
+                                <% } %>
+
+                                    <input type="file" name="image3" class="form-control" accept="image/*">
+
+                        </div>
+
+                        <!-- Product Description -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Description
+                            </label>
+
+                            <textarea name="description" rows="6"
+                                class="form-control"><%= product.description %></textarea>
+
+                        </div>
+
+                        <!-- Meta Description -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Meta Description
+                            </label>
+
+                            <textarea name="meta_description" rows="6"
+                                class="form-control"><%= product.meta_description %></textarea>
+
+                        </div>
+                    <div class="col-md-12">
+                        <h4 class="fw-bold mt-5 mb-3">
+                            Choose Filter For Protection Devices
+                        </h4>
+                    </div>
+                    
+                    <!-- Current Rating -->
+                    
+                    <div class="col-md-6 mb-4">
+                    
+                        <label class="form-label fw-semibold">
+                            Current Rating
+                        </label>
+                    
+                        <select name="rating" class="form-select">
+                    
+                            <option value="">Select Current Rating</option>
+                    
+                            <option value="0.5 A" <%=product.rating=="0.5 A" ? "selected" :"" %>>0.5 A</option>
+                            <option value="01 A" <%=product.rating=="01 A" ? "selected" :"" %>>01 A</option>
+                            <option value="02 A" <%=product.rating=="02 A" ? "selected" :"" %>>02 A</option>
+                            <option value="03 A" <%=product.rating=="03 A" ? "selected" :"" %>>03 A</option>
+                            <option value="04 A" <%=product.rating=="04 A" ? "selected" :"" %>>04 A</option>
+                            <option value="06 A" <%=product.rating=="06 A" ? "selected" :"" %>>06 A</option>
+                            <option value="10 A" <%=product.rating=="10 A" ? "selected" :"" %>>10 A</option>
+                            <option value="16 A" <%=product.rating=="16 A" ? "selected" :"" %>>16 A</option>
+                            <option value="20 A" <%=product.rating=="20 A" ? "selected" :"" %>>20 A</option>
+                            <option value="25 A" <%=product.rating=="25 A" ? "selected" :"" %>>25 A</option>
+                            <option value="32 A" <%=product.rating=="32 A" ? "selected" :"" %>>32 A</option>
+                            <option value="40 A" <%=product.rating=="40 A" ? "selected" :"" %>>40 A</option>
+                            <option value="50 A" <%=product.rating=="50 A" ? "selected" :"" %>>50 A</option>
+                            <option value="63 A" <%=product.rating=="63 A" ? "selected" :"" %>>63 A</option>
+                    
+                        </select>
+                    
+                    </div>
+                    
+                    <!-- Curve Type -->
+                    
+                    <div class="col-md-6 mb-4">
+                    
+                        <label class="form-label fw-semibold">
+                            Curve Type
+                        </label>
+                    
+                        <select name="curve_type" class="form-select">
+                    
+                            <option value="">Select Curve</option>
+                    
+                            <option value="B" <%=product.curve_type=="B" ? "selected" :"" %>>B</option>
+                    
+                            <option value="C" <%=product.curve_type=="C" ? "selected" :"" %>>C</option>
+                    
+                            <option value="D" <%=product.curve_type=="D" ? "selected" :"" %>>D</option>
+                    
+                        </select>
+                    
+                    </div>
+                    
+                    <!-- Number Of Poles -->
+                    
+                    <div class="col-md-6 mb-4">
+                    
+                        <label class="form-label fw-semibold">
+                            Number Of Poles
+                        </label>
+                    
+                        <select name="poles" class="form-select">
+                    
+                            <option value="">Select Poles</option>
+                    
+                            <option value="Single Pole" <%=product.poles=="Single Pole" ? "selected" :"" %>>
+                                Single Pole
+                            </option>
+                    
+                            <option value="Double Pole" <%=product.poles=="Double Pole" ? "selected" :"" %>>
+                                Double Pole
+                            </option>
+                    
+                            <option value="Three Pole" <%=product.poles=="Three Pole" ? "selected" :"" %>>
+                                Three Pole
+                            </option>
+                    
+                            <option value="Four Pole" <%=product.poles=="Four Pole" ? "selected" :"" %>>
+                                Four Pole
+                            </option>
+                    
+                            <option value="Single Pole Neutral" <%=product.poles=="Single Pole Neutral" ? "selected" :"" %>>
+                                Single Pole Neutral
+                            </option>
+                    
+                            <option value="Three Pole Neutral" <%=product.poles=="Three Pole Neutral" ? "selected" :"" %>>
+                                Three Pole Neutral
+                            </option>
+                    
+                        </select>
+                    
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <h4 class="fw-bold mt-5 mb-3">
+                            Product PDFs
+                        </h4>
+                    </div>
+                    
+                    <!-- Datasheet PDF -->
+                    
+                    <div class="col-md-6 mb-4">
+                    
+                        <label class="form-label fw-semibold">
+                            Product Data Sheet PDF
+                        </label>
+                    
+                        <% if(product.pdf){ %>
+                    
+                            <div class="mb-2">
+                    
+                                <a href="/uploads/<%= product.pdf %>" target="_blank" class="btn btn-outline-primary btn-sm">
+                    
+                                    View Current Datasheet
+                    
+                                </a>
+                    
+                            </div>
+                    
+                            <% } %>
+                    
+                                <input type="file" name="pdf" class="form-control" accept=".pdf">
+                    
+                    </div>
+                    
+                    <!-- Catalog PDF -->
+                    
+                    <div class="col-md-6 mb-4">
+                    
+                        <label class="form-label fw-semibold">
+                            Product Catalog PDF
+                        </label>
+                    
+                        <% if(product.catalog_pdf){ %>
+                    
+                            <div class="mb-2">
+                    
+                                <a href="/uploads/<%= product.catalog_pdf %>" target="_blank" class="btn btn-outline-primary btn-sm">
+                    
+                                    View Current Catalog
+                    
+                                </a>
+                    
+                            </div>
+                    
+                            <% } %>
+                    
+                                <input type="file" name="catalog_pdf" class="form-control" accept=".pdf">
+                    
+                    </div>
+                    
+                    <!-- Distribution Boards -->
+                    
+                    <div class="col-md-12">
+                        <h4 class="fw-bold mt-5 mb-3">
+                            Select Filter For Distribution Boards
+                        </h4>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                    
+                        <label class="form-label fw-semibold">
+                            Select Distribution Boards
+                        </label>
+                    
+                        <select name="boards" class="form-select">
+                    
+                            <option value="">Select Boards</option>
+                    
+                            <option value="SPN" <%=product.boards=="SPN" ? "selected" :"" %>>SPN</option>
+                    
+                            <option value="TPN" <%=product.boards=="TPN" ? "selected" :"" %>>TPN</option>
+                    
+                            <option value="Flexi Tier" <%=product.boards=="Flexi Tier" ? "selected" :"" %>>Flexi Tier</option>
+                    
+                            <option value="VTPN MCB Incomer" <%=product.boards=="VTPN MCB Incomer" ? "selected" :"" %>>VTPN MCB Incomer
+                            </option>
+                    
+                            <option value="VTPN MCCB Incomer" <%=product.boards=="VTPN MCCB Incomer" ? "selected" :"" %>>VTPN MCCB Incomer
+                            </option>
+                    
+                            <option value="Phase Segregated 7 Segment" <%=product.boards=="Phase Segregated 7 Segment" ? "selected" :"" %>>
+                                Phase Segregated 7 Segment
+                            </option>
+                    
+                            <option value="Phase Segregated 8 Segment" <%=product.boards=="Phase Segregated 8 Segment" ? "selected" :"" %>>
+                                Phase Segregated 8 Segment
+                            </option>
+                    
+                            <option value="Phase Selector" <%=product.boards=="Phase Selector" ? "selected" :"" %>>
+                                Phase Selector
+                            </option>
+                    
+                            <option value="TV Telephone SPN" <%=product.boards=="TV Telephone SPN" ? "selected" :"" %>>
+                                TV Telephone SPN
+                            </option>
+                    
+                            <option value="TV Telephone TPN" <%=product.boards=="TV Telephone TPN" ? "selected" :"" %>>
+                                TV Telephone TPN
+                            </option>
+                    
+                            <option value="Metal Enclosure" <%=product.boards=="Metal Enclosure" ? "selected" :"" %>>
+                                Metal Enclosure
+                            </option>
+                    
+                            <option value="PPI Kit" <%=product.boards=="PPI Kit" ? "selected" :"" %>>
+                                PPI Kit
+                            </option>
+                    
+                            <option value="SPN SD DB" <%=product.boards=="SPN SD DB" ? "selected" :"" %>>SPN SD DB</option>
+                    
+                            <option value="TPN SD DB" <%=product.boards=="TPN SD DB" ? "selected" :"" %>>TPN SD DB</option>
+                    
+                            <option value="SPN DD DB" <%=product.boards=="SPN DD DB" ? "selected" :"" %>>SPN DD DB</option>
+                    
+                            <option value="TPN DD DB" <%=product.boards=="TPN DD DB" ? "selected" :"" %>>TPN DD DB</option>
+                    
+                        </select>
+                    
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                    
+                        <label class="form-label fw-semibold">
+                            Distribution Boards Type
+                        </label>
+                    
+                        <select name="boards_type" class="form-select">
+                    
+                            <option value="">Select Boards Type</option>
+                    
+                            <option value="Single Door" <%=product.boards_type=="Single Door" ? "selected" :"" %>>Single Door</option>
+                    
+                            <option value="Double Door" <%=product.boards_type=="Double Door" ? "selected" :"" %>>Double Door</option>
+                    
+                            <option value="Mivan Compatible" <%=product.boards_type=="Mivan Compatible" ? "selected" :"" %>>Mivan Compatible
+                            </option>
+                    
+                            <option value="Mivan Compatible Super Strong" <%=product.boards_type=="Mivan Compatible Super Strong"
+                                ? "selected" :"" %>>
+                                Mivan Compatible Super Strong
+                            </option>
+                    
+                            <option value="Double Door IP54" <%=product.boards_type=="Double Door IP54" ? "selected" :"" %>>
+                                Double Door IP54
+                            </option>
+                    
+                            <option value="Double Door Acrylic Door" <%=product.boards_type=="Double Door Acrylic Door" ? "selected" :"" %>>
+                                Double Door Acrylic Door
+                            </option>
+                    
+                            <option value="Single Row" <%=product.boards_type=="Single Row" ? "selected" :"" %>>
+                                Single Row
+                            </option>
+                    
+                            <option value="Double Row" <%=product.boards_type=="Double Row" ? "selected" :"" %>>
+                                Double Row
+                            </option>
+                    
+                        </select>
+                    
+                    </div>
+                    
+                <!-- ====================================================== -->
+                <!-- DB RANGE - STANDARD -->
+                <!-- ====================================================== -->
+                
+                <div class="col-md-12">
+                    <h4 class="fw-bold mt-5 mb-3">
+                        Select DB Range and PDF for Distribution Boards
+                    </h4>
+                </div>
+                
+                <div class="col-6 mb-4">
+                
+                    <h5>DB Range - Standard</h5>
+                
+                    <!-- DB Range Name -->
+                
+                    <label class="form-label">
+                        DB Range Name
+                    </label>
+                
+                    <input type="text" name="variant1_name" class="form-control mb-3" placeholder="DB Range Name"
+                        value="<%= product.variant1_name %>">
+                
+                    <!-- Catalogue Number -->
+                
+                    <label class="form-label">
+                        Catalogue Number
+                    </label>
+                
+                    <input type="text" name="variant1_catalogue" class="form-control mb-3" placeholder="Catalogue Number"
+                        value="<%= product.variant1_catalogue %>">
+                
+                    <!-- Datasheet -->
+                
+                    <label class="form-label">
+                        Product Data Sheet
+                    </label>
+                
+                    <% if(product.variant1_datasheet){ %>
+                
+                        <div class="mb-2">
+                
+                            <a href="/uploads/<%= product.variant1_datasheet %>" target="_blank" class="btn btn-outline-primary btn-sm">
+                
+                                View Current Datasheet
+                
+                            </a>
+                
+                        </div>
+                
+                        <% } %>
+                
+                            <input type="file" name="variant1_datasheet" class="form-control mb-3" accept=".pdf">
+                
+                            <!-- Catalog -->
+                
+                            <label class="form-label">
+                                Product Catalog
+                            </label>
+                
+                            <% if(product.variant1_catalog){ %>
+                
+                                <div class="mb-2">
+                
+                                    <a href="/uploads/<%= product.variant1_catalog %>" target="_blank"
+                                        class="btn btn-outline-success btn-sm">
+                
+                                        View Current Catalog
+                
+                                    </a>
+                
+                                </div>
+                
+                                <% } %>
+                
+                                    <input type="file" name="variant1_catalog" class="form-control mb-3" accept=".pdf">
+                
+                                    <!-- Installation -->
+                
+                                    <label class="form-label">
+                                        Installation Sheet
+                                    </label>
+                
+                                    <% if(product.variant1_installation){ %>
+                
+                                        <div class="mb-2">
+                
+                                            <a href="/uploads/<%= product.variant1_installation %>" target="_blank"
+                                                class="btn btn-outline-warning btn-sm">
+                
+                                                View Current Installation Sheet
+                
+                                            </a>
+                
+                                        </div>
+                
+                                        <% } %>
+                
+                                            <input type="file" name="variant1_installation" class="form-control" accept=".pdf">
+                
+                </div>

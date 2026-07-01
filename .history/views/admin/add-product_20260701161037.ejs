@@ -1,0 +1,247 @@
+<%- include('../partials/header') %>
+
+    <div class="container py-5">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+                <h2 class="fw-bold mb-1">Edit Product</h2>
+                <p class="text-muted mb-0">
+                    Update Product Details
+                </p>
+            </div>
+
+            <a href="/admin/dashboard" class="btn btn-secondary">
+                Back To Dashboard
+            </a>
+
+        </div>
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body p-4">
+
+                <form action="/admin/edit-product/<%= product.id %>" method="POST" enctype="multipart/form-data">
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <h4 class="fw-bold mt-3 mb-4">
+                                Product Details
+                            </h4>
+                        </div>
+
+                        <!-- Product Name -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Name
+                            </label>
+
+                            <input type="text" name="name" class="form-control" value="<%= product.name %>" required>
+
+                        </div>
+
+                        <!-- Meta Title -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Meta Title
+                            </label>
+
+                            <input type="text" name="meta_title" class="form-control" value="<%= product.meta_title %>">
+
+                        </div>
+
+                        <!-- Category -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Category
+                            </label>
+
+                            <select name="category" class="form-select" required>
+
+                                <option value="">Select Category</option>
+
+                                <option value="Protection Devices" <%=product.category=="Protection Devices"
+                                    ? "selected" : "" %>>
+                                    Protection Devices
+                                </option>
+
+                                <option value="Switches & Accessories" <%=product.category=="Switches & Accessories"
+                                    ? "selected" : "" %>>
+                                    Switches & Accessories
+                                </option>
+
+                                <option value="Distribution Boards" <%=product.category=="Distribution Boards"
+                                    ? "selected" : "" %>>
+                                    Distribution Boards
+                                </option>
+
+                                <option value="Ev Charger" <%=product.category=="Ev Charger" ? "selected" : "" %>>
+                                    Ev Charger
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Sub Category -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Sub Category
+                            </label>
+
+                            <select name="subcategory" class="form-select">
+
+                                <option value="">Select Subcategory</option>
+
+                                <option value="MCB" <%=product.subcategory=="MCB" ? "selected" :"" %>>MCB</option>
+
+                                <option value="Isolator" <%=product.subcategory=="Isolator" ? "selected" :"" %>>Isolator
+                                </option>
+
+                                <option value="RCCB" <%=product.subcategory=="RCCB" ? "selected" :"" %>>RCCB</option>
+
+                                <option value="RCBO" <%=product.subcategory=="RCBO" ? "selected" :"" %>>RCBO</option>
+
+                                <option value="Switches" <%=product.subcategory=="Switches" ? "selected" :"" %>>Switches
+                                </option>
+
+                                <option value="Sockets" <%=product.subcategory=="Sockets" ? "selected" :"" %>>Sockets
+                                </option>
+
+                                <option value="Accessories" <%=product.subcategory=="Accessories" ? "selected" :"" %>
+                                    >Accessories</option>
+
+                                <option value="AC" <%=product.subcategory=="AC" ? "selected" :"" %>>AC</option>
+
+                                <option value="DC" <%=product.subcategory=="DC" ? "selected" :"" %>>DC</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Brand -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Brand
+                            </label>
+
+                            <select name="brand" class="form-select" required>
+
+                                <option value="">Select Brand</option>
+
+                                <option value="EQ9" <%=product.brand=="EQ9" ? "selected" :"" %>>EQ9</option>
+
+                                <option value="EL9" <%=product.brand=="EL9" ? "selected" :"" %>>EL9</option>
+
+                                <option value="Elvyx" <%=product.brand=="Elvyx" ? "selected" :"" %>>Elvyx</option>
+
+                                <option value="Auralis" <%=product.brand=="Auralis" ? "selected" :"" %>>Auralis</option>
+
+                                <option value="Elvo" <%=product.brand=="Elvo" ? "selected" :"" %>>Elvo</option>
+
+                                <option value="Avina" <%=product.brand=="Avina" ? "selected" :"" %>>Avina</option>
+
+                                <option value="A2Z" <%=product.brand=="A2Z" ? "selected" :"" %>>A2Z</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Main Image -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Image Main
+                            </label>
+
+                            <% if(product.image){ %>
+
+                                <div class="mb-3">
+                                    <img src="/uploads/<%= product.image %>" class="img-thumbnail" width="180">
+                                </div>
+
+                                <% } %>
+
+                                    <input type="file" name="image" class="form-control" accept="image/*">
+
+                        </div>
+
+                        <!-- Image 2 -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Image 2
+                            </label>
+
+                            <% if(product.image2){ %>
+
+                                <div class="mb-3">
+                                    <img src="/uploads/<%= product.image2 %>" class="img-thumbnail" width="180">
+                                </div>
+
+                                <% } %>
+
+                                    <input type="file" name="image2" class="form-control" accept="image/*">
+
+                        </div>
+
+                        <!-- Image 3 -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Image 3
+                            </label>
+
+                            <% if(product.image3){ %>
+
+                                <div class="mb-3">
+                                    <img src="/uploads/<%= product.image3 %>" class="img-thumbnail" width="180">
+                                </div>
+
+                                <% } %>
+
+                                    <input type="file" name="image3" class="form-control" accept="image/*">
+
+                        </div>
+
+                        <!-- Product Description -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Product Description
+                            </label>
+
+                            <textarea name="description" rows="6"
+                                class="form-control"><%= product.description %></textarea>
+
+                        </div>
+
+                        <!-- Meta Description -->
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label fw-semibold">
+                                Meta Description
+                            </label>
+
+                            <textarea name="meta_description" rows="6"
+                                class="form-control"><%= product.meta_description %></textarea>
+
+                        </div>
+
+                        <!-- Continue with Protection Device Filters -->

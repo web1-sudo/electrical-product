@@ -219,106 +219,134 @@ exports.editProductPage = (req, res) => {
 
 // UPDATE PRODUCT
 
+
 exports.updateProduct = (req, res) => {
-  const slug = slugify(req.body.name, {
+ const slug = slugify(req.body.name, {
     lower: true,
     strict: true,
   });
+    Product.getProductById(req.params.id, (err, results) => {
 
-  const data = {
-    name: req.body.name,
-    slug,
-    brand: req.body.brand,
-    category: req.body.category,
-    subcategory: req.body.subcategory,
-    description: req.body.description,
-    meta_title: req.body.meta_title,
-    meta_description: req.body.meta_description,
-    curve_type: req.body.curve_type,
-    rating: req.body.rating,
-    boards: req.body.boards,
-    boards_type: req.body.boards_type,
-    poles: req.body.poles,
+        if (err) {
+            return res.send("Database Error");
+        }
 
-    image: req.files?.image ? req.files.image[0].filename : "",
-    pdf: req.files?.pdf ? req.files.pdf[0].filename : "",
+        const oldProduct = results[0];
 
-    
+       
+
+           const data = {
+  name: req.body.name,
+  slug,
+  brand: req.body.brand,
+  category: req.body.category,
+  subcategory: req.body.subcategory,
+  boards: req.body.boards,
+  boards_type: req.body.boards_type,
+
+  rating: req.body.rating,
+  poles: req.body.poles,
+
+  curve_type: req.body.curve_type,
+
+ image: req.files?.image
+    ? req.files.image[0].filename
+    : oldProduct.image,
+pdf: req.files?.pdf
+    ? req.files.pdf[0].filename
+    : oldProduct.pdf, 
+
 catalog_pdf: req.files?.catalog_pdf
-  ? req.files.catalog_pdf[0].filename
-  : "",
+    ? req.files.catalog_pdf[0].filename
+    : oldProduct.catalog_pdf,
 
 // Variant 1
 variant1_name: req.body.variant1_name,
 variant1_catalogue: req.body.variant1_catalogue,
-variant1_datasheet: req.files?.variant1_datasheet
-  ? req.files.variant1_datasheet[0].filename
-  : "",
-variant1_catalog: req.files?.variant1_catalog
-  ? req.files.variant1_catalog[0].filename
-  : "",
+variant1_datasheet:
+    req.files?.variant1_datasheet
+        ? req.files.variant1_datasheet[0].filename
+        : oldProduct.variant1_datasheet,
+variant1_catalog: 
+    req.files?.variant1_catalog
+        ? req.files.variant1_catalog[0].filename
+        : oldProduct.variant1_catalog,
+
+        
 variant1_installation: req.files?.variant1_installation
-  ? req.files.variant1_installation[0].filename
-  : "",
+        ? req.files.variant1_installation[0].filename
+        : oldProduct.variant1_installation,
 
 // Variant 2
 variant2_name: req.body.variant2_name,
 variant2_catalogue: req.body.variant2_catalogue,
 variant2_datasheet: req.files?.variant2_datasheet
-  ? req.files.variant2_datasheet[0].filename
-  : "",
+        ? req.files.variant2_datasheet[0].filename
+        : oldProduct.variant2_datasheet,
+
 variant2_catalog: req.files?.variant2_catalog
-  ? req.files.variant2_catalog[0].filename
-  : "",
+    ? req.files.variant2_catalog[0].filename
+    : oldProduct.variant2_catalog,
+
 variant2_installation: req.files?.variant2_installation
   ? req.files.variant2_installation[0].filename
-  : "",
+  : oldProduct.variant2_installation,
 
 // Variant 3
 variant3_name: req.body.variant3_name,
 variant3_catalogue: req.body.variant3_catalogue,
 variant3_datasheet: req.files?.variant3_datasheet
   ? req.files.variant3_datasheet[0].filename
-  : "",
+  : oldProduct.variant3_datasheet,
 variant3_catalog: req.files?.variant3_catalog
   ? req.files.variant3_catalog[0].filename
-  : "",
+  :oldProduct.variant3_catalog,
 variant3_installation: req.files?.variant3_installation
   ? req.files.variant3_installation[0].filename
-  : "",
+  : oldProduct.variant3_installation,
 
 // Variant 4
 variant4_name: req.body.variant4_name,
 variant4_catalogue: req.body.variant4_catalogue,
 variant4_datasheet: req.files?.variant4_datasheet
   ? req.files.variant4_datasheet[0].filename
-  : "",
+  : oldProduct.variant4_datasheet,
 variant4_catalog: req.files?.variant4_catalog
   ? req.files.variant4_catalog[0].filename
-  : "",
+  : oldProduct.variant4_catalog,
 variant4_installation: req.files?.variant4_installation
   ? req.files.variant4_installation[0].filename
-  : "",
+  : oldProduct.variant4_installation,
 
-    image2: req.files?.image2
-      ? req.files.image2[0].filename
-      : "",
+  description: req.body.description,
+  meta_title: req.body.meta_title,
+  meta_description: req.body.meta_description,
 
-    image3: req.files?.image3
-      ? req.files.image3[0].filename
-      : "",
-  };
+image2: req.files?.image2
+    ? req.files.image2[0].filename
+    : oldProduct.image2,
 
-  Product.updateProduct(
-    req.params.id,
-    data,
-    (err) => {
-      if (err) {
-        console.log(err);
-        return res.send("Update Failed");
-      }
+image3: req.files?.image3
+    ? req.files.image3[0].filename
+    : oldProduct.image3,
+};
 
-      res.redirect("/admin/dashboard");
-    }
-  );
+
+        Product.updateProduct(
+            req.params.id,
+            data,
+            (err) => {
+
+                if (err) {
+                    console.log(err);
+                    return res.send("Update Failed");
+                }
+
+                res.redirect("/admin/dashboard");
+
+            }
+        );
+
+    });
+
 };

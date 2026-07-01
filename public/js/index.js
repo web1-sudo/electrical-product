@@ -293,3 +293,19 @@ document.getElementById("prevBtn")
 });
 
 
+
+
+// border in sigle product page of section variant-section
+
+
+const category = document.getElementById("category");
+const variantSection = document.getElementById("variantSection");
+
+category.addEventListener("change", function () {
+    if (this.value === "distribution-boards") {
+        variantSection.classList.add("show-border");
+    } else {
+        variantSection.classList.remove("show-border");
+    }
+});
+

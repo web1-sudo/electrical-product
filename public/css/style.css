@@ -459,7 +459,7 @@ p {
   background-color: #fff;
   width: 100%;
   margin-bottom: 30px;
-  text-align: center;
+  text-align: start;
 
 }
 
@@ -484,6 +484,15 @@ line-height: 20px;
 letter-spacing: 0%;
 text-align:start;
 }
+.product-content .tab-content .product-card .product-details span{
+font-size:14px;
+color:#1D1D1F;
+font-weight:300;
+line-height: 40px;
+letter-spacing: 0%;
+text-align:start;
+}
+
 .product-content .tab-content .page-item:first-child .page-link {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;

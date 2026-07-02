@@ -42,17 +42,19 @@
                         href="/products/<%= product.category.toLowerCase().replace(/\s+/g,'-') %>/<%= product.brand.toLowerCase().replace(/\s+/g,'-') %>/<%= product.subcategory.toLowerCase().replace(/\s+/g,'-') %>">
                         <%= product.subcategory %>
                     </a> -->
-                    <a
-                        href="/products/<%= product.category.toLowerCase().replace(/\s+/g,'-') %>/<%= product.brand.toLowerCase().replace(/\s+/g,'-') %>">
-                        <%= product.subcategory %>
+                  <% if (product.subcategory) { %>
 
-                         <span class="mx-2" style="font-weight: 400; color: #999;">&gt;</span>
-                    </a>
+    <a href="/products/<%= product.category.toLowerCase().replace(/\s+/g,'-') %>/<%= product.brand.toLowerCase().replace(/\s+/g,'-') %>">
+        <%= product.subcategory %>
+    </a>
 
- 
-                    <strong>
-                        <%= product.name %>
-                    </strong>
+    <span class="mx-2" style="font-weight: 400; color: #999;">&gt;</span>
+
+<% } %>
+
+<span style="color:#000;font-weight:400;margin-left:0px;">
+    <%= product.name %>
+</span>
 
                 </div>
 
@@ -66,11 +68,11 @@
 
         <div class="container-fluid padding-x">
 
-            <div class="row justify-content-between ">
+            <div class="row justify-content-start gap-5 ">
 
                 <!-- PRODUCT IMAGES -->
 
-                <div class="col-md-5">
+                <div class="col-md-3">
 
                     <div class="product-gallery">
 
@@ -125,7 +127,7 @@
 
                 <!-- PRODUCT DETAILS -->
 
-                <div class="col-md-6">
+                <div class="col-md-7">
 
                     <div class="product-details">
 
@@ -211,7 +213,7 @@
 
                         <hr>
 
-                        <ul class="mt-lg-4">
+                        <ul class="mt-lg-4 w-80">
 
                             <% if(product.description){ %>
 

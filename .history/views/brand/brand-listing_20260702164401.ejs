@@ -548,7 +548,7 @@
                                     <div class="col-lg-9">
                                         <div class="w-100 p-0 m-0"
                                             style="height: 1010px;overflow-y: scroll;overflow-x: hidden;">
-                                            <div class="product-container-fluid px-4">
+                                            <div class="product-container-fluid padding-x">
                                                 <div class="row align-items-center">
 
                                                     <% products.forEach(function(product){ %>
@@ -559,18 +559,12 @@
 
                                                             <div class="product-card">
                                                                 <a href="/product/<%= product.slug %>">
-                                                                    <div class="image-box" >
-
-
                                                                     <div class="product-card-image">
 
                                                                         <img src="/images/<%= product.image %>"
                                                                             alt="<%= product.name %>" class="img-fluid">
 
                                                                     </div>
-                                                                    </div>
-
-
 
                                                                     <div class="product-details">
 

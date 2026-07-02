@@ -391,7 +391,7 @@
                                                                             ? 'checked' : '' :
                                                                             selectedFilters.rating===item ? 'checked'
                                                                             : '' %>
-                                                                        onchange="document.getElementById('filterForm').submit()">
+                                                                        
 
 
                                                                         <label class="form-check-label">
@@ -432,7 +432,7 @@
                                                                                 ? "checked" : "" ) :
                                                                                 (selectedFilters.curve_type===item
                                                                                 ? "checked" : "" ) %>
-                                                                            onchange="document.getElementById('filterForm').submit()"
+                                                                            <!-- onchange="document.getElementById('filterForm').submit()" --> >
                                                                             >
 
                                                                             <label class="form-check-label">
@@ -471,7 +471,7 @@
                                                                                     ? 'checked' : '' :
                                                                                     selectedFilters.poles===item
                                                                                     ? 'checked' : '' %>
-                                                                                onchange="document.getElementById('filterForm').submit()">
+                                                                                
 
                                                                                 <label class="form-check-label">
                                                                                     <%= item %>
@@ -493,9 +493,9 @@
                                                                         %>
 
                                                                         <div class="dropdown-item">
-                                                                            <input type="checkbox" id="drop<%= index %>"
+                                                                            <input type="checkbox"  id="boardDrop<%= index %>"
                                                                                 class="dropdown-check">
-                                                                            <label for="drop<%= index %>"
+                                                                            <label for="boardDrop<%= index %>"
                                                                                 class="dropdown-header">
                                                                                 <span>
                                                                                     <%= group.board %>
@@ -509,15 +509,10 @@
 
                                                                                     <div class="form-check">
 
-                                                                                        <input class="form-check-input"
-                                                                                            type="checkbox"
-                                                                                            name="boards_type"
-                                                                                           value="<%= group.board %>|<%= type %>"
-                                                                                        <% const boardValue=group.board + "|" + type; %>
-                                                                                        
-                                                                                            <%= Array.isArray(selectedFilters.boards_type) ? selectedFilters.boards_type.includes(boardValue) ? 'checked' : '' :
-                                                                                                selectedFilters.boards_type===boardValue ? 'checked' : '' %>
-                                                                                            onchange="document.getElementById('filterForm').submit()">
+                                                                                    <input class="form-check-input" type="checkbox" name="boards_type" value="<%= type %>"
+                                                                                        <%=Array.isArray(selectedFilters.boards_type) ? selectedFilters.boards_type.includes(type) ? 'checked' : '' :
+                                                                                        selectedFilters.boards_type===type ? 'checked' : '' %>
+                                                                                    
 
                                                                                         <label class="form-check-label">
                                                                                             <%= type %>
@@ -687,3 +682,22 @@
 
             });
         </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const form = document.getElementById("filterForm");
+
+        // Only filter checkboxes
+        form.querySelectorAll(".form-check-input").forEach(cb => {
+
+            cb.addEventListener("change", function () {
+
+                form.submit();
+
+            });
+
+        });
+
+    });
+</script>

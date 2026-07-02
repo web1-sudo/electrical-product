@@ -240,30 +240,17 @@ exports.brandListing = (req, res) => {
   // Board Type Filter
   // =========================
 
-if (req.query.boards_type) {
+  if (req.query.boards_type) {
 
-    const boardFilters = Array.isArray(req.query.boards_type)
-        ? req.query.boards_type
-        : [req.query.boards_type];
+    const boardTypes = Array.isArray(req.query.boards_type)
+      ? req.query.boards_type
+      : [req.query.boards_type];
 
-    sql += " AND (";
+    sql += ` AND boards_type IN (${boardTypes.map(() => "?").join(",")})`;
 
-    boardFilters.forEach((item, index) => {
+    values.push(...boardTypes);
 
-        const [board, type] = item.split("|");
-
-        if (index > 0) {
-            sql += " OR ";
-        }
-
-        sql += "(boards = ? AND boards_type = ?)";
-
-        values.push(board, type);
-
-    });
-
-    sql += ")";
-}
+  }
 
   console.log(sql);
   console.log(values);

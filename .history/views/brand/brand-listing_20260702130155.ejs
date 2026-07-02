@@ -513,10 +513,8 @@
                                                                                             type="checkbox"
                                                                                             name="boards_type"
                                                                                            value="<%= group.board %>|<%= type %>"
-                                                                                        <% const boardValue=group.board + "|" + type; %>
-                                                                                        
-                                                                                            <%= Array.isArray(selectedFilters.boards_type) ? selectedFilters.boards_type.includes(boardValue) ? 'checked' : '' :
-                                                                                                selectedFilters.boards_type===boardValue ? 'checked' : '' %>
+                                                                                            <%=Array.isArray(selectedFilters.boards_type) ? selectedFilters.boards_type.includes(type) ? 'checked' : '' :
+                                                                                                selectedFilters.boards_type===type ? 'checked' : '' %>
                                                                                             onchange="document.getElementById('filterForm').submit()">
 
                                                                                         <label class="form-check-label">

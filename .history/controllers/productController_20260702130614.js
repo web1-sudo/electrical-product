@@ -246,23 +246,24 @@ if (req.query.boards_type) {
         ? req.query.boards_type
         : [req.query.boards_type];
 
-    sql += " AND (";
+    sql += ` AND (`;
 
     boardFilters.forEach((item, index) => {
 
-        const [board, type] = item.split("|");
-
         if (index > 0) {
-            sql += " OR ";
+            sql += ` OR `;
         }
 
-        sql += "(boards = ? AND boards_type = ?)";
+        sql += `(boards = ? AND boards_type = ?)`;
+
+        const [board, type] = item.split("|");
 
         values.push(board, type);
 
     });
 
-    sql += ")";
+    sql += `)`;
+
 }
 
   console.log(sql);

@@ -33,10 +33,10 @@ router.get(
 
 // SUBCATEGORY PAGE
 
-// router.get(
-//   "/products/:category/:brand/:subcategory",
-//   subcategoryListing
-// );
+router.get(
+  "/products/:category/:brand/:subcategory",
+  subcategoryListing
+);
 
 // SINGLE PRODUCT PAGE
 

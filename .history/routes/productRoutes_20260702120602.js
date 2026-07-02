@@ -19,24 +19,24 @@ router.get(
 
 // CATEGORY PAGE
 
-// router.get(
-//   "/products/:category",
-//   categoryListing
-// );
+router.get(
+  "/products/:category",
+  categoryListing
+);
 
 // BRAND PAGE
 
-router.get(
-  "/products/:category/:brand",
-  brandListing
-);
+// router.get(
+//   "/products/:category/:brand",
+//   brandListing
+// );
 
 // SUBCATEGORY PAGE
 
-// router.get(
-//   "/products/:category/:brand/:subcategory",
-//   subcategoryListing
-// );
+router.get(
+  "/products/:category/:brand/:subcategory",
+  subcategoryListing
+);
 
 // SINGLE PRODUCT PAGE
 
